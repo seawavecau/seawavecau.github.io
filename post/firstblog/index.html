@@ -251,7 +251,7 @@ handler.on('push', function (event) {
   let currentTime = new Date();
   console.log('\n--&gt; ' + currentTime.toLocaleString());
   console.log('Received a push event for %s to %s', event.payload.repository.name, event.payload.ref);
-  exec('sh ./webhook/git_pull.sh', function (error, stdout, stderr) {
+  exec('sh ./git_pull.sh', function (error, stdout, stderr) {
       if(error) {
           console.error('error:\n' + error);
           return;
