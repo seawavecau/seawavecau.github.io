@@ -6,9 +6,19 @@
     <description>Recent content in Categories on AppleWang技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Wed, 30 Oct 2019 21:20:36 +0800</lastBuildDate>
     
 	<atom:link href="http://example.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Website</title>
+      <link>http://example.com/categories/website/</link>
+      <pubDate>Wed, 30 Oct 2019 21:20:36 +0800</pubDate>
+      
+      <guid>http://example.com/categories/website/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
