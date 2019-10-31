@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shell on AppleWang的技术博客</title>
+    <link>http://blog.wacai.ml/tags/shell/</link>
+    <description>Recent content in Shell on AppleWang的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 31 Oct 2019 09:20:44 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.wacai.ml/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Shell相关命令</title>
+      <link>http://blog.wacai.ml/book/shell_tips/</link>
+      <pubDate>Thu, 31 Oct 2019 09:20:44 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/book/shell_tips/</guid>
+      <description> 1. SSH 1.1 SSH 免密登录  终端Host产生RSA公私钥
+# 产生key ssh-keygen -i rsa -C &amp;quot;root@aliyun&amp;quot; # copy公钥到远程机器 scp ~/.ssh/id_rsa.pub root@xxxxx: # 登陆远程机器 ssh root@xxxxx # 把上传的公钥追加到authorized_keys文件 cat id_rsa.pub &amp;gt;&amp;gt; .ssh/authorized_keys # 退出登陆，再ssh一下检验是否成功   1.2 SSH 别名登陆 # 在.ssh目录下创建config touch config # 编辑config文件 vi config   Host是服务别名，HostName你的IP，文件内容如下
+Host g HostName 35.200.115.242 User root  访问服务器用ssh g就可以登录了。
+  </description>
+    </item>
+    
+  </channel>
+</rss>

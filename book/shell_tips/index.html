@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.59.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Shell相关命令 | AppleWang的技术博客</title>
+    <meta property="og:title" content="Shell相关命令 - AppleWang的技术博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content="2019-10-31T09:20:44&#43;08:00">
+        
+        
+    <meta property="article:modified_time" content="2019-10-31T09:20:44&#43;08:00">
+        
+    <meta name="Keywords" content="">
+    <meta name="description" content="Shell相关命令">
+        
+    <meta name="author" content="">
+    <meta property="og:url" content="http://blog.wacai.ml/book/shell_tips/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    
+        <link rel="stylesheet" href="/css/prism.css">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+<body>
+<header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="http://blog.wacai.ml">
+                        AppleWang的技术博客
+                    </a>
+                
+                
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="" href="http://blog.wacai.ml">首页</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="body">
+        
+        
+    <div class="container">
+        <div class="col-group">
+
+            <div class="col-8" id="main">
+                <div class="res-cons">
+                    <article class="post">
+                        <header>
+                            <h1 class="post-title">Shell相关命令</h1>
+                        </header>
+                        <date class="post-meta meta-date">
+                            2019年10月31日
+                        </date>
+                        
+                        <div class="post-meta">
+                            <span>|</span>
+                            
+                                <span class="meta-category"><a href="http://blog.wacai.ml/categories/shell">Shell</a></span>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="post-content">
+                            
+
+<h1 id="1-ssh">1. SSH</h1>
+
+<h2 id="1-1-ssh-免密登录">1.1 SSH 免密登录</h2>
+
+<ul>
+<li><p>终端Host产生RSA公私钥</p>
+
+<pre><code class="language-shell"># 产生key
+ssh-keygen -i rsa -C &quot;root@aliyun&quot;
+# copy公钥到远程机器
+scp ~/.ssh/id_rsa.pub root@xxxxx:
+# 登陆远程机器
+ssh root@xxxxx
+# 把上传的公钥追加到authorized_keys文件
+cat id_rsa.pub &gt;&gt; .ssh/authorized_keys
+# 退出登陆，再ssh一下检验是否成功
+</code></pre></li>
+</ul>
+
+<h2 id="1-2-ssh-别名登陆">1.2 SSH 别名登陆</h2>
+
+<pre><code># 在.ssh目录下创建config
+touch config
+
+# 编辑config文件
+vi config
+</code></pre>
+
+<ul>
+<li><p>Host是服务别名，HostName你的IP，文件内容如下</p>
+
+<pre><code>Host g
+HostName 35.200.115.242
+User root
+</code></pre>
+
+<p>访问服务器用<code>ssh g</code>就可以登录了。</p></li>
+</ul>
+
+                        </div>
+
+                        
+
+
+                        
+
+
+                        <div class="post-meta meta-tags">
+                            
+                            <ul class="clearfix">
+                                
+                                <li><a href="http://blog.wacai.ml/tags/shell">Shell</a></li>
+                                
+                                <li><a href="http://blog.wacai.ml/tags/ssh">SSH</a></li>
+                                
+                                <li><a href="http://blog.wacai.ml/tags/ssh-keygen">ssh-keygen</a></li>
+                                
+                                <li><a href="http://blog.wacai.ml/tags/%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95">免密登录</a></li>
+                                
+                            </ul>
+                            
+                        </div>
+                    </article>
+                    
+    
+
+    
+    
+                </div>
+            </div>
+            <div id="secondary">
+    <section class="widget">
+        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="http://blog.wacai.ml">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://blog.wacai.ml/post/firstblog/" title="Hugo &#43; Nginx: 利用webhook自动部署">Hugo &#43; Nginx: 利用webhook自动部署</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="http://blog.wacai.ml/categories/shell/">shell(1)</a>
+    </li>
+    
+    <li>
+        <a href="http://blog.wacai.ml/categories/website/">website(1)</a>
+    </li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="http://blog.wacai.ml/tags/centos/">centos</a>
+    
+    <a href="http://blog.wacai.ml/tags/github/">github</a>
+    
+    <a href="http://blog.wacai.ml/tags/nginx/">nginx</a>
+    
+    <a href="http://blog.wacai.ml/tags/shell/">shell</a>
+    
+    <a href="http://blog.wacai.ml/tags/ssh/">ssh</a>
+    
+    <a href="http://blog.wacai.ml/tags/ssh-keygen/">ssh-keygen</a>
+    
+    <a href="http://blog.wacai.ml/tags/webhook/">webhook</a>
+    
+    <a href="http://blog.wacai.ml/tags/website/">website</a>
+    
+    <a href="http://blog.wacai.ml/tags/%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">免密登录</a>
+    
+    <a href="http://blog.wacai.ml/tags/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/">自动部署</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="http://blog.wacai.ml/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        &copy; 2019 <a href="http://blog.wacai.ml">AppleWang的技术博客 By </a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        
+        (function () {
+            $("pre code").parent().addClass("line-numbers")
+        }());
+
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script type="text/javascript" src="/js/prism.js" async="true"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
+
+
+
+
+
+
+</body>
+</html>

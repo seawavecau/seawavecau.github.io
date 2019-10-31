@@ -12,13 +12,13 @@
     <meta property="og:type" content="website">
     <meta name="Keywords" content="">
     <meta name="description" content="">
-    <meta property="og:url" content="http://121.199.11.153/">
+    <meta property="og:url" content="http://blog.wacai.ml/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="/css/normalize.css">
     
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="alternate" type="application/rss+xml+xml" href="http://121.199.11.153/index.xml" title="AppleWang的技术博客" />
+    <link rel="alternate" type="application/rss+xml+xml" href="http://blog.wacai.ml/index.xml" title="AppleWang的技术博客" />
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -36,7 +36,7 @@
             <div class="site-name ">
                 
                     <h1>
-                        <a id="logo" href="http://121.199.11.153">
+                        <a id="logo" href="http://blog.wacai.ml">
                             AppleWang的技术博客
                         </a>
                     </h1>
@@ -45,7 +45,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="http://121.199.11.153">首页</a>
+                    <a class="current" href="http://blog.wacai.ml">首页</a>
                     
                 </nav>
             </div>
@@ -65,7 +65,35 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="http://121.199.11.153/post/firstblog/" title="Hugo &#43; Nginx: 利用webhook自动部署" >Hugo &#43; Nginx: 利用webhook自动部署</a>
+                                    <a href="http://blog.wacai.ml/book/shell_tips/" title="Shell相关命令" >Shell相关命令</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2019年10月31日
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="http://blog.wacai.ml/categories/shell">Shell</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                 1. SSH 1.1 SSH 免密登录  终端Host产生RSA公私钥
+# 产生key ssh-keygen -i rsa -C &quot;root@aliyun&quot; # copy公钥到远程机器 scp ~/.ssh/id_rsa.pub root@xxxxx: # 登陆远程机器 ssh root@xxxxx # 把上传的公钥追加到authorized_keys文件 cat id_rsa.pub &gt;&gt; .ssh/authorized_keys # 退出登陆，再ssh一下检验是否成功   1.2 SSH 别名登陆 # 在.ssh目录下创建config touch config # 编辑config文件 vi config   Host是服务别名，HostName你的IP，文件内容如下
+Host g HostName 35.200.115.242 User root  访问服务器用ssh g就可以登录了。
+  ……
+                            </div>
+                            <p class="readmore"><a href="http://blog.wacai.ml/book/shell_tips/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://blog.wacai.ml/post/firstblog/" title="Hugo &#43; Nginx: 利用webhook自动部署" >Hugo &#43; Nginx: 利用webhook自动部署</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
@@ -75,7 +103,7 @@
                             <div class="post-meta">
                                 <span>|</span>
                                 
-                                <span class="meta-category"><a href="http://121.199.11.153/categories/website">Website</a></span>
+                                <span class="meta-category"><a href="http://blog.wacai.ml/categories/website">Website</a></span>
                                 
                             </div>
                             
@@ -86,7 +114,7 @@
  保存文本内容后，执行hugo提供的调试命令查看效果，检查博文是否生效
  * hugo server -D # 然后再浏览器访问 http://localhost:1313/  配置发布脚本 完成博客编写后，执行hugo 命令，项目会编译成静态网站资源，保存在public文件夹下。然后直接发布到服务器完成部署。 网上有人提供部署脚本，借用如下……
                             </div>
-                            <p class="readmore"><a href="http://121.199.11.153/post/firstblog/">阅读全文</a></p>
+                            <p class="readmore"><a href="http://blog.wacai.ml/post/firstblog/">阅读全文</a></p>
                         </article>
                     
                     
@@ -104,7 +132,7 @@
         <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="http://121.199.11.153">
+      <input type="hidden" name="sitesearch" value="http://blog.wacai.ml">
       <button type="submit" class="submit icon-search"></button>
 </form>
     </section>
@@ -114,7 +142,7 @@
 <ul class="widget-list">
     
     <li>
-        <a href="http://121.199.11.153/post/firstblog/" title="Hugo &#43; Nginx: 利用webhook自动部署">Hugo &#43; Nginx: 利用webhook自动部署</a>
+        <a href="http://blog.wacai.ml/post/firstblog/" title="Hugo &#43; Nginx: 利用webhook自动部署">Hugo &#43; Nginx: 利用webhook自动部署</a>
     </li>
     
 </ul>
@@ -127,7 +155,11 @@
 <ul class="widget-list">
     
     <li>
-        <a href="http://121.199.11.153/categories/website/">website(1)</a>
+        <a href="http://blog.wacai.ml/categories/shell/">shell(1)</a>
+    </li>
+    
+    <li>
+        <a href="http://blog.wacai.ml/categories/website/">website(1)</a>
     </li>
     
 </ul>
@@ -137,17 +169,25 @@
         <h3 class="widget-title">标签</h3>
 <div class="tagcloud">
     
-    <a href="http://121.199.11.153/tags/centos/">centos</a>
+    <a href="http://blog.wacai.ml/tags/centos/">centos</a>
     
-    <a href="http://121.199.11.153/tags/github/">github</a>
+    <a href="http://blog.wacai.ml/tags/github/">github</a>
     
-    <a href="http://121.199.11.153/tags/nginx/">nginx</a>
+    <a href="http://blog.wacai.ml/tags/nginx/">nginx</a>
     
-    <a href="http://121.199.11.153/tags/webhook/">webhook</a>
+    <a href="http://blog.wacai.ml/tags/shell/">shell</a>
     
-    <a href="http://121.199.11.153/tags/website/">website</a>
+    <a href="http://blog.wacai.ml/tags/ssh/">ssh</a>
     
-    <a href="http://121.199.11.153/tags/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/">自动部署</a>
+    <a href="http://blog.wacai.ml/tags/ssh-keygen/">ssh-keygen</a>
+    
+    <a href="http://blog.wacai.ml/tags/webhook/">webhook</a>
+    
+    <a href="http://blog.wacai.ml/tags/website/">website</a>
+    
+    <a href="http://blog.wacai.ml/tags/%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">免密登录</a>
+    
+    <a href="http://blog.wacai.ml/tags/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/">自动部署</a>
     
 </div>
     </section>
@@ -157,7 +197,7 @@
     <section class="widget">
         <h3 class="widget-title">其它</h3>
         <ul class="widget-list">
-            <li><a href="http://121.199.11.153/index.xml">文章 RSS</a></li>
+            <li><a href="http://blog.wacai.ml/index.xml">文章 RSS</a></li>
         </ul>
     </section>
 </div>
@@ -166,7 +206,7 @@
 </div>
 <footer id="footer">
     <div class="container">
-        &copy; 2019 <a href="http://121.199.11.153">AppleWang的技术博客 By </a>.
+        &copy; 2019 <a href="http://blog.wacai.ml">AppleWang的技术博客 By </a>.
         Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
         <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
         
