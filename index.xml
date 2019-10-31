@@ -36,10 +36,7 @@ Email:seawavecau@gmail.com</description>
       <pubDate>Thu, 31 Oct 2019 09:20:44 +0800</pubDate>
       
       <guid>http://blog.wacai.ml/book/shell_tips/</guid>
-      <description> 1. SSH 1.1 SSH 免密登录  终端Host产生RSA公私钥
-# 产生key ssh-keygen -i rsa -C &amp;quot;root@aliyun&amp;quot; # copy公钥到远程机器 scp ~/.ssh/id_rsa.pub root@xxxxx: # 登陆远程机器 ssh root@xxxxx # 把上传的公钥追加到authorized_keys文件 cat id_rsa.pub &amp;gt;&amp;gt; .ssh/authorized_keys # 退出登陆，再ssh一下检验是否成功   1.2 SSH 别名登陆 # 在.ssh目录下创建config touch config # 编辑config文件 vi config   Host是服务别名，HostName你的IP，文件内容如下
-Host g HostName 35.200.115.242 User root  访问服务器用ssh g就可以登录了。
-  </description>
+      <description>1. SSH 1.1 SSH 免密登录 终端Host产生RSA公私钥 # 产生key ssh-keygen -i rsa -C &amp;quot;root@aliyun&amp;quot; # copy公钥到远程机器 scp ~/.ssh/id_rsa.pub root@xxxxx: # 登陆远程机器 ssh root@xxxxx # 把上传的公钥追加到authorized_keys文件 cat id_rsa.pub &amp;gt;&amp;gt; .ssh/authorized_keys # 退出登陆，再ssh一下检验是否成功 1.2 SSH 别名登陆 # 在.ssh目录下创建config touch config # 编辑config</description>
     </item>
     
     <item>
@@ -48,11 +45,7 @@ Host g HostName 35.200.115.242 User root  访问服务器用ssh g就可以登录
       <pubDate>Wed, 30 Oct 2019 21:20:36 +0800</pubDate>
       
       <guid>http://blog.wacai.ml/post/firstblog/</guid>
-      <description>利用Hugo生产静态网站 1. 创建blog目录 ~&amp;gt; hugo new site blog   会在你的用户下创建blog目录，生产hugo项目文件
-~&amp;gt; cd blog  接下来我们使用git做文件管理，执行下列命令行
-# git 初始化 git init #将主题maupassant作为外链加入本地仓库 git submodule add https://github.com/rujews/maupassant-hugo.git themes/maupassant # 修改hugo配置文件，使用下载的博客主题 echo &#39;theme = &amp;quot;maupassant&amp;quot;&#39; &amp;gt;&amp;gt; config.toml # 将public作为外链加入本地仓库 git submodule add -b https://github.com/seawavecau/seawavecau.github.io.git public # 项目关联到你的blog远程代码仓库 git remote add origin https://github.com/seawavecau/blog.git # 添加博客 hugo new post/firstblog.md # 创建的第一篇博客方赞content/post目录下，使用编辑工具打开目录下的文件 sublime content/post  编辑博客内容，使用markdown风格。
- 保存文本内容后，执行hugo提供的调试命令查看效果，检查博文是否生效
- * hugo server -D # 然后再浏览器访问 http://localhost:1313/  配置发布脚本 完成博客编写后，执行hugo 命令，项目会编译成静态网站资源，保存在public文件夹下。然后直接发布到服务器完成部署。 网上有人提供部署脚本，借用如下</description>
+      <description>利用Hugo生产静态网站 1. 创建blog目录 ~&amp;gt; hugo new site blog 会在你的用户下创建blog目录，生产hugo项目文件 ~&amp;gt; cd blog 接下来我们使用git做文件管理，执行下列命令行 # git 初始化 git init #将主题maupassant作为外链加入本地仓库 git submodule add https://github.com/rujews/maupassant-hugo.git themes/maupassant # 修改hugo配置文件，使用下载的博客主题 echo &#39;theme = &amp;quot;maupassant&amp;quot;&#39; &amp;gt;&amp;gt;</description>
     </item>
     
   </channel>
