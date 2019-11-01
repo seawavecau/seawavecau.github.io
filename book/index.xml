@@ -6,10 +6,28 @@
     <description>Recent content in Books on AppleWang的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Oct 2019 09:20:44 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 01 Nov 2019 13:21:21 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.wacai.ml/book/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Sql相关命令</title>
+      <link>http://blog.wacai.ml/book/sql_tips/</link>
+      <pubDate>Fri, 01 Nov 2019 13:21:21 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/book/sql_tips/</guid>
+      <description>1. Mysql 创建用户命令： mysql&amp;gt; CREATE USER yy IDENTIFIED BY &#39;123&#39;; yy表示你要建立的用户名，后面的123表示密码 上面建立的用户可以在任何地方登陆。 如果要限制在固定地址登陆，比如localhost 登陆： mysql&amp;gt; CREATE USER yy@localhost IDENTIFIED BY &#39;123&#39;; grant命令: mysql&amp;gt; GRANT ALL PRIVILEGES ON *.* TO user;@localhost # 格式：grant select on 数据库.* to 用户名@登录主机 identified by &amp;quot;密</description>
+    </item>
+    
+    <item>
+      <title>Mac 技巧</title>
+      <link>http://blog.wacai.ml/book/mac_tips/</link>
+      <pubDate>Fri, 01 Nov 2019 11:11:37 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/book/mac_tips/</guid>
+      <description>1. TimeMachine备份 解决存储空间一般会排除一些大空间的应用，例如MS Office家族 还想要排除Library下的XCode，但是这些文件在Finder里是隐藏的，使用下面命令显示它： chflags nohidden ~/Library #显示 chflags hidden ~/Library #用完后再隐藏 最后限制在~50G</description>
+    </item>
     
     <item>
       <title>Shell相关命令</title>

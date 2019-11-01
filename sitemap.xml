@@ -4,7 +4,77 @@
   
   <url>
     <loc>http://blog.wacai.ml/</loc>
-    <lastmod>2019-10-31T10:46:09+08:00</lastmod>
+    <lastmod>2019-11-01T13:21:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/book/</loc>
+    <lastmod>2019-11-01T13:21:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/categories/</loc>
+    <lastmod>2019-11-01T13:21:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/Mysql/</loc>
+    <lastmod>2019-11-01T13:21:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/Sql/</loc>
+    <lastmod>2019-11-01T13:21:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/categories/Sql/</loc>
+    <lastmod>2019-11-01T13:21:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/book/sql_tips/</loc>
+    <lastmod>2019-11-01T13:21:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/</loc>
+    <lastmod>2019-11-01T13:21:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/</loc>
+    <lastmod>2019-11-01T13:21:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/</loc>
+    <lastmod>2019-11-01T13:21:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/Mac/</loc>
+    <lastmod>2019-11-01T11:11:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/categories/Mac/</loc>
+    <lastmod>2019-11-01T11:11:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/book/mac_tips/</loc>
+    <lastmod>2019-11-01T11:11:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/OS-X/</loc>
+    <lastmod>2019-11-01T11:11:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/TimeMachine/</loc>
+    <lastmod>2019-11-01T11:11:37+08:00</lastmod>
   </url>
   
   <url>
@@ -18,22 +88,12 @@
   </url>
   
   <url>
-    <loc>http://blog.wacai.ml/book/</loc>
-    <lastmod>2019-10-31T09:20:44+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.wacai.ml/categories/</loc>
+    <loc>http://blog.wacai.ml/categories/Shell/</loc>
     <lastmod>2019-10-31T09:20:44+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.wacai.ml/tags/Shell/</loc>
-    <lastmod>2019-10-31T09:20:44+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.wacai.ml/categories/Shell/</loc>
     <lastmod>2019-10-31T09:20:44+08:00</lastmod>
   </url>
   
@@ -49,11 +109,6 @@
   
   <url>
     <loc>http://blog.wacai.ml/tags/ssh-keygen/</loc>
-    <lastmod>2019-10-31T09:20:44+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.wacai.ml/tags/</loc>
     <lastmod>2019-10-31T09:20:44+08:00</lastmod>
   </url>
   
@@ -93,12 +148,12 @@
   </url>
   
   <url>
-    <loc>http://blog.wacai.ml/tags/Website/</loc>
+    <loc>http://blog.wacai.ml/categories/Website/</loc>
     <lastmod>2019-10-30T21:20:36+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.wacai.ml/categories/Website/</loc>
+    <loc>http://blog.wacai.ml/tags/Website/</loc>
     <lastmod>2019-10-30T21:20:36+08:00</lastmod>
   </url>
   

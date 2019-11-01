@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sql on AppleWang的技术博客</title>
+    <link>http://blog.wacai.ml/categories/Sql/</link>
+    <description>Recent content in Sql on AppleWang的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Nov 2019 13:21:21 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.wacai.ml/categories/Sql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sql相关命令</title>
+      <link>http://blog.wacai.ml/book/sql_tips/</link>
+      <pubDate>Fri, 01 Nov 2019 13:21:21 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/book/sql_tips/</guid>
+      <description>1. Mysql 创建用户命令： mysql&amp;gt; CREATE USER yy IDENTIFIED BY &#39;123&#39;; yy表示你要建立的用户名，后面的123表示密码 上面建立的用户可以在任何地方登陆。 如果要限制在固定地址登陆，比如localhost 登陆： mysql&amp;gt; CREATE USER yy@localhost IDENTIFIED BY &#39;123&#39;; grant命令: mysql&amp;gt; GRANT ALL PRIVILEGES ON *.* TO user;@localhost # 格式：grant select on 数据库.* to 用户名@登录主机 identified by &amp;quot;密</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,10 +6,73 @@
     <description>Recent content in Tags on AppleWang的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Oct 2019 09:20:44 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 01 Nov 2019 13:21:21 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.wacai.ml/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mysql</title>
+      <link>http://blog.wacai.ml/tags/Mysql/</link>
+      <pubDate>Fri, 01 Nov 2019 13:21:21 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/Mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sql</title>
+      <link>http://blog.wacai.ml/tags/Sql/</link>
+      <pubDate>Fri, 01 Nov 2019 13:21:21 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/Sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>修改密码</title>
+      <link>http://blog.wacai.ml/tags/%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/</link>
+      <pubDate>Fri, 01 Nov 2019 13:21:21 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>创建用户</title>
+      <link>http://blog.wacai.ml/tags/%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/</link>
+      <pubDate>Fri, 01 Nov 2019 13:21:21 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mac</title>
+      <link>http://blog.wacai.ml/tags/Mac/</link>
+      <pubDate>Fri, 01 Nov 2019 11:11:37 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/Mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OS X</title>
+      <link>http://blog.wacai.ml/tags/OS-X/</link>
+      <pubDate>Fri, 01 Nov 2019 11:11:37 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/OS-X/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TimeMachine</title>
+      <link>http://blog.wacai.ml/tags/TimeMachine/</link>
+      <pubDate>Fri, 01 Nov 2019 11:11:37 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/TimeMachine/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Shell</title>
