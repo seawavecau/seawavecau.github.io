@@ -64,7 +64,12 @@
   
   <url>
     <loc>http://blog.wacai.ml/book/</loc>
-    <lastmod>2019-11-01T13:21:21+08:00</lastmod>
+    <lastmod>2019-11-01T19:37:14+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/book/installation_tips/</loc>
+    <lastmod>2019-11-01T19:37:14+08:00</lastmod>
   </url>
   
   <url>
@@ -153,12 +158,12 @@
   </url>
   
   <url>
-    <loc>http://blog.wacai.ml/tags/Shell/</loc>
+    <loc>http://blog.wacai.ml/categories/Shell/</loc>
     <lastmod>2019-10-31T09:20:44+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.wacai.ml/categories/Shell/</loc>
+    <loc>http://blog.wacai.ml/tags/Shell/</loc>
     <lastmod>2019-10-31T09:20:44+08:00</lastmod>
   </url>
   
@@ -208,12 +213,12 @@
   </url>
   
   <url>
-    <loc>http://blog.wacai.ml/categories/Website/</loc>
+    <loc>http://blog.wacai.ml/tags/Website/</loc>
     <lastmod>2019-10-30T21:20:36+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.wacai.ml/tags/Website/</loc>
+    <loc>http://blog.wacai.ml/categories/Website/</loc>
     <lastmod>2019-10-30T21:20:36+08:00</lastmod>
   </url>
   
