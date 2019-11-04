@@ -167,16 +167,16 @@ bin/startup.sh
 
 <h2 id="应用接入skywalking">应用接入Skywalking</h2>
 
-<p>skywalking使用探针技术，对应用无侵入。启动时加上<code>-javaagent</code>参数即可</p>
+<ul>
+<li><p>skywalking使用探针技术，对应用无侵入。启动时加上<code>-javaagent</code>参数即可</p>
 
 <pre><code class="language-shell"># 启动生产者
 java -jar -javaagent:$AGENT_PATH/skywalking-agent.jar  dubbo-provider/target/dubbo-provider.jar
 
 # 启动消费者
 java -jar -javaagent:$AGENT_PATH/skywalking-agent.jar  dubbo-consumer/target/dubbo-consumer.jar 
-</code></pre>
+</code></pre></li>
 
-<ul>
 <li><p>配置<code>skywalking/agent/config</code>目录下的<code>agent.config</code>文件, 指向Collector服务器地址</p>
 
 <pre><code class="language-shell"># 设置代理应用名称
