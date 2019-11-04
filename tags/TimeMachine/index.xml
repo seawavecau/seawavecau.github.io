@@ -17,7 +17,7 @@
       <pubDate>Fri, 01 Nov 2019 11:11:37 +0800</pubDate>
       
       <guid>http://blog.wacai.ml/book/mac_tips/</guid>
-      <description>1. TimeMachine备份 解决存储空间一般会排除一些大空间的应用，例如MS Office家族 还想要排除Library下的XCode，但是这些文件在Finder里是隐藏的，使用下面命令显示它： chflags nohidden ~/Library #显示 chflags hidden ~/Library #用完后再隐藏 最后限制在~50G</description>
+      <description>1. TimeMachine备份 解决存储空间一般会排除一些大空间的应用，例如MS Office家族 还想要排除Library下的XCode，但是这些文件在Finder里是隐藏的，使用下面命令显示它： chflags nohidden ~/Library #显示 chflags hidden ~/Library #用完后再隐藏 最后限制在~50G 2. 代理 有时候使用全局Http代理，访问局</description>
     </item>
     
   </channel>

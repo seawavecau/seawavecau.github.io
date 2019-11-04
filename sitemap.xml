@@ -4,16 +4,66 @@
   
   <url>
     <loc>http://blog.wacai.ml/</loc>
-    <lastmod>2019-11-01T13:21:21+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.wacai.ml/book/</loc>
-    <lastmod>2019-11-01T13:21:21+08:00</lastmod>
+    <lastmod>2019-11-02T09:32:04+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.wacai.ml/categories/</loc>
+    <lastmod>2019-11-02T09:32:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/post/skywalking_tutorial_1/</loc>
+    <lastmod>2019-11-02T09:32:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/oap/</loc>
+    <lastmod>2019-11-02T09:32:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/post/</loc>
+    <lastmod>2019-11-02T09:32:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/skywalking/</loc>
+    <lastmod>2019-11-02T09:32:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/</loc>
+    <lastmod>2019-11-02T09:32:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/%E5%85%A8%E9%93%BE%E8%B7%AF/</loc>
+    <lastmod>2019-11-02T09:32:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/%E6%80%A7%E8%83%BD/</loc>
+    <lastmod>2019-11-02T09:32:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/%E6%9E%B6%E6%9E%84/</loc>
+    <lastmod>2019-11-02T09:32:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/categories/%E6%9E%B6%E6%9E%84/</loc>
+    <lastmod>2019-11-02T09:32:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/%E7%9B%91%E6%8E%A7/</loc>
+    <lastmod>2019-11-02T09:32:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/book/</loc>
     <lastmod>2019-11-01T13:21:21+08:00</lastmod>
   </url>
   
@@ -34,11 +84,6 @@
   
   <url>
     <loc>http://blog.wacai.ml/book/sql_tips/</loc>
-    <lastmod>2019-11-01T13:21:21+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.wacai.ml/tags/</loc>
     <lastmod>2019-11-01T13:21:21+08:00</lastmod>
   </url>
   
@@ -88,12 +133,32 @@
   </url>
   
   <url>
-    <loc>http://blog.wacai.ml/categories/Shell/</loc>
-    <lastmod>2019-10-31T09:20:44+08:00</lastmod>
+    <loc>http://blog.wacai.ml/categories/tools/</loc>
+    <lastmod>2019-10-31T09:27:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/vim/</loc>
+    <lastmod>2019-10-31T09:27:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/book/vim_tips/</loc>
+    <lastmod>2019-10-31T09:27:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/vundles/</loc>
+    <lastmod>2019-10-31T09:27:51+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.wacai.ml/tags/Shell/</loc>
+    <lastmod>2019-10-31T09:20:44+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/categories/Shell/</loc>
     <lastmod>2019-10-31T09:20:44+08:00</lastmod>
   </url>
   
@@ -134,11 +199,6 @@
   
   <url>
     <loc>http://blog.wacai.ml/tags/Nginx/</loc>
-    <lastmod>2019-10-30T21:20:36+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.wacai.ml/post/</loc>
     <lastmod>2019-10-30T21:20:36+08:00</lastmod>
   </url>
   

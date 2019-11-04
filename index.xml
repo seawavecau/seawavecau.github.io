@@ -6,10 +6,19 @@
     <description>Recent content on AppleWang的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Nov 2019 13:21:21 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 02 Nov 2019 09:32:04 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.wacai.ml/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java应用接入Skywalking 6</title>
+      <link>http://blog.wacai.ml/post/skywalking_tutorial_1/</link>
+      <pubDate>Sat, 02 Nov 2019 09:32:04 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/post/skywalking_tutorial_1/</guid>
+      <description>概述 本地环境安装 在centos7下安装skywalking6.4.0 ` 下载skywalking wget http://mirrors.tuna.tsinghua.edu.cn/apache/skywalking/6.4.0/apache-skywalking-apm-6.4.0.tar.gz 解压缩 tar -zxvf apache-skywalking-apm-6.4.0.tar.gz 进入到skywalking目录下，初始化数据 bin/oapServiceInit.sh 运行startup.sh，会启动Collector和Webapp bin/startup.sh ` * 经过以上步骤，skywalking就启动起来了。主要一</description>
+    </item>
     
     <item>
       <title>Sql相关命令</title>
@@ -26,7 +35,7 @@
       <pubDate>Fri, 01 Nov 2019 11:11:37 +0800</pubDate>
       
       <guid>http://blog.wacai.ml/book/mac_tips/</guid>
-      <description>1. TimeMachine备份 解决存储空间一般会排除一些大空间的应用，例如MS Office家族 还想要排除Library下的XCode，但是这些文件在Finder里是隐藏的，使用下面命令显示它： chflags nohidden ~/Library #显示 chflags hidden ~/Library #用完后再隐藏 最后限制在~50G</description>
+      <description>1. TimeMachine备份 解决存储空间一般会排除一些大空间的应用，例如MS Office家族 还想要排除Library下的XCode，但是这些文件在Finder里是隐藏的，使用下面命令显示它： chflags nohidden ~/Library #显示 chflags hidden ~/Library #用完后再隐藏 最后限制在~50G 2. 代理 有时候使用全局Http代理，访问局</description>
     </item>
     
     <item>
@@ -46,6 +55,15 @@
       <guid>http://blog.wacai.ml/about/</guid>
       <description>Github:https://github.com/seawavecau
 Email:seawavecau@gmail.com</description>
+    </item>
+    
+    <item>
+      <title>Vim_tips</title>
+      <link>http://blog.wacai.ml/book/vim_tips/</link>
+      <pubDate>Thu, 31 Oct 2019 09:27:51 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/book/vim_tips/</guid>
+      <description>1. Mac Vim设置 1.1 vim基础配置 修改配置文件~/.vimrc,添加以下配置 &amp;quot; 显示行号 set number &amp;quot; 显示标尺 set ruler &amp;quot; 历史纪录 set history=1000 &amp;quot; 输入的命令显示出来，看的清楚些 set showcmd &amp;quot; 状态行显示的内容 set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\&amp;quot;%d/%m/%y\ -\ %H:%M\&amp;quot;)} &amp;quot; 启动显示状态行1，总是显示状态行2 set laststatus=2 &amp;quot; 语法高亮显示 syntax on set fileencodings=utf-8,gb2312,gbk,cp936,latin-1 set fileencoding=utf-8 set termencoding=utf-8 set fileformat=unix set encoding=utf-8 &amp;quot; 配色方案 colorscheme desert &amp;quot; 指</description>
     </item>
     
     <item>

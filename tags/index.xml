@@ -6,10 +6,64 @@
     <description>Recent content in Tags on AppleWang的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Nov 2019 13:21:21 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 02 Nov 2019 09:32:04 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.wacai.ml/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>oap</title>
+      <link>http://blog.wacai.ml/tags/oap/</link>
+      <pubDate>Sat, 02 Nov 2019 09:32:04 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/oap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>skywalking</title>
+      <link>http://blog.wacai.ml/tags/skywalking/</link>
+      <pubDate>Sat, 02 Nov 2019 09:32:04 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/skywalking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>全链路</title>
+      <link>http://blog.wacai.ml/tags/%E5%85%A8%E9%93%BE%E8%B7%AF/</link>
+      <pubDate>Sat, 02 Nov 2019 09:32:04 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/%E5%85%A8%E9%93%BE%E8%B7%AF/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>性能</title>
+      <link>http://blog.wacai.ml/tags/%E6%80%A7%E8%83%BD/</link>
+      <pubDate>Sat, 02 Nov 2019 09:32:04 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/%E6%80%A7%E8%83%BD/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>架构</title>
+      <link>http://blog.wacai.ml/tags/%E6%9E%B6%E6%9E%84/</link>
+      <pubDate>Sat, 02 Nov 2019 09:32:04 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/%E6%9E%B6%E6%9E%84/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>监控</title>
+      <link>http://blog.wacai.ml/tags/%E7%9B%91%E6%8E%A7/</link>
+      <pubDate>Sat, 02 Nov 2019 09:32:04 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/%E7%9B%91%E6%8E%A7/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Mysql</title>
@@ -71,6 +125,24 @@
       <pubDate>Fri, 01 Nov 2019 11:11:37 +0800</pubDate>
       
       <guid>http://blog.wacai.ml/tags/TimeMachine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vim</title>
+      <link>http://blog.wacai.ml/tags/vim/</link>
+      <pubDate>Thu, 31 Oct 2019 09:27:51 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vundles</title>
+      <link>http://blog.wacai.ml/tags/vundles/</link>
+      <pubDate>Thu, 31 Oct 2019 09:27:51 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/vundles/</guid>
       <description></description>
     </item>
     
