@@ -48,25 +48,6 @@
     </item>
     
     <item>
-      <title>归档</title>
-      <link>http://blog.wacai.ml/archives/</link>
-      <pubDate>Thu, 31 Oct 2019 10:46:09 +0800</pubDate>
-      
-      <guid>http://blog.wacai.ml/archives/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>http://blog.wacai.ml/about/</link>
-      <pubDate>Thu, 31 Oct 2019 10:42:57 +0800</pubDate>
-      
-      <guid>http://blog.wacai.ml/about/</guid>
-      <description>Github:https://github.com/seawavecau
-Email:seawavecau@gmail.com</description>
-    </item>
-    
-    <item>
       <title>Vim使用</title>
       <link>http://blog.wacai.ml/book/vim_tips/</link>
       <pubDate>Thu, 31 Oct 2019 09:27:51 +0800</pubDate>
@@ -91,6 +72,25 @@ Email:seawavecau@gmail.com</description>
       
       <guid>http://blog.wacai.ml/post/firstblog/</guid>
       <description>利用Hugo生产静态网站 1. 创建blog目录 ~&amp;gt; hugo new site blog 会在你的用户下创建blog目录，生产hugo项目文件 ~&amp;gt; cd blog 接下来我们使用git做文件管理，执行下列命令行 # git 初始化 git init #将主题maupassant作为外链加入本地仓库 git submodule add https://github.com/rujews/maupassant-hugo.git themes/maupassant # 修改hugo配置文件，使用下载的博客主题 echo &#39;theme = &amp;quot;maupassant&amp;quot;&#39; &amp;gt;&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>归档</title>
+      <link>http://blog.wacai.ml/archives/</link>
+      <pubDate>Tue, 29 Oct 2019 10:46:09 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/archives/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://blog.wacai.ml/about/</link>
+      <pubDate>Tue, 29 Oct 2019 10:42:57 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/about/</guid>
+      <description>Github:https://github.com/seawavecau
+Email:seawavecau@gmail.com</description>
     </item>
     
   </channel>

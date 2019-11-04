@@ -48,12 +48,12 @@
   </url>
   
   <url>
-    <loc>http://blog.wacai.ml/tags/%E6%9E%B6%E6%9E%84/</loc>
+    <loc>http://blog.wacai.ml/categories/%E6%9E%B6%E6%9E%84/</loc>
     <lastmod>2019-11-02T09:32:04+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.wacai.ml/categories/%E6%9E%B6%E6%9E%84/</loc>
+    <loc>http://blog.wacai.ml/tags/%E6%9E%B6%E6%9E%84/</loc>
     <lastmod>2019-11-02T09:32:04+08:00</lastmod>
   </url>
   
@@ -103,12 +103,12 @@
   </url>
   
   <url>
-    <loc>http://blog.wacai.ml/categories/Mac/</loc>
+    <loc>http://blog.wacai.ml/tags/Mac/</loc>
     <lastmod>2019-11-01T11:11:37+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.wacai.ml/tags/Mac/</loc>
+    <loc>http://blog.wacai.ml/categories/Mac/</loc>
     <lastmod>2019-11-01T11:11:37+08:00</lastmod>
   </url>
   
@@ -125,16 +125,6 @@
   <url>
     <loc>http://blog.wacai.ml/tags/TimeMachine/</loc>
     <lastmod>2019-11-01T11:11:37+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.wacai.ml/archives/</loc>
-    <lastmod>2019-10-31T10:46:09+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.wacai.ml/about/</loc>
-    <lastmod>2019-10-31T10:42:57+08:00</lastmod>
   </url>
   
   <url>
@@ -213,18 +203,28 @@
   </url>
   
   <url>
-    <loc>http://blog.wacai.ml/tags/Website/</loc>
+    <loc>http://blog.wacai.ml/categories/Website/</loc>
     <lastmod>2019-10-30T21:20:36+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.wacai.ml/categories/Website/</loc>
+    <loc>http://blog.wacai.ml/tags/Website/</loc>
     <lastmod>2019-10-30T21:20:36+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.wacai.ml/tags/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/</loc>
     <lastmod>2019-10-30T21:20:36+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/archives/</loc>
+    <lastmod>2019-10-29T10:46:09+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/about/</loc>
+    <lastmod>2019-10-29T10:42:57+08:00</lastmod>
   </url>
   
 </urlset>
