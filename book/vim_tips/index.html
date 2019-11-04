@@ -111,7 +111,7 @@
 <ul>
 <li><p>修改配置文件<code>~/.vimrc</code>,添加以下配置</p>
 
-<pre><code>&quot; 显示行号
+<pre><code class="language-shell">&quot; 显示行号
 set number
 &quot; 显示标尺
 set ruler
@@ -222,13 +222,13 @@ set scrolloff=3
 
 <h3 id="1-2-1下载plug-vim插件管理器">1.2.1下载plug.vim插件管理器</h3>
 
-<pre><code>curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+<pre><code class="language-shell">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 </code></pre>
 
 <h3 id="1-2-2-安装-gnu-global和-universal-ctags">1.2.2 安装 GNU Global和 Universal ctags</h3>
 
-<pre><code>git clone https://github.com/universal-ctags/ctags.git
+<pre><code class="language-shell">git clone https://github.com/universal-ctags/ctags.git
 cd ctags
 sh autogen.sh
 ./configure
@@ -253,7 +253,7 @@ pip install pygments  # 这个一定要安装！！！
 <ul>
 <li><p>先配置一下<code>plug.vim</code>，然后让<code>plug.vim</code>帮助我们自动管理插件，编辑~/.vimrc文件．</p>
 
-<pre><code>&quot; Specify a directory for plugins
+<pre><code class="language-shell">&quot; Specify a directory for plugins
 &quot; - For Neovim: ~/.local/share/nvim/plugged
 &quot; - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
@@ -265,7 +265,7 @@ call plug#end()              &quot; required
 
 <h3 id="1-2-4-更新配置文件之后调用-vim-pluginstall-qall-安装全部插件-执行这个命令plug会自动下载全部的插件到vim插件目录下">1.2.4 更新配置文件之后调用 vim +PlugInstall +qall 安装全部插件，执行这个命令Plug会自动下载全部的插件到vim插件目录下。</h3>
 
-<pre><code>vim +PlugInstall +qall
+<pre><code class="language-js">vim +PlugInstall +qall
 </code></pre>
 
 <h3 id="1-2-5-常用插件">1.2.5 常用插件</h3>
@@ -277,7 +277,7 @@ call plug#end()              &quot; required
 
 <li><p>在~/.vimrc文件中配置NERD Tree，设置一个启用或禁用NERD Tree的键映射</p>
 
-<pre><code>nmap &lt;F5&gt; :NERDTreeToggle&lt;cr&gt;
+<pre><code class="language-js">nmap &lt;F5&gt; :NERDTreeToggle&lt;cr&gt;
 </code></pre>
 
 <p>所以你只需按F5键就能启用或禁用NERD Tree，NERD Tree提供一些常用快捷键来操作目录：
