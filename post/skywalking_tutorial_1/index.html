@@ -123,7 +123,7 @@
 
 <h2 id="架构图">架构图：</h2>
 
-<p><img src="/img/03_skywalking/01.jpg" alt="skywalking架构图.png" /></p>
+<p><img src="/img/04_skywalking/01.jpeg" alt="skywalking架构图.png" /></p>
 
 <p>SkyWalking 逻辑上分为四部分: 探针, 平台后端, 存储和用户界面。</p>
 
@@ -142,31 +142,28 @@ SkyWalking支持很多存储：H2（用作演示环境）、MySQL（当数据量
 
 <h2 id="在centos7下安装skywalking6-4-0">在centos7下安装skywalking6.4.0</h2>
 
-<p>`</p>
+<pre><code class="language-shell"># 下载skywalking
+wget http://mirrors.tuna.tsinghua.edu.cn/apache/skywalking/6.4.0/apache-skywalking-apm-6.4.0.tar.gz
+# 解压缩
+tar -zxvf apache-skywalking-apm-6.4.0.tar.gz
+# 进入到skywalking目录下，初始化数据
+bin/oapServiceInit.sh
+# 运行startup.sh，会启动Collector和Webapp
+bin/startup.sh
+</code></pre>
 
-<h1 id="下载skywalking">下载skywalking</h1>
+<ul>
+<li>经过以上步骤，skywalking就启动起来了。主要一个是Collector用来采集数据，还有一个Web app，是Skywalking的UI后台。</li>
+<li>接下来run应用上传数据</li>
+<li>端口说明：
 
-<p>wget <a href="http://mirrors.tuna.tsinghua.edu.cn/apache/skywalking/6.4.0/apache-skywalking-apm-6.4.0.tar.gz">http://mirrors.tuna.tsinghua.edu.cn/apache/skywalking/6.4.0/apache-skywalking-apm-6.4.0.tar.gz</a></p>
-
-<h1 id="解压缩">解压缩</h1>
-
-<p>tar -zxvf apache-skywalking-apm-6.4.0.tar.gz</p>
-
-<h1 id="进入到skywalking目录下-初始化数据">进入到skywalking目录下，初始化数据</h1>
-
-<p>bin/oapServiceInit.sh</p>
-
-<h1 id="运行startup-sh-会启动collector和webapp">运行startup.sh，会启动Collector和Webapp</h1>
-
-<p>bin/startup.sh
-`
-* 经过以上步骤，skywalking就启动起来了。主要一个是Collector用来采集数据，还有一个Web app，是Skywalking的UI后台。
-* 接下来run应用上传数据
-* 端口说明：
-    - 11800：Collector的gRPC协议的端口，采集端口
-    - 12800：Collector开放REST接口
-    - 8080： webapp后台端口
-    - 18080：测试用web端口</p>
+<ul>
+<li>11800：Collector的gRPC协议的端口，采集端口</li>
+<li>12800：Collector开放REST接口</li>
+<li>8080： webapp后台端口</li>
+<li>18080：测试用web端口</li>
+</ul></li>
+</ul>
 
 <h2 id="应用接入skywalking">应用接入Skywalking</h2>
 
