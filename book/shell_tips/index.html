@@ -124,7 +124,7 @@ cat id_rsa.pub &gt;&gt; .ssh/authorized_keys
 
 <h2 id="1-2-ssh-root启用远程登录">1.2 SSH root启用远程登录</h2>
 
-<pre><code># 修改/etc/ssh/sshd_config文件，启用下面属性
+<pre><code class="language-shell"># 修改/etc/ssh/sshd_config文件，启用下面属性
 PermitRootLogin yes
 PubkeyAuthentication yes
 PasswordAuthentication yes
@@ -132,7 +132,7 @@ PasswordAuthentication yes
 
 <h2 id="1-3-ssh-别名登陆">1.3 SSH 别名登陆</h2>
 
-<pre><code># 在.ssh目录下创建config
+<pre><code class="language-shell"># 在.ssh目录下创建config
 touch config
 
 # 编辑config文件
@@ -141,7 +141,7 @@ vi config
 
 <li><p>Host是服务别名，HostName你的IP，文件内容如下</p>
 
-<pre><code>Host g
+<pre><code class="language-shell">Host g
 HostName 35.200.115.242
 User root
 </code></pre>
@@ -213,12 +213,14 @@ tree -N folder  # 显示中文乱码
 
 <h2 id="4-2-netstat-命令">4.2 netstat 命令</h2>
 
-<pre><code># centos安装目录
+<pre><code class="language-shell"># centos安装目录
 yum install net-tools
 # 使用命令,通过端口查看程序是否启动
 netstat -an | grep 端口
 #结果如下：
 # tcp        0      0 0.0.0.0:11800           0.0.0.0:*               LISTEN
+# 还可以这么用
+netstat -anltp|grep 22
 </code></pre>
 
 <h2 id="4-3-mac下查看对方服务端口是否开启命令">4.3 Mac下查看对方服务端口是否开启命令</h2>
@@ -231,7 +233,8 @@ netstat -an | grep 端口
 ## 5.1 while循环
 </code></pre>
 
-<p>while true
+<p>shell
+while true
     do
     &hellip;..    #执行命令
     sleep 3  #单位s

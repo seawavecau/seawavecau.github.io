@@ -106,6 +106,38 @@
 
 <h1 id="概述">概述</h1>
 
+<p>SkyWalking 是观察性分析平台和应用性能管理系统。</p>
+
+<p>提供分布式追踪、服务网格遥测分析、度量聚合和可视化一体化解决方案.</p>
+
+<h2 id="特性">特性：</h2>
+
+<ul>
+<li>多种监控手段，语言探针和service mesh</li>
+<li>多语言自动探针，Java，.NET Core和Node.JS</li>
+<li>轻量高效，不需要大数据</li>
+<li>模块化，UI、存储、集群管理多种机制可选</li>
+<li>支持告警</li>
+<li>优秀的可视化方案</li>
+</ul>
+
+<h2 id="架构图">架构图：</h2>
+
+<p><img src="/img/03_skywalking/01.jpg" alt="skywalking架构图.png" /></p>
+
+<p>SkyWalking 逻辑上分为四部分: 探针, 平台后端, 存储和用户界面。</p>
+
+<ul>
+<li>探针
+主要负责从客户端收集数据，将数据转换成SkyWalking适用的格式，探针对客户端程序没有任何代码侵入，使用起来简单方便，使用如下命令即可完成对应用的监控java -javaagent:/path/skywalking-agent.jar -jar youApp.jar</li>
+<li>平台后端（OAP Server）
+主要用于数据聚合, 数据分析以及驱动数据流从探针到用户界面的流程。通过 gRPC/Http 收集客户端Agent的采集信息 ，Http默认端口 12800，gRPC默认端口 11800。</li>
+<li>存储
+SkyWalking支持很多存储：H2（用作演示环境）、MySQL（当数据量大时检索性能下降很厉害）、ES（主流生产级别的存储）</li>
+<li>用户界面
+精美的后台，监控详情一目了然。</li>
+</ul>
+
 <h1 id="本地环境安装">本地环境安装</h1>
 
 <h2 id="在centos7下安装skywalking6-4-0">在centos7下安装skywalking6.4.0</h2>
@@ -131,18 +163,100 @@
 * 经过以上步骤，skywalking就启动起来了。主要一个是Collector用来采集数据，还有一个Web app，是Skywalking的UI后台。
 * 接下来run应用上传数据
 * 端口说明：
-    - 11800：Collector开发gRPC协议的端口
+    - 11800：Collector的gRPC协议的端口，采集端口
     - 12800：Collector开放REST接口
     - 8080： webapp后台端口
     - 18080：测试用web端口</p>
 
 <h2 id="应用接入skywalking">应用接入Skywalking</h2>
 
-<h1 id="测试">测试</h1>
+<p>skywalking使用探针技术，对应用无侵入。启动时加上<code>-javaagent</code>参数即可</p>
+
+<pre><code class="language-shell"># 启动生产者
+java -jar -javaagent:$AGENT_PATH/skywalking-agent.jar  dubbo-provider/target/dubbo-provider.jar
+
+# 启动消费者
+java -jar -javaagent:$AGENT_PATH/skywalking-agent.jar  dubbo-consumer/target/dubbo-consumer.jar 
+</code></pre>
+
+<ul>
+<li><p>配置<code>skywalking/agent/config</code>目录下的<code>agent.config</code>文件, 指向Collector服务器地址</p>
+
+<pre><code class="language-conf"># 设置代理应用名称
+agent.service_name=${SW_AGENT_NAME:Demo}
+
+# 设置collector服务器地址
+collector.backend_service=${SW_AGENT_COLLECTOR_BACKEND_SERVICES:192.168.50.8:11800}
+</code></pre></li>
+</ul>
+
+<h1 id="监控后台">监控后台</h1>
+
+<ul>
+<li>服务可用性指标 SLA</li>
+<li>每分钟平均响应数</li>
+<li>平均响应时间</li>
+<li>服务进程 PID</li>
+<li>服务所在物理机的 IP、Host、OS</li>
+<li>运行时 CPU 使用率</li>
+<li>运行时堆内存使用率</li>
+<li>运行时非堆内存使用率</li>
+<li>GC 情况
+<br /></li>
+</ul>
+
+<h2 id="trace-id展开详细信息">Trace ID展开详细信息</h2>
 
 <h1 id="生产环境安装">生产环境安装</h1>
 
+<p>生产环境使用ElasticSearch做存储。先安装ES</p>
+
+<h2 id="elasticsearch安装">ElasticSearch安装</h2>
+
 <h1 id="高级">高级</h1>
+
+<h2 id="agent-配置文件详解">Agent 配置文件详解</h2>
+
+<pre><code class="language-conf"># 当前的应用编码，最终会显示在webui上。
+# 建议一个应用的多个实例，使用有相同的application_code。请使用英文
+agent.application_code=Your_ApplicationName
+
+# 每三秒采样的Trace数量
+# 默认为负数，代表在保证不超过内存Buffer区的前提下，采集所有的Trace
+# agent.sample_n_per_3_secs=-1
+
+# 设置需要忽略的请求地址
+# 默认配置如下
+# agent.ignore_suffix=.jpg,.jpeg,.js,.css,.png,.bmp,.gif,.ico,.mp3,.mp4,.html,.svg
+
+# 探针调试开关，如果设置为true，探针会将所有操作字节码的类输出到/debugging目录下
+# skywalking团队可能在调试，需要此文件
+# agent.is_open_debugging_class = true
+
+# 对应Collector的config/application.yml配置文件中 agent_server/jetty/port 配置内容
+# 例如：
+# 单节点配置：SERVERS=&quot;127.0.0.1:8080&quot; 
+# 集群配置：SERVERS=&quot;10.2.45.126:8080,10.2.45.127:7600&quot; 
+collector.servers=127.0.0.1:10800
+
+# 日志文件名称前缀
+logging.file_name=skywalking-agent.log
+
+# 日志文件最大大小
+# 如果超过此大小，则会生成新文件。
+# 默认为300M
+logging.max_file_size=314572800
+
+# 日志级别，默认为DEBUG。
+logging.level=DEBUG
+</code></pre>
+
+<h1 id="参考和扩展阅读">参考和扩展阅读</h1>
+
+<ul>
+<li><a href="https://skywalking.apache.org/zh/blog/2019-02-24-skywalking-pk-pinpoint.html">skywalking P.K. Pinpoint</a></li>
+<li><a href="https://juejin.im/post/5a7a9e0af265da4e914b46f1#heading-14">全链路监控</a></li>
+</ul>
 
                         </div>
 
