@@ -159,6 +159,15 @@ adduser dev
 passwd dev  #输入新密码
 </code></pre>
 
+<h2 id="2-2-修改文件夹owner">2.2 修改文件夹owner</h2>
+
+<pre><code class="language-shell"># 创建一个es新用户，并运行程序
+adduser es
+chown -R es:es elasticsearch
+su es
+./elasticsearch -d  # -d 表示后台运行
+</code></pre>
+
 <h1 id="3-tree命令技巧">3. tree命令技巧</h1>
 
 <h2 id="3-1-常见命令">3.1 常见命令</h2>
@@ -238,7 +247,27 @@ while true
     do
     &hellip;..    #执行命令
     sleep 3  #单位s
-    done
+    done</p>
+
+<pre><code>
+# 6. Centos系统设置
+## 修改系统时间和时区
+</code></pre>
+
+<p>shell</p>
+
+<h1 id="修改时区">修改时区</h1>
+
+<p>cp  /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime</p>
+
+<h1 id="修改时间">修改时间</h1>
+
+<p>date -s  ‘2019-11-11 10:50:00’</p>
+
+<h1 id="使用date命令查看是否成功">使用date命令查看是否成功</h1>
+
+<p>date
+&gt; 2019年 11月 05日 星期二 10:29:01 CST
 ```</p>
 
                         </div>

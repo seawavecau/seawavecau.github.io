@@ -144,17 +144,16 @@ SkyWalking支持很多存储：H2（用作演示环境）、MySQL（当数据量
 
 <pre><code class="language-shell"># 下载skywalking
 wget http://mirrors.tuna.tsinghua.edu.cn/apache/skywalking/6.4.0/apache-skywalking-apm-6.4.0.tar.gz
+
 # 解压缩
 tar -zxvf apache-skywalking-apm-6.4.0.tar.gz
-# 进入到skywalking目录下，初始化数据
-bin/oapServiceInit.sh
+
 # 运行startup.sh，会启动Collector和Webapp
 bin/startup.sh
 </code></pre>
 
 <ul>
 <li>经过以上步骤，skywalking就启动起来了。主要一个是Collector用来采集数据，还有一个Web app，是Skywalking的UI后台。</li>
-<li>接下来run应用上传数据</li>
 <li>端口说明：
 
 <ul>
@@ -165,27 +164,38 @@ bin/startup.sh
 </ul></li>
 </ul>
 
+<h3 id="oapserver和webapp日志查看">oapServer和webapp日志查看</h3>
+
+<pre><code class="language-shell"># 查看oapServer 日志
+tail -f logs/skywalking-oap-server.log
+# 查看webapp日志
+tail -f logs/webapp.log
+</code></pre>
+
+<p>观察日志，如果没有错误，我们接着run应用来上传数据</p>
+
 <h2 id="应用接入skywalking">应用接入Skywalking</h2>
 
-<ul>
-<li><p>skywalking使用探针技术，对应用无侵入。启动时加上<code>-javaagent</code>参数即可</p>
+<p>skywalking使用探针技术，对应用无侵入。启动时加上<code>-javaagent</code>参数即可</p>
 
 <pre><code class="language-shell"># 启动生产者
-java -jar -javaagent:$AGENT_PATH/skywalking-agent.jar  dubbo-provider/target/dubbo-provider.jar
+java -jar -javaagent:$AGENT_PATH/skywalking-agent.jar  dubbo-provider.jar
 
 # 启动消费者
-java -jar -javaagent:$AGENT_PATH/skywalking-agent.jar  dubbo-consumer/target/dubbo-consumer.jar 
-</code></pre></li>
+java -jar -javaagent:$AGENT_PATH/skywalking-agent.jar  dubbo-consumer.jar 
 
-<li><p>配置<code>skywalking/agent/config</code>目录下的<code>agent.config</code>文件, 指向Collector服务器地址</p>
+# 查看agent日志,如果是status:CONNECTED 表示OK
+tail -f logs/skywalking-api.log
+</code></pre>
+
+<p>使用前，要配置<code>skywalking/agent/config</code>目录下的<code>agent.config</code>文件, 指向Collector服务器地址</p>
 
 <pre><code class="language-shell"># 设置代理应用名称
 agent.service_name=${SW_AGENT_NAME:Demo}
 
 # 设置collector服务器地址
 collector.backend_service=${SW_AGENT_COLLECTOR_BACKEND_SERVICES:192.168.50.8:11800}
-</code></pre></li>
-</ul>
+</code></pre>
 
 <h1 id="监控后台">监控后台</h1>
 
@@ -204,11 +214,69 @@ collector.backend_service=${SW_AGENT_COLLECTOR_BACKEND_SERVICES:192.168.50.8:118
 
 <h2 id="trace-id展开详细信息">Trace ID展开详细信息</h2>
 
+<h1 id="alarm配置">Alarm配置</h1>
+
 <h1 id="生产环境安装">生产环境安装</h1>
 
 <p>生产环境使用ElasticSearch做存储。先安装ES</p>
 
-<h2 id="elasticsearch安装">ElasticSearch安装</h2>
+<h2 id="elasticsearch集群安装">ElasticSearch集群安装</h2>
+
+<ul>
+<li>安装步骤略过，自行google</li>
+
+<li><p>修改ES配置，<code>/usr/local/etc/elasticsearch/elasticsearch.yml</code></p>
+
+<pre><code class="language-shell"># 设置cluster.name设置成CollectorDBCluster
+cluster.name: CollectorDBCluster
+network.host: 0.0.0.0
+# ---------------------------------- elasticsearch - 允许跨域 ----------------------
+http.cors.enabled: true
+http.cors.allow-origin: &quot;*&quot;
+http.cors.allow-methods: OPTIONS, HEAD, GET, POST, PUT, DELETE
+http.cors.allow-headers: &quot;X-Requested-With, Content-Type, Content-Length, X-User&quot;
+</code></pre></li>
+
+<li><p>通过<code>curl http://localhost:9200</code> 验证</p></li>
+</ul>
+
+<h2 id="部署skywalking">部署skywalking</h2>
+
+<ul>
+<li>修改skywalking配置<code>vim apache-skywalking-apm-bin/config/application.yml</code></li>
+
+<li><p>将h2内容注释掉，启用elasticsearch内容，使用elasticsearch存储数据。</p>
+
+<pre><code class="language-shell">storage:
+elasticsearch:
+nameSpace: ${SW_NAMESPACE:&quot;CollectorDBCluster&quot;}                 # 和ES的cluster name一致
+clusterNodes: ${SW_STORAGE_ES_CLUSTER_NODES:192.168.50.143:9200}# 指向es服务器
+protocol: ${SW_STORAGE_ES_HTTP_PROTOCOL:&quot;http&quot;}
+#    trustStorePath: ${SW_SW_STORAGE_ES_SSL_JKS_PATH:&quot;../es_keystore.jks&quot;}
+#    trustStorePass: ${SW_SW_STORAGE_ES_SSL_JKS_PASS:&quot;&quot;}
+#    user: ${SW_ES_USER:&quot;&quot;}
+#    password: ${SW_ES_PASSWORD:&quot;&quot;}
+indexShardsNumber: ${SW_STORAGE_ES_INDEX_SHARDS_NUMBER:2}
+indexReplicasNumber: ${SW_STORAGE_ES_INDEX_REPLICAS_NUMBER:0}
+# Those data TTL settings will override the same settings in core module.
+#    recordDataTTL: ${SW_STORAGE_ES_RECORD_DATA_TTL:7} # Unit is day
+#    otherMetricsDataTTL: ${SW_STORAGE_ES_OTHER_METRIC_DATA_TTL:45} # Unit is day
+#    monthMetricsDataTTL: ${SW_STORAGE_ES_MONTH_METRIC_DATA_TTL:18} # Unit is month
+# Batch process setting, refer to https://www.elastic.co/guide/en/elasticsearch/client/java-api/5.5/java-docs-bulk-processor.html
+bulkActions: ${SW_STORAGE_ES_BULK_ACTIONS:1000} # Execute the bulk every 1000 requests
+flushInterval: ${SW_STORAGE_ES_FLUSH_INTERVAL:10} # flush the bulk every 10 seconds whatever the number of requests
+concurrentRequests: ${SW_STORAGE_ES_CONCURRENT_REQUESTS:2} # the number of concurrent requests
+metadataQueryMaxSize: ${SW_STORAGE_ES_QUERY_MAX_SIZE:5000}
+segmentQueryMaxSize: ${SW_STORAGE_ES_QUERY_SEGMENT_SIZE:200}
+#  h2:
+#    driver: ${SW_STORAGE_H2_DRIVER:org.h2.jdbcx.JdbcDataSource}
+#    url: ${SW_STORAGE_H2_URL:jdbc:h2:mem:skywalking-oap-db}
+#    user: ${SW_STORAGE_H2_USER:sa}
+#    metadataQueryMaxSize: ${SW_STORAGE_H2_QUERY_MAX_SIZE:5000}
+</code></pre>
+
+<p>启动SkyWalking <code>bin/startup.sh</code>。通过浏览器访问<code>http://localhost:8080</code>验证</p></li>
+</ul>
 
 <h1 id="高级">高级</h1>
 
@@ -253,6 +321,7 @@ logging.level=DEBUG
 <ul>
 <li><a href="https://skywalking.apache.org/zh/blog/2019-02-24-skywalking-pk-pinpoint.html">skywalking P.K. Pinpoint</a></li>
 <li><a href="https://juejin.im/post/5a7a9e0af265da4e914b46f1#heading-14">全链路监控</a></li>
+<li><a href="https://github.com/apache/skywalking/blob/v6.0.0-GA/docs/en/setup/backend/backend-storage.md">存储设置详解</a></li>
 </ul>
 
                         </div>
