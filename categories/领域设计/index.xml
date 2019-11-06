@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>领域设计 on AppleWang的技术博客</title>
+    <link>http://blog.wacai.ml/categories/%E9%A2%86%E5%9F%9F%E8%AE%BE%E8%AE%A1/</link>
+    <description>Recent content in 领域设计 on AppleWang的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 06 Nov 2019 15:28:51 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.wacai.ml/categories/%E9%A2%86%E5%9F%9F%E8%AE%BE%E8%AE%A1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Domain_design_cola</title>
+      <link>http://blog.wacai.ml/post/domain_design_cola/</link>
+      <pubDate>Wed, 06 Nov 2019 15:28:51 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/post/domain_design_cola/</guid>
+      <description>COLA 2.0概述 COLA是Clean Object-Oriented and Layered Architecture的缩写，代表“整洁面向对象分层架构”，也叫“可乐”架构，目前COLA已经发展到COLA 2.0。 COLA 2.0使用 安装archetype 方法一是安装READE操作，使用命令： mvn archetype:generate -DgroupId=com.alibaba.demo -DartifactId=demo -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-service -DarchetypeGroupId=com.alibaba.cola -DarchetypeVersion=2.0.0 这里介绍本地install arch</description>
+    </item>
+    
+  </channel>
+</rss>
