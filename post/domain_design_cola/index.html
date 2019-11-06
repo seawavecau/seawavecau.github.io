@@ -149,18 +149,21 @@
 
 <h1 id="cola-2-0-架构图">COLA 2.0 架构图</h1>
 
-<p><img src="img/07_domain_design/01.png" alt="domain_design_cola_archtect" /></p>
+<p><img src="/img/07_domain_design/01.png" alt="domain_design_cola_archtect" /></p>
 
 <h1 id="cola-2-0使用">COLA 2.0使用</h1>
 
-<h2 id="安装archetype">安装archetype</h2>
+<ul>
+<li><p>官方提供了两个Archetype，分别是cola-archetype-service和cola-archetype-web</p>
 
-<p>方法一是安装READE操作，使用命令：</p>
+<h2 id="安装archetype">安装archetype</h2></li>
+
+<li><p>方法一是使用安装命令，直接生产demo工程：</p>
 
 <pre><code class="language-shell">mvn archetype:generate  -DgroupId=com.alibaba.demo -DartifactId=demo -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-service -DarchetypeGroupId=com.alibaba.cola -DarchetypeVersion=2.0.0
-</code></pre>
+</code></pre></li>
 
-<p>这里介绍本地install archetype,然后再生成代码。</p>
+<li><p>这里介绍本地install archetype,然后再生成代码。</p>
 
 <pre><code class="language-shell"># 下载源码
 git clone https://github.com/alibaba/COLA
@@ -199,11 +202,10 @@ groupId: com.seawave
 artifactId: demo
 version: 1.0-SNAPSHOT
 package: com.seawave
- Y: :
-</code></pre>
+Y: :
+</code></pre></li>
 
-<ul>
-<li>使用<code>idea demo</code>打开，验证项目是否成功</li>
+<li><p>使用<code>idea demo</code>打开，验证项目是否成功</p></li>
 
 <li><p>生成的目录结构如下</p>
 
