@@ -17,7 +17,7 @@
       <pubDate>Wed, 06 Nov 2019 15:28:51 +0800</pubDate>
       
       <guid>http://blog.wacai.ml/post/domain_design_cola/</guid>
-      <description>COLA 2.0概述 COLA是Clean Object-Oriented and Layered Architecture的缩写，代表“整洁面向对象分层架构”，也叫“可乐”架构，目前COLA已经发展到COLA 2.0。 COLA 2.0使用 安装archetype 方法一是安装READE操作，使用命令： mvn archetype:generate -DgroupId=com.alibaba.demo -DartifactId=demo -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-service -DarchetypeGroupId=com.alibaba.cola -DarchetypeVersion=2.0.0 这里介绍本地install arch</description>
+      <description>COLA 2.0概述 COLA是Clean Object-Oriented and Layered Architecture的缩写，代表“整洁面向对象分层架构”，也叫“可乐”架构，目前COLA已经发展到COLA 2.0。 COLA 2.0 框架 COLA作为框架主要是提供应用和架构需要的通用组件支撑，比如对CQRS和扩展点功能的支持。COLA框架主要由cola</description>
     </item>
     
     <item>
