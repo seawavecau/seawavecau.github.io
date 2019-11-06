@@ -177,14 +177,9 @@ plugin script: /usr/local/opt/elasticsearch/libexec/bin/elasticsearch-plugin
 }
 </code></pre>
 
-<p>ElasticSearch管理工具: elasticsearch-head</p>
-
-<pre><code class="language-shell">git clone git://github.com/mobz/elasticsearch-head.git
-cd elasticsearch-head
-npm install
-npm run start
-open http://localhost:9100/
-</code></pre>
+<ul>
+<li>ElasticSearch管理工具的安装见下节</li>
+</ul>
 
 <p>简单CRUD</p>
 
@@ -233,12 +228,14 @@ connect: {
 
 <p>启动Head插件
 使用<code>grunt server</code> 或 <code>npm run start</code>启动插件
-访问<a href="http://192.168.8.101:9100/">http://192.168.8.101:9100/</a> 出现以下画面,代表启动成功</p>
+访问<a href="http://localhost:9100/">http://localhost:9100/</a> 出现以下画面,代表启动成功</p>
 
 <p>目录：elasticsearch-head/_site/app.js,把localhost修改成你es的服务器地址,如:</p>
 
-<pre><code>this.base_uri = this.config.base_uri || this.prefs.get(&quot;app-base_uri&quot;) || &quot;http://192.168.8.101:9200&quot;;
+<pre><code>this.base_uri = this.config.base_uri || this.prefs.get(&quot;app-base_uri&quot;) || &quot;http://192.168.50.8:9200&quot;;
 </code></pre>
+
+<h1 id="maven配置和添加阿里云镜像">maven配置和添加阿里云镜像</h1>
 
                         </div>
 
@@ -367,6 +364,10 @@ connect: {
     </li>
     
     <li>
+        <a href="http://blog.wacai.ml/categories/maven/">maven(1)</a>
+    </li>
+    
+    <li>
         <a href="http://blog.wacai.ml/categories/tools/">tools(1)</a>
     </li>
     
@@ -404,6 +405,12 @@ connect: {
     <a href="http://blog.wacai.ml/tags/Webhook/">Webhook</a>
     
     <a href="http://blog.wacai.ml/tags/Website/">Website</a>
+    
+    <a href="http://blog.wacai.ml/tags/archetype/">archetype</a>
+    
+    <a href="http://blog.wacai.ml/tags/install/">install</a>
+    
+    <a href="http://blog.wacai.ml/tags/maven/">maven</a>
     
     <a href="http://blog.wacai.ml/tags/oap/">oap</a>
     

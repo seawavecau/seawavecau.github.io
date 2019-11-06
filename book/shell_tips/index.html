@@ -210,6 +210,10 @@ tree -N folder  # 显示中文乱码
 
 <p>`</p>
 
+<h1 id="centos-安装">centos 安装</h1>
+
+<p>yum -y install httpd-tools</p>
+
 <h1 id="ab-n-请求次数-c-并发数-url">ab -n 请求次数 -c 并发数 url</h1>
 
 <p>ab -n 10 -c 2 <a href="http://baidu.com">http://baidu.com</a>
@@ -252,6 +256,7 @@ while true
 <pre><code>
 # 6. Centos系统设置
 ## 修改系统时间和时区
+### 手动修改
 </code></pre>
 
 <p>shell</p>
@@ -267,7 +272,43 @@ while true
 <h1 id="使用date命令查看是否成功">使用date命令查看是否成功</h1>
 
 <p>date
-&gt; 2019年 11月 05日 星期二 10:29:01 CST
+&gt; 2019年 11月 05日 星期二 10:29:01 CST</p>
+
+<h1 id="将时间写入bios避免重启失效">将时间写入bios避免重启失效</h1>
+
+<p>hwclock -w</p>
+
+<pre><code>### 修改时区另一种办法，需重启生效
+修改/etc/sysconfig/clock文件，把ZONE的值改为Asia/Shanghai，UTC值改为false，改完后的文件如下：
+</code></pre>
+
+<h1 id="the-time-zone-of-the-system-is-defined-by-the-contents-of-etc-localtime">The time zone of the system is defined by the contents of /etc/localtime.</h1>
+
+<h1 id="this-file-is-only-for-evaluation-by-system-config-date-do-not-rely-on-its">This file is only for evaluation by system-config-date, do not rely on its</h1>
+
+<h1 id="contents-elsewhere">contents elsewhere.</h1>
+
+<p>ZONE=&ldquo;Asia/Shanghai&rdquo;
+UTC=false
+ARC=false</p>
+
+<pre><code>
+### 同步网络
+* 外网同步
+</code></pre>
+
+<p>shell
+ntpdate -u time.windows.com</p>
+
+<pre><code>
+* 局域网内同步
+选择局域网中的一台机器作为ntp服务器，ntpd 配置.
+
+配置开机自启动
+</code></pre>
+
+<p>shell
+chkconfig ntpd on
 ```</p>
 
                         </div>
@@ -403,6 +444,10 @@ while true
     </li>
     
     <li>
+        <a href="http://blog.wacai.ml/categories/maven/">maven(1)</a>
+    </li>
+    
+    <li>
         <a href="http://blog.wacai.ml/categories/tools/">tools(1)</a>
     </li>
     
@@ -440,6 +485,12 @@ while true
     <a href="http://blog.wacai.ml/tags/Webhook/">Webhook</a>
     
     <a href="http://blog.wacai.ml/tags/Website/">Website</a>
+    
+    <a href="http://blog.wacai.ml/tags/archetype/">archetype</a>
+    
+    <a href="http://blog.wacai.ml/tags/install/">install</a>
+    
+    <a href="http://blog.wacai.ml/tags/maven/">maven</a>
     
     <a href="http://blog.wacai.ml/tags/oap/">oap</a>
     

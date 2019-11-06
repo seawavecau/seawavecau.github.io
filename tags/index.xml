@@ -6,10 +6,37 @@
     <description>Recent content in Tags on AppleWang的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Nov 2019 09:32:04 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 06 Nov 2019 13:36:40 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.wacai.ml/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>archetype</title>
+      <link>http://blog.wacai.ml/tags/archetype/</link>
+      <pubDate>Wed, 06 Nov 2019 13:36:40 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/archetype/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>install</title>
+      <link>http://blog.wacai.ml/tags/install/</link>
+      <pubDate>Wed, 06 Nov 2019 13:36:40 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/install/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>maven</title>
+      <link>http://blog.wacai.ml/tags/maven/</link>
+      <pubDate>Wed, 06 Nov 2019 13:36:40 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/maven/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>oap</title>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>maven on AppleWang的技术博客</title>
+    <link>http://blog.wacai.ml/tags/maven/</link>
+    <description>Recent content in maven on AppleWang的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 06 Nov 2019 13:36:40 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.wacai.ml/tags/maven/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Maven</title>
+      <link>http://blog.wacai.ml/book/maven/</link>
+      <pubDate>Wed, 06 Nov 2019 13:36:40 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/book/maven/</guid>
+      <description>Maven 安装 maven配置和添加阿里云镜像 在settings.xml文件的mirrors节点里，添加 &amp;lt;mirror&amp;gt; &amp;lt;id&amp;gt;nexus-aliyun&amp;lt;/id&amp;gt; &amp;lt;mirrorOf&amp;gt;*&amp;lt;/mirrorOf&amp;gt; &amp;lt;name&amp;gt;Nexus aliyun&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public&amp;lt;/url&amp;gt; &amp;lt;/mirror&amp;gt; Maven自定义archetype 1. 什么是archetype. 当我们用IDEA创建maven项目时，会列出archetype列表。 这个等同于mvn archetype:gen</description>
+    </item>
+    
+  </channel>
+</rss>
