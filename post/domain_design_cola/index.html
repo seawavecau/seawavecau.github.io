@@ -136,13 +136,13 @@ vi ~/.m2/repository/archetype-catalog.xml
 
 <p>使用命令生成工程</p>
 
-<pre><code class="language-s"># 从本地archeType模板中创建项目
+<pre><code class="language-shell"># 从本地archeType模板中创建项目
 mvn archetype:generate -DarchetypeCatalog=local
 </code></pre>
 
 <p>命令交互如下：</p>
 
-<pre><code class="language-xml">Choose archetype:
+<pre><code class="language-log">Choose archetype:
 1: local -&gt; com.alibaba.cola:cola-framework-archetype-service (demo)
 2: local -&gt; com.alibaba.cola:cola-framework-archetype-web (demo)
 3: local -&gt; org.apache.maven.archetypes:maven-archetype-quickstart (quickstart)
@@ -164,7 +164,7 @@ package: com.seawave
 
 <li><p>生成的目录结构如下</p>
 
-<pre><code class="language-s">├── demo-app        #application
+<pre><code class="language-shell">├── demo-app        #application
 ├── demo-client
 ├── demo-domain
 ├── demo-infrastructure
