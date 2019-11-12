@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Codes on AppleWang的技术博客</title>
+    <link>http://blog.wacai.ml/code/</link>
+    <description>Recent content in Codes on AppleWang的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 07 Nov 2019 09:57:20 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.wacai.ml/code/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>二维码生成</title>
+      <link>http://blog.wacai.ml/code/matrix_to_image/</link>
+      <pubDate>Thu, 07 Nov 2019 09:57:20 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/code/matrix_to_image/</guid>
+      <description>二维码生成代码 package com.xkeshi.microweb.utils; import com.google.zxing.BarcodeFormat; import com.google.zxing.EncodeHintType; import com.google.zxing.MultiFormatWriter; import com.google.zxing.WriterException; import com.google.zxing.common.BitMatrix; import javax.imageio.ImageIO; import javax.servlet.http.HttpServletResponse; import java.awt.image.BufferedImage; import java.io.File; import java.io.IOException; import java.io.OutputStream; import java.util.Hashtable; /** * 二维码的生成需要借助MatrixToImageWriter类，该类是由Google提供的，可以将该类直接拷贝到源码中使用 */ public class MatrixToImageWriter { private static final int BLACK = 0xFF000000; private static final int WHITE = 0xFFFFFFFF; private MatrixToImageWriter() { } public static BufferedImage toBufferedImage(BitMatrix matrix) { int width = matrix.getWidth(); int height = matrix.getHeight(); BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB); for</description>
+    </item>
+    
+  </channel>
+</rss>

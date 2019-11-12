@@ -6,10 +6,28 @@
     <description>Recent content in Tags on AppleWang的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Nov 2019 15:28:51 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 07 Nov 2019 09:57:20 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.wacai.ml/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>java util</title>
+      <link>http://blog.wacai.ml/tags/java-util/</link>
+      <pubDate>Thu, 07 Nov 2019 09:57:20 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/java-util/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>二维码生成</title>
+      <link>http://blog.wacai.ml/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%94%9F%E6%88%90/</link>
+      <pubDate>Thu, 07 Nov 2019 09:57:20 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%94%9F%E6%88%90/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>cola</title>
