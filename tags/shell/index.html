@@ -101,7 +101,7 @@
                             </div>
                             
                             <div class="post-content">
-                                1. SSH 1.1 SSH 免密登录 终端Host产生RSA公私钥 # 产生key ssh-keygen -i rsa -C &quot;root@aliyun&quot; # copy公钥到远程机器 scp ~/.ssh/id_rsa.pub root@xxxxx: # 登陆远程机器 ssh root@xxxxx # 把上传的公钥追加到authorized_keys文件 cat id_rsa.pub &gt;&gt; .ssh/authorized_keys # 退出登陆，再ssh一下检验是否成功 1.2 SSH root启用远程登录 # 修改/etc/ssh/sshd_confi……
+                                1. SSH 1.1 SSH 免密登录 终端Host产生RSA公私钥 # 产生key ssh-keygen -i rsa -C &quot;root@aliyun&quot; # copy公钥到远程机器（google云在浏览器ssh下，用sudo su切换到root） scp ~/.ssh/id_rsa.pub root@xxxxx: # 登陆远程机器 ssh root@xxxxx # 把上传的公钥追加到authorized_keys文件 cat id_rsa.pub &gt;&gt; .ssh/authorized_keys # 退出登陆，再ssh一下检验是否成功 1.2 SSH……
                                 <p class="readmore"><a href="http://blog.wacai.ml/book/shell_tips/">阅读全文</a></p>
                             </div>
                         </article>

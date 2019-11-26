@@ -113,7 +113,7 @@
 
 <pre><code class="language-shell"># 产生key
 ssh-keygen -i rsa -C &quot;root@aliyun&quot;
-# copy公钥到远程机器
+# copy公钥到远程机器（google云在浏览器ssh下，用sudo su切换到root）
 scp ~/.ssh/id_rsa.pub root@xxxxx:
 # 登陆远程机器
 ssh root@xxxxx
@@ -130,58 +130,72 @@ PubkeyAuthentication yes
 PasswordAuthentication yes
 </code></pre>
 
-<h2 id="1-3-ssh-别名登陆">1.3 SSH 别名登陆</h2>
+<h2 id="重启sshd">重启sshd</h2>
 
-<pre><code class="language-shell"># 在.ssh目录下创建config
-touch config
-
-# 编辑config文件
-vi config
-</code></pre></li>
-
-<li><p>Host是服务别名，HostName你的IP，文件内容如下</p>
-
-<pre><code class="language-shell">Host g
-HostName 35.200.115.242
-User root
+<pre><code class="language-systemctl">
+## 1.3 SSH 别名登陆
 </code></pre>
 
-<p>访问服务器用<code>ssh g</code>就可以登录了。</p></li>
+<p>shell</p></li>
 </ul>
 
-<h1 id="2-系统用户">2. 系统用户</h1>
+<h1 id="在-ssh目录下创建config">在.ssh目录下创建config</h1>
 
-<h2 id="2-1-创建系统用户">2.1 创建系统用户</h2>
+<p>touch config</p>
 
-<pre><code># 创建
-adduser dev
-# 设置密码
-passwd dev  #输入新密码
+<h1 id="编辑config文件">编辑config文件</h1>
+
+<p>vi config</p>
+
+<pre><code>
+* Host是服务别名，HostName你的IP，文件内容如下
 </code></pre>
 
-<h2 id="2-2-修改文件夹owner">2.2 修改文件夹owner</h2>
+<p>shell
+Host g
+HostName 35.200.115.242
+User root</p>
 
-<pre><code class="language-shell"># 创建一个es新用户，并运行程序
-adduser es
+<pre><code>访问服务器用`ssh g`就可以登录了。
+
+# 2. 系统用户
+## 2.1 创建系统用户
+</code></pre>
+
+<h1 id="创建">创建</h1>
+
+<p>adduser dev</p>
+
+<h1 id="设置密码">设置密码</h1>
+
+<p>passwd dev  #输入新密码</p>
+
+<pre><code>
+## 2.2 修改文件夹owner
+</code></pre>
+
+<p>shell</p>
+
+<h1 id="创建一个es新用户-并运行程序">创建一个es新用户，并运行程序</h1>
+
+<p>adduser es
 chown -R es:es elasticsearch
 su es
-./elasticsearch -d  # -d 表示后台运行
+./elasticsearch -d  # -d 表示后台运行</p>
+
+<pre><code>
+# 3. tree命令技巧
+## 3.1 常见命令
 </code></pre>
 
-<h1 id="3-tree命令技巧">3. tree命令技巧</h1>
-
-<h2 id="3-1-常见命令">3.1 常见命令</h2>
-
-<pre><code>tree
-tree folder     
+<p>tree
+tree folder<br />
 tree -L 2       # 遍历2层目录显示
 tree -C         # 加颜色
-tree -N folder  # 显示中文乱码
-</code></pre>
+tree -N folder  # 显示中文乱码</p>
 
-<h2 id="3-2-其他选项">3.2 其他选项：</h2>
-
-<p><code>
+<pre><code>## 3.2 其他选项：
+`
 -a：显示所有文件和目录；
 -A：使用ASNI绘图字符显示树状图而非以ASCII字符组合；
 -C：在文件和目录清单加上色彩，便于区分各种类型；
@@ -202,149 +216,177 @@ tree -N folder  # 显示中文乱码
 -t：用文件和目录的更改时间排序；
 -u：列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码；
 -x：将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该目录予以排除在寻找范围外。
-</code></p>
+`
 
-<h1 id="4-网络命令">4. 网络命令</h1>
+# 4. 网络命令
+## 4.1 ab 命令
+### 安装
+</code></pre>
 
-<h2 id="4-1-ab-命令">4.1 ab 命令</h2>
-
-<p>`</p>
+<p>shell</p>
 
 <h1 id="centos-安装">centos 安装</h1>
 
 <p>yum -y install httpd-tools</p>
 
-<h1 id="ab-n-请求次数-c-并发数-url">ab -n 请求次数 -c 并发数 url</h1>
-
-<p>ab -n 10 -c 2 <a href="http://baidu.com">http://baidu.com</a>
-`</p>
-
-<p><code>
--n  在测试会话中所执行的请求个数。默认时，仅执行一个请求。
--c  一次产生的请求个数。默认是一次一个。
-</code></p>
-
-<h2 id="4-2-netstat-命令">4.2 netstat 命令</h2>
-
-<pre><code class="language-shell"># centos安装目录
-yum install net-tools
-# 使用命令,通过端口查看程序是否启动
-netstat -an | grep 端口
-#结果如下：
-# tcp        0      0 0.0.0.0:11800           0.0.0.0:*               LISTEN
-# 还可以这么用
-netstat -anltp|grep 22
-# 还可以 这么用
-netstat -anp|grep java
-</code></pre>
-
-<h2 id="4-3-mac下查看对方服务端口是否开启命令">4.3 Mac下查看对方服务端口是否开启命令</h2>
-
-<pre><code class="language-nc">* 等同于 `telnet ip 端口`
-
-
-
-# 5. SHELL语法
-## 5.1 while循环
-</code></pre>
-
-<p>shell
-while true
-    do
-    &hellip;..    #执行命令
-    sleep 3  #单位s
-    done</p>
-
-<pre><code>
-# 6. Centos系统设置
-## 修改系统时间和时区
-### 手动修改
+<pre><code>### 使用
 </code></pre>
 
 <p>shell</p>
 
-<h1 id="修改时区">修改时区</h1>
+<h1 id="ab-n-请求次数-c-并发数-url">ab -n 请求次数 -c 并发数 url</h1>
 
-<p>cp  /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime</p>
+<p>ab -n 10 -c 2 <a href="http://baidu.com">http://baidu.com</a></p>
 
-<h1 id="修改时间">修改时间</h1>
+<h1 id="并发测试">并发测试</h1>
 
-<p>date -s  ‘2019-11-11 10:50:00’</p>
+<p>ab -r -n 150000 -c 10000 <a href="http://url">http://url</a></p>
 
-<h1 id="使用date命令查看是否成功">使用date命令查看是否成功</h1>
+<h1 id="post文件">post文件</h1>
 
-<p>date
-&gt; 2019年 11月 05日 星期二 10:29:01 CST</p>
+<p>ab -n 100 -c 10 -k -T &ldquo;application/json&rdquo; -p data.txt <a href="http://xxxxx">http://xxxxx</a></p>
 
-<h1 id="将时间写入bios避免重启失效">将时间写入bios避免重启失效</h1>
+<h1 id="post-字符串">post 字符串</h1>
 
-<p>hwclock -w</p>
+<p>ab -n 100 -c 10 -k -T &ldquo;application/json&rdquo; -p &ldquo;{&lsquo;key1&rsquo;: &lsquo;value1&rsquo;, &lsquo;key2&rsquo;: &lsquo;value2&rsquo;}&rdquo; &ldquo;<a href="http://test.com/post&quot;">http://test.com/post&quot;</a> &gt;&gt; report.html</p>
 
-<pre><code>### 修改时区另一种办法，需重启生效
-修改/etc/sysconfig/clock文件，把ZONE的值改为Asia/Shanghai，UTC值改为false，改完后的文件如下：
+<h1 id="post-参数值">post 参数值</h1>
+
+<p>ab -n 100 -c 10 -k -p &ldquo;k1=value1&amp;k2=value2&rdquo; <a href="http://xxxx">http://xxxx</a></p>
+
+<pre><code>* 结合python/shell操作使用,可以套用for循环
+* 参数
 </code></pre>
 
-<h1 id="the-time-zone-of-the-system-is-defined-by-the-contents-of-etc-localtime">The time zone of the system is defined by the contents of /etc/localtime.</h1>
+<p>-n ：总共的请求执行数，缺省是1；
+-c： 并发数，缺省是1；
+-t：测试所进行的总时间，秒为单位，缺省50000s；
+-k：发送keep-alive指令到服务器；
+-T：header头内容类型，T是大写的，内容是字符串形式；
+-p：post请求，后面加post参数文档路径，默认为当前路径或者-p后可以是json格式、可以是&amp;连接参数，放在&rdquo;&ldquo;双引号之间；
+-w：以HTML表格输出结果，默认是两列宽度的一个表；
+-C：请求附加一个cookie，典型形式是cookieName = value；C大写
+-H：请求附加多个cookie；-H  “Cookie: key1=value1; key2=value2”
+-i：执行的是head请求不是get；</p>
 
-<h1 id="this-file-is-only-for-evaluation-by-system-config-date-do-not-rely-on-its">This file is only for evaluation by system-config-date, do not rely on its</h1>
+<pre><code>* 延伸阅读：[wrk,ab,jmeter,lutos压测工具比较](https://testerhome.com/topics/17068)
 
-<h1 id="contents-elsewhere">contents elsewhere.</h1>
+## 4.2 netstat 命令
 
-<p>ZONE=&ldquo;Asia/Shanghai&rdquo;
+</code></pre>
+
+<p>shell</p>
+
+<h1 id="centos安装目录">centos安装目录</h1>
+
+<p>yum install net-tools</p>
+
+<h1 id="使用命令-通过端口查看程序是否启动">使用命令,通过端口查看程序是否启动</h1>
+
+<p>netstat -an | grep 端口
+#结果如下：</p>
+
+<h1 id="tcp-0-0-0-0-0-0-11800-0-0-0-0-listen">tcp        0      0 0.0.0.0:11800           0.0.0.0:*               LISTEN</h1>
+
+<h1 id="还可以这么用">还可以这么用</h1>
+
+<p>netstat -anltp|grep 22</p>
+
+<h1 id="还可以-这么用">还可以 这么用</h1>
+
+<p>netstat -anp|grep java</p>
+
+<pre><code>
+## 4.3 Mac下查看对方服务端口是否开启命令
+</code></pre>
+
+<p>nc -vz -w 2 192.168.50.8 12800 ``<code>
+* 等同于</code>telnet ip 端口`</p>
+
+<h1 id="5-shell语法">5. SHELL语法</h1>
+
+<h2 id="5-1-while循环">5.1 while循环</h2>
+
+<pre><code class="language-shell">while true
+    do
+    .....    #执行命令
+    sleep 3  #单位s
+    done
+</code></pre>
+
+<h1 id="6-centos系统设置">6. Centos系统设置</h1>
+
+<h2 id="修改系统时间和时区">修改系统时间和时区</h2>
+
+<h3 id="手动修改">手动修改</h3>
+
+<pre><code class="language-shell"># 修改时区
+cp  /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
+# 修改时间
+date -s  ‘2019-11-11 10:50:00’
+# 使用date命令查看是否成功
+date
+&gt; 2019年 11月 05日 星期二 10:29:01 CST
+# 将时间写入bios避免重启失效
+hwclock -w
+
+</code></pre>
+
+<h3 id="修改时区另一种办法-需重启生效">修改时区另一种办法，需重启生效</h3>
+
+<p>修改/etc/sysconfig/clock文件，把ZONE的值改为Asia/Shanghai，UTC值改为false，改完后的文件如下：</p>
+
+<pre><code># The time zone of the system is defined by the contents of /etc/localtime.
+# This file is only for evaluation by system-config-date, do not rely on its
+# contents elsewhere.
+ZONE=&quot;Asia/Shanghai&quot;
 UTC=false
-ARC=false</p>
-
-<pre><code>
-### 同步网络
-* 外网同步
+ARC=false
 </code></pre>
 
-<p>shell
-ntpdate -u time.windows.com</p>
+<h3 id="同步网络">同步网络</h3>
 
-<pre><code>
-* 局域网内同步
-选择局域网中的一台机器作为ntp服务器，ntpd 配置.
+<ul>
+<li><p>外网同步</p>
 
-配置开机自启动
+<pre><code class="language-shell">ntpdate -u time.windows.com 
+</code></pre></li>
+
+<li><p>局域网内同步
+选择局域网中的一台机器作为ntp服务器，ntpd 配置.</p></li>
+</ul>
+
+<p>配置开机自启动</p>
+
+<pre><code class="language-shell">chkconfig ntpd on
 </code></pre>
 
-<p>shell
-chkconfig ntpd on</p>
+<h1 id="7-crontab定时任务">7. crontab定时任务</h1>
 
-<pre><code># 7. crontab定时任务
-* crontab就是一个自定义定时器
-## crontab 服务命令
-</code></pre>
+<ul>
+<li><p>crontab就是一个自定义定时器</p>
 
-<p>shell
-sudo service crond start     #启动服务
+<h2 id="crontab-服务命令">crontab 服务命令</h2>
+
+<pre><code class="language-shell">sudo service crond start     #启动服务
 sudo service crond stop      #关闭服务
 sudo service crond restart   #重启服务
 sudo service crond reload    #重新载入配置
-sudo service crond status    #查看服务状态</p>
-
-<pre><code>## 定时任务设定
+sudo service crond status    #查看服务状态
 </code></pre>
 
-<p>shell</p>
+<h2 id="定时任务设定">定时任务设定</h2>
 
-<h1 id="添加定时任务">添加定时任务</h1>
-
-<h1 id="方法一">方法一</h1>
-
-<p>crontab update_blog.cron</p>
-
-<h1 id="方法二">方法二</h1>
-
-<p>crontab -e</p>
-
-<h1 id="添加-0-12-23-etc-cron-d-update-blog-sh-etc-cron-d-update-blog-log">添加 0 12,23 * * * /etc/cron.d/update_blog.sh &gt;&gt; /etc/cron.d/update_blog.log</h1>
-
-<h1 id="查看定时任务">查看定时任务</h1>
-
-<p>crontab -l
-```</p>
+<pre><code class="language-shell"># 添加定时任务
+# 方法一
+crontab update_blog.cron
+# 方法二
+crontab -e
+# 添加 0 12,23 * * * /etc/cron.d/update_blog.sh &gt;&gt; /etc/cron.d/update_blog.log
+# 查看定时任务
+crontab -l
+</code></pre></li>
+</ul>
 
                         </div>
 
