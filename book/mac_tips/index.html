@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.59.0" />
+    <meta name="generator" content="Hugo 0.60.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -102,28 +102,21 @@
                         
                         
                         <div class="post-content">
-                            
-
-<h1 id="1-timemachine备份">1. TimeMachine备份</h1>
-
+                            <h1 id="1-timemachine">1. TimeMachine备份</h1>
 <ul>
 <li>解决存储空间一般会排除一些大空间的应用，例如MS Office家族</li>
-
-<li><p>还想要排除Library下的XCode，但是这些文件在Finder里是隐藏的，使用下面命令显示它：</p>
-
-<pre><code class="language-shell">chflags nohidden ~/Library  #显示
-chflags hidden ~/Library #用完后再隐藏
-</code></pre></li>
-
-<li><p>最后限制在~50G</p></li>
+<li>还想要排除Library下的XCode，但是这些文件在Finder里是隐藏的，使用下面命令显示它：</li>
 </ul>
-
-<h1 id="2-代理">2. 代理</h1>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">chflags nohidden ~/Library  <span style="color:#75715e">#显示</span>
+chflags hidden ~/Library <span style="color:#75715e">#用完后再隐藏</span>
+</code></pre></div><ul>
+<li>最后限制在~50G</li>
+</ul>
+<h1 id="2-">2. 代理</h1>
 <ul>
 <li>有时候使用全局Http代理，访问局域网的时候找不到路径</li>
 <li>使用网络设置里的代理，配置“忽略主机和域”的代理设置。
-<img src="/img/02_mac_tips/01.jpg" alt="network_1.png" /></li>
+<img src="/img/02_mac_tips/01.jpg" alt="network_1.png"></li>
 </ul>
 
                         </div>
@@ -197,7 +190,7 @@ chflags hidden ~/Library #用完后再隐藏
 <ul class="widget-list">
     
     <li>
-        <a href="http://blog.wacai.ml/post/springboot_tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
+        <a href="http://blog.wacai.ml/post/tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
     </li>
     
     <li>

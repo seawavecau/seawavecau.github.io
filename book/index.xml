@@ -6,10 +6,19 @@
     <description>Recent content in Books on AppleWang的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Nov 2019 13:36:40 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 15 Nov 2019 15:16:06 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.wacai.ml/book/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dental_hospital</title>
+      <link>http://blog.wacai.ml/book/dental_hospital/</link>
+      <pubDate>Fri, 15 Nov 2019 15:16:06 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/book/dental_hospital/</guid>
+      <description>牙齿问题 右侧7号牙正锁合 左侧5号和6号之间牙缝变宽，容易塞牙缝 牙齿咬合，把牙尖磨平了 难受的症状 咬合关节不舒服,右侧关节涨,怕冷. 耳鸣特别明显,另外偶尔眼睛痒,有压迫感 牙齿上下错合，咬合力集中在7号,压力重. 偶尔轻微头晕，平衡感下降，专注力、记忆力下降 颞下颌关节紊乱综合征和心脏神经</description>
+    </item>
     
     <item>
       <title>Maven</title>
@@ -53,7 +62,7 @@
       <pubDate>Thu, 31 Oct 2019 09:27:51 +0800</pubDate>
       
       <guid>http://blog.wacai.ml/book/vim_tips/</guid>
-      <description>1. Mac Vim设置 1.1 vim基础配置 修改配置文件~/.vimrc,添加以下配置 &amp;quot; 显示行号 set number &amp;quot; 显示标尺 set ruler &amp;quot; 历史纪录 set history=1000 &amp;quot; 输入的命令显示出来，看的清楚些 set showcmd &amp;quot; 状态行显示的内容 set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\&amp;quot;%d/%m/%y\ -\ %H:%M\&amp;quot;)} &amp;quot; 启动显示状态行1，总是显示状态行2 set laststatus=2 &amp;quot; 语法高亮显示 syntax on set fileencodings=utf-8,gb2312,gbk,cp936,latin-1 set fileencoding=utf-8 set termencoding=utf-8 set fileformat=unix set encoding=utf-8 &amp;quot; 配色方案 colorscheme desert &amp;quot; 指</description>
+      <description>1. Mac Vim设置 1.1 vim基础配置 修改配置文件~/.vimrc,添加以下配置 &amp;#34; 显示行号 set number &amp;#34; 显示标尺 set ruler &amp;#34; 历史纪录 set history=1000 &amp;#34; 输入的命令显示出来，看的清楚些 set showcmd &amp;#34; 状态行显示的内容 set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\&amp;#34;%d/%m/%y\ -\ %H:%M\&amp;#34;)} &amp;#34; 启动显示状态行1，总是显示状态行2 set laststatus=2 &amp;#34; 语法高亮显示 syntax on set fileencodings=utf-8,gb2312,gbk,cp936,latin-1 set fileencoding=utf-8 set termencoding=utf-8 set fileformat=unix set encoding=utf-8 &amp;#34; 配色方案 colorscheme desert &amp;#34; 指</description>
     </item>
     
     <item>
@@ -62,7 +71,7 @@
       <pubDate>Thu, 31 Oct 2019 09:20:44 +0800</pubDate>
       
       <guid>http://blog.wacai.ml/book/shell_tips/</guid>
-      <description>1. SSH 1.1 SSH 免密登录 终端Host产生RSA公私钥 # 产生key ssh-keygen -i rsa -C &amp;quot;root@aliyun&amp;quot; # copy公钥到远程机器（google云在浏览器ssh下，用sudo su切换到root） scp ~/.ssh/id_rsa.pub root@xxxxx: # 登陆远程机器 ssh root@xxxxx # 把上传的公钥追加到authorized_keys文件 cat id_rsa.pub &amp;gt;&amp;gt; .ssh/authorized_keys # 退出登陆，再ssh一下检验是否成功 1.2 SSH</description>
+      <description>1. SSH 1.1 SSH 免密登录 终端Host产生RSA公私钥 # 产生key ssh-keygen -i rsa -C &amp;#34;root@aliyun&amp;#34; # copy公钥到远程机器（google云在浏览器ssh下，用sudo su切换到root） scp ~/.ssh/id_rsa.pub root@xxxxx: # 登陆远程机器 ssh root@xxxxx # 把上传的公钥追加到authorized_keys文件 cat id_rsa.pub &amp;gt;&amp;gt; .ssh/authorized_keys # 退出登陆，再ssh一下检验是否成功 1.2 SSH</description>
     </item>
     
   </channel>

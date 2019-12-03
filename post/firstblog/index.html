@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.59.0" />
+    <meta name="generator" content="Hugo 0.60.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -102,266 +102,214 @@
                         
                         
                         <div class="post-content">
-                            
-
-<h1 id="利用hugo生产静态网站">利用Hugo生产静态网站</h1>
-
-<h2 id="1-创建blog目录">1. 创建blog目录</h2>
-
+                            <h1 id="hugo">利用Hugo生产静态网站</h1>
+<h2 id="1-blog">1. 创建blog目录</h2>
 <pre><code>~&gt; hugo new site blog
-</code></pre>
-
-<ul>
-<li><p>会在你的用户下创建blog目录，生产hugo项目文件</p>
-
+</code></pre><ul>
+<li>会在你的用户下创建blog目录，生产hugo项目文件</li>
+</ul>
 <pre><code>~&gt; cd blog
-</code></pre></li>
-
-<li><p>接下来我们使用git做文件管理，执行下列命令行</p>
-
-<pre><code class="language-shell"># git 初始化
+</code></pre><ul>
+<li>接下来我们使用git做文件管理，执行下列命令行</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># git 初始化</span>
 git init
 
-#将主题maupassant作为外链加入本地仓库
+<span style="color:#75715e">#将主题maupassant作为外链加入本地仓库</span>
 git submodule add https://github.com/rujews/maupassant-hugo.git themes/maupassant
 
-# 修改hugo配置文件，使用下载的博客主题
-echo 'theme = &quot;maupassant&quot;' &gt;&gt; config.toml
+<span style="color:#75715e"># 修改hugo配置文件，使用下载的博客主题</span>
+echo <span style="color:#e6db74">&#39;theme = &#34;maupassant&#34;&#39;</span> &gt;&gt; config.toml
 
-# 将public作为外链加入本地仓库
+<span style="color:#75715e"># 将public作为外链加入本地仓库</span>
 git submodule add -b https://github.com/seawavecau/seawavecau.github.io.git public
 
-# 项目关联到你的blog远程代码仓库
+<span style="color:#75715e"># 项目关联到你的blog远程代码仓库</span>
 git remote add origin https://github.com/seawavecau/blog.git
 
-# 添加博客
+<span style="color:#75715e"># 添加博客</span>
 hugo new post/firstblog.md
-# 创建的第一篇博客方赞content/post目录下，使用编辑工具打开目录下的文件
+<span style="color:#75715e"># 创建的第一篇博客方赞content/post目录下，使用编辑工具打开目录下的文件</span>
 
 sublime content/post
-</code></pre></li>
-
-<li><p>编辑博客内容，使用markdown风格。</p></li>
-
-<li><p>保存文本内容后，执行hugo提供的调试命令查看效果，检查博文是否生效</p></li>
-
-<li><pre><code class="language-shell">* hugo server -D
-
-# 然后再浏览器访问
-http://localhost:1313/
-</code></pre></li>
-
-<li><p>配置发布脚本
-完成博客编写后，执行<code>hugo</code> 命令，项目会编译成静态网站资源，保存在<code>public</code>文件夹下。然后直接发布到服务器完成部署。
-网上有人提供部署脚本，借用如下</p>
-
-<pre><code class="language-shell"># cd 到项目根目录
+</code></pre></div><ul>
+<li>编辑博客内容，使用markdown风格。</li>
+<li>保存文本内容后，执行hugo提供的调试命令查看效果，检查博文是否生效</li>
+<li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"></code></pre></div></li>
+<li>hugo server -D</li>
+</ul>
+<h1 id="heading">然后再浏览器访问</h1>
+<p>http://localhost:1313/</p>
+<pre><code>
+* 配置发布脚本
+完成博客编写后，执行`hugo` 命令，项目会编译成静态网站资源，保存在`public`文件夹下。然后直接发布到服务器完成部署。
+网上有人提供部署脚本，借用如下
+``` shell
+# cd 到项目根目录
 cd ~/blog
 ~&gt; vim deploy.sh
-</code></pre>
+</code></pre><p>保存一下脚本内容：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">    echo -e <span style="color:#e6db74">&#34;\033[0;32mDeploying updates to GitHub...\033[0m&#34;</span>
 
-<p>保存一下脚本内容：</p>
+    <span style="color:#75715e"># Build the project.</span>
+    hugo <span style="color:#75715e"># if using a theme, replace with `hugo -t &lt;YOURTHEME&gt;`</span>
 
-<pre><code class="language-shell">echo -e &quot;\033[0;32mDeploying updates to GitHub...\033[0m&quot;
+    <span style="color:#75715e"># Go To Public folder</span>
+    cd public
+    <span style="color:#75715e"># Add changes to git.</span>
+    git add .
 
-# Build the project.
-hugo # if using a theme, replace with `hugo -t &lt;YOURTHEME&gt;`
+    <span style="color:#75715e"># Commit changes.</span>
+    msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rebuilding site `date`&#34;</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $# -eq <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>
+    <span style="color:#66d9ef">then</span> msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
+    <span style="color:#66d9ef">fi</span>
+    git commit -m <span style="color:#e6db74">&#34;</span>$msg<span style="color:#e6db74">&#34;</span>
 
-# Go To Public folder
-cd public
-# Add changes to git.
-git add .
+    <span style="color:#75715e"># Push source and build repos.</span>
+    git push origin master
 
-# Commit changes.
-msg=&quot;rebuilding site `date`&quot;
-if [ $# -eq 1 ]
-then msg=&quot;$1&quot;
-fi
-git commit -m &quot;$msg&quot;
+    <span style="color:#75715e"># Come Back up to the Project Root</span>
+    cd ..
 
-# Push source and build repos.
-git push origin master
-
-# Come Back up to the Project Root
-cd ..
-
-</code></pre></li>
-</ul>
-
-<p>以后更新博客，直接执行deploy 部署更新</p>
-
+</code></pre></div><p>以后更新博客，直接执行deploy 部署更新</p>
 <pre><code>./deploy.sh &quot;git comment&quot;
-</code></pre>
-
-<p>以上完成本地网站源码和静态文件同步到Github仓库。
+</code></pre><p>以上完成本地网站源码和静态文件同步到Github仓库。
 接下来，服务器还需要一些配置，满足自动化部署</p>
-
-<h1 id="服务器配置">服务器配置</h1>
-
-<h2 id="1-网站根目录">1. 网站根目录</h2>
-
-<pre><code class="language-shell">#  创建网站根目录
+<h1 id="heading1">服务器配置</h1>
+<h2 id="1-">1. 网站根目录</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#  创建网站根目录</span>
 mkdir /usr/www/blog
 
-# cd 到目录blog2
+<span style="color:#75715e"># cd 到目录blog2</span>
 cd blog
 
-# git 初始化
+<span style="color:#75715e"># git 初始化</span>
 git init
 git remote add origin https://github.com/seawavecau/seawavecau.github.io.git
 
-# 从 Github第一次抓取
+<span style="color:#75715e"># 从 Github第一次抓取</span>
 git pull origin master
-</code></pre>
-
-<h2 id="2-webhook自动更新">2.webhook自动更新</h2>
-
+</code></pre></div><h2 id="2webhook">2.webhook自动更新</h2>
 <p>利用Github提供的webhook功能，需要再服务端启动一个监听服务，接收github的push event。当你提交工程文件到github后，webhook会往你服务器发送一个push event请求。我们就可以在服务器上执行脚本，从该仓库抓取最新资源，达到博客内容实时更新的目的。</p>
-
-<h3 id="2-1-创建webhook目录-创建脚本git-pull-sh">2.1 创建webhook目录，创建脚本git_pull.sh</h3>
-
-<pre><code class="language-shell">#创建目录
+<h3 id="21-webhookgitpullsh">2.1 创建webhook目录，创建脚本git_pull.sh</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#创建目录</span>
 mkdir /usr/www/webhook
-#进入目录
+<span style="color:#75715e">#进入目录</span>
 cd webhook
-# 创建脚本
+<span style="color:#75715e"># 创建脚本</span>
 vim git_pull.sh
 
-</code></pre>
-
-<p>在脚本中保存以下内容：</p>
-
-<pre><code class="language-shell">cd /usr/www/blog
+</code></pre></div><p>在脚本中保存以下内容：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd /usr/www/blog
 git pull origin master
-exit 0
-</code></pre>
-
-<h3 id="2-2-github-webhook-js脚本">2.2 github_webhook.js脚本</h3>
-
+exit <span style="color:#ae81ff">0</span>
+</code></pre></div><h3 id="22-githubwebhookjs">2.2 github_webhook.js脚本</h3>
 <ul>
-<li><p>我们需要用到nodejs来跑监听服务，需要用到中间件 <a href="https://github.com/rvagg/github-webhook-handler">github_webhook_handler</a>, 我们使用npm 来安装, 如果有问题可以从github上clone一个到本地：</p>
-
-<pre><code>npm install github_webhook_handler
-</code></pre></li>
-
-<li><p>新建<code>github_webhook.js</code>脚本</p>
-
-<pre><code>vim github_webhook.js
-</code></pre>
-
-<p>写入以下脚本内容：</p>
-
-<pre><code class="language-shell">var http = require('http')
-var exec = require('child_process').exec
-var createHandler = require('github-webhook-handler')
-var handler = createHandler({ path: '/webhook', secret: 'xxxx' })
-
-http.createServer(function (req, res) {
-handler(req, res, function (err) {
-  res.statusCode = 404
-  res.end('no such location')
-})
-}).listen(7777)
-
-handler.on('push', function (event) {
-  let currentTime = new Date();
-  console.log('\n--&gt; ' + currentTime.toLocaleString());
-  console.log('Received a push event for %s to %s', event.payload.repository.name, event.payload.ref);
-  exec('sh ./git_pull.sh', function (error, stdout, stderr) {
-      if(error) {
-          console.error('error:\n' + error);
-          return;
-      }
-      console.log('stdout:\n' + stdout);
-      console.log('stderr:\n' + stderr);
-  });
-})
-</code></pre></li>
-
-<li><h3 id="pm2启动脚本">pm2启动脚本</h3>
-
-<p>先用<code>node github-webhook.js</code>启动调试，等调试通过了，我们用pm2来启动：<code>pm2 start github-webhook.js</code>，使用<code>pm2 startup</code>命令来设置脚本开机启动。</p></li>
+<li>我们需要用到nodejs来跑监听服务，需要用到中间件 <a href="https://github.com/rvagg/github-webhook-handler">github_webhook_handler</a>, 我们使用npm 来安装, 如果有问题可以从github上clone一个到本地：</li>
 </ul>
+<pre><code>npm install github_webhook_handler
+</code></pre><ul>
+<li>新建<code>github_webhook.js</code>脚本</li>
+</ul>
+<pre><code>   vim github_webhook.js
+</code></pre><p>写入以下脚本内容：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">var http <span style="color:#f92672">=</span> require<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;http&#39;</span><span style="color:#f92672">)</span>
+var exec <span style="color:#f92672">=</span> require<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;child_process&#39;</span><span style="color:#f92672">)</span>.exec
+var createHandler <span style="color:#f92672">=</span> require<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;github-webhook-handler&#39;</span><span style="color:#f92672">)</span>
+var handler <span style="color:#f92672">=</span> createHandler<span style="color:#f92672">(</span><span style="color:#f92672">{</span> path: <span style="color:#e6db74">&#39;/webhook&#39;</span>, secret: <span style="color:#e6db74">&#39;xxxx&#39;</span> <span style="color:#f92672">}</span><span style="color:#f92672">)</span>
 
-<h1 id="3-nginx配置更新">3. Nginx配置更新</h1>
+http.createServer<span style="color:#f92672">(</span><span style="color:#66d9ef">function</span> <span style="color:#f92672">(</span>req, res<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+handler<span style="color:#f92672">(</span>req, res, <span style="color:#66d9ef">function</span> <span style="color:#f92672">(</span>err<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    res.statusCode <span style="color:#f92672">=</span> <span style="color:#ae81ff">404</span>
+    res.end<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;no such location&#39;</span><span style="color:#f92672">)</span>
+  <span style="color:#f92672">}</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">}</span><span style="color:#f92672">)</span>.listen<span style="color:#f92672">(</span>7777<span style="color:#f92672">)</span>
 
+handler.on<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;push&#39;</span>, <span style="color:#66d9ef">function</span> <span style="color:#f92672">(</span>event<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    let currentTime <span style="color:#f92672">=</span> new Date<span style="color:#f92672">(</span><span style="color:#f92672">)</span>;
+    console.log<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;\n--&gt; &#39;</span> + currentTime.toLocaleString<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>;
+    console.log<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;Received a push event for %s to %s&#39;</span>, event.payload.repository.name, event.payload.ref<span style="color:#f92672">)</span>;
+    exec<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;sh ./git_pull.sh&#39;</span>, <span style="color:#66d9ef">function</span> <span style="color:#f92672">(</span>error, stdout, stderr<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>error<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            console.error<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;error:\n&#39;</span> + error<span style="color:#f92672">)</span>;
+            <span style="color:#66d9ef">return</span>;
+        <span style="color:#f92672">}</span>
+        console.log<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;stdout:\n&#39;</span> + stdout<span style="color:#f92672">)</span>;
+        console.log<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;stderr:\n&#39;</span> + stderr<span style="color:#f92672">)</span>;
+    <span style="color:#f92672">}</span><span style="color:#f92672">)</span>;
+<span style="color:#f92672">}</span><span style="color:#f92672">)</span>
+</code></pre></div><ul>
+<li>
+<h3 id="pm2">pm2启动脚本</h3>
+</li>
+</ul>
+<p>先用<code>node github-webhook.js</code>启动调试，等调试通过了，我们用pm2来启动：<code>pm2 start github-webhook.js</code>，使用<code>pm2 startup</code>命令来设置脚本开机启动。</p>
+<h1 id="3-nginx">3. Nginx配置更新</h1>
 <ul>
-<li><p>在/etc/nginx/conf.d目录下新建blog.conf</p>
-
+<li>在/etc/nginx/conf.d目录下新建blog.conf</li>
+</ul>
 <pre><code>cd /etc/nginx/conf.d
 vim blog.conf
-</code></pre>
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">server <span style="color:#f92672">{</span>
+        listen       80;
+        server_name  blog.xxxxx.com;
+        root         /usr/www/blog;
 
-<pre><code class="language-shell">server {
-    listen       80;
-    server_name  blog.xxxxx.com;
-    root         /usr/www/blog;
+        location / <span style="color:#f92672">{</span>
+		index index.html index.htm index.php;
+		autoindex on;
+        <span style="color:#f92672">}</span>
+        location /webhook <span style="color:#f92672">{</span>
+		alias /usr/www/webhook/;
+		proxy_pass http://127.0.0.1:7777;
+        <span style="color:#f92672">}</span>
+        error_page <span style="color:#ae81ff">404</span> /404.html;
+            location <span style="color:#f92672">=</span> /40x.html <span style="color:#f92672">{</span>
+        <span style="color:#f92672">}</span>
 
-    location / {
-    index index.html index.htm index.php;
-    autoindex on;
-    }
-    location /webhook {
-    alias /usr/www/webhook/;
-    proxy_pass http://127.0.0.1:7777;
-    }
-    error_page 404 /404.html;
-        location = /40x.html {
-    }
-
-    error_page 500 502 503 504 /50x.html;
-        location = /50x.html {
-    }
-}
-</code></pre></li>
-
-<li><p>重启Nginx</p>
-
-<pre><code>systemctl restart nginx
-</code></pre></li>
+        error_page <span style="color:#ae81ff">500</span> <span style="color:#ae81ff">502</span> <span style="color:#ae81ff">503</span> <span style="color:#ae81ff">504</span> /50x.html;
+            location <span style="color:#f92672">=</span> /50x.html <span style="color:#f92672">{</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>重启Nginx</li>
 </ul>
-
-<h1 id="4-github配置">4 Github配置</h1>
-
+<pre><code>systemctl restart nginx
+</code></pre><h1 id="4-github">4 Github配置</h1>
 <ul>
 <li>到目前为止，还差最后一步才能完成自动化部署。要Github上创建一个webhook指向你的服务器。</li>
 </ul>
-
-<p>登录Github,进入<code>seawavecau.github.io</code>仓库，点击<code>Setting</code>
-  <img src="/img/01_hugo_server/01.jpg" alt="hugo_1.png" />
+<p>登录Github,进入<code> seawavecau.github.io</code>仓库，点击<code>Setting</code>
+<img src="/img/01_hugo_server/01.jpg" alt="hugo_1.png">
 注意事项：</p>
-
-<pre><code class="language-shell">第2步：'webhook'即 ‘github_webhook.js’ 中配置的path
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">第2步：<span style="color:#e6db74">&#39;webhook&#39;</span>即 ‘github_webhook.js’ 中配置的path
 第3步：必须选择‘application/json’,否则不起作用
 第4步：‘Secret’即 ‘github_webhook.js’中配置的‘ secret_key’
 一定要和脚本中设置一致，否则，你懂的！
-</code></pre>
-
-<p>好了，到目前为止，配置工作都已完成。
+</code></pre></div><p>好了，到目前为止，配置工作都已完成。
 剩下的只是我们日常的简单操作了，如果我们某天又心血来潮，想写篇博客消遣消遣，该怎么做呢？
 辛苦这么久的配置，就是为了这个时刻。</p>
-
-<pre><code class="language-shell">cd /xxx/xxx/BlogTest
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd /xxx/xxx/BlogTest
 hugo new post/MySecondBlog.md
-# 呃～～编辑博客：想用什么编辑工具都可以， Markdown语法
-# 编辑完了？嗯！
+<span style="color:#75715e"># 呃～～编辑博客：想用什么编辑工具都可以， Markdown语法</span>
+<span style="color:#75715e"># 编辑完了？嗯！</span>
 ./deploy.sh
-# 执行完后，不出意外的话，服务器已经已经更新了！ 完美！
+<span style="color:#75715e"># 执行完后，不出意外的话，服务器已经已经更新了！ 完美！</span>
 
-# ------------------
-# 这样就完了？ ～～
-# nooooo~~
-# 细心的你肯定已经发现，我们的脚本只是把网站相关的东西push到了xxx.github.io这个仓库
-# 源码还没提交备份呢？！！！
+<span style="color:#75715e"># ------------------</span>
+<span style="color:#75715e"># 这样就完了？ ～～</span>
+<span style="color:#75715e"># nooooo~~</span>
+<span style="color:#75715e"># 细心的你肯定已经发现，我们的脚本只是把网站相关的东西push到了xxx.github.io这个仓库</span>
+<span style="color:#75715e"># 源码还没提交备份呢？！！！</span>
 git add .
-git commit -m '备注：要提交源码啊！'
+git commit -m <span style="color:#e6db74">&#39;备注：要提交源码啊！&#39;</span>
 git push -u origin master
-# ALL DONE, 这下服务器也更新了，github源码也提交了，新更新的内容也备份到另一个github仓库。
-#再也不怕了。
-</code></pre>
-
-<p>文章原型参考bones的 <a href="https://www.harddone.com/post/hugo_nginx_1/">博客</a>
-[我是搬运工]<a href="https://github.com/LazyBonesLZ/MyBlog">https://github.com/LazyBonesLZ/MyBlog</a>  👍</p>
+<span style="color:#75715e"># ALL DONE, 这下服务器也更新了，github源码也提交了，新更新的内容也备份到另一个github仓库。</span>
+<span style="color:#75715e">#再也不怕了。</span>
+</code></pre></div><p>文章原型参考bones的 <a href="https://www.harddone.com/post/hugo_nginx_1/">博客</a>
+[我是搬运工]https://github.com/LazyBonesLZ/MyBlog  👍</p>
 
                         </div>
 
@@ -434,7 +382,7 @@ git push -u origin master
 <ul class="widget-list">
     
     <li>
-        <a href="http://blog.wacai.ml/post/springboot_tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
+        <a href="http://blog.wacai.ml/post/tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
     </li>
     
     <li>

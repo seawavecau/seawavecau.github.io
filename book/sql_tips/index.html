@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.59.0" />
+    <meta name="generator" content="Hugo 0.60.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -102,51 +102,38 @@
                         
                         
                         <div class="post-content">
-                            
-
-<h1 id="1-mysql">1. Mysql</h1>
-
-<h2 id="创建用户命令">创建用户命令：</h2>
-
+                            <h1 id="1-mysql">1. Mysql</h1>
+<h2 id="heading">创建用户命令：</h2>
 <pre><code>mysql&gt; CREATE USER yy IDENTIFIED BY '123';
-</code></pre>
-
-<ul>
-<li><p>yy表示你要建立的用户名，后面的123表示密码</p></li>
-
-<li><p>上面建立的用户可以在任何地方登陆。</p></li>
-
-<li><p>如果要限制在固定地址登陆，比如localhost 登陆：</p>
-
-<pre><code>mysql&gt; CREATE USER yy@localhost IDENTIFIED BY '123';
-</code></pre></li>
+</code></pre><ul>
+<li>
+<p>yy表示你要建立的用户名，后面的123表示密码</p>
+</li>
+<li>
+<p>上面建立的用户可以在任何地方登陆。</p>
+</li>
+<li>
+<p>如果要限制在固定地址登陆，比如localhost 登陆：</p>
+</li>
 </ul>
-
-<h2 id="grant命令">grant命令:</h2>
-
+<pre><code>mysql&gt; CREATE USER yy@localhost IDENTIFIED BY '123';
+</code></pre><h2 id="grant">grant命令:</h2>
 <pre><code>mysql&gt; GRANT ALL PRIVILEGES ON *.* TO user;@localhost
 # 格式：grant select on 数据库.* to 用户名@登录主机 identified by &quot;密码&quot;
 mysql&gt; grant select,insert,update,delete on *.* to test1@&quot;%&quot; Identified by &quot;abc&quot;;
-</code></pre>
-
-<h2 id="修改密码">修改密码：</h2>
-
+</code></pre><h2 id="heading1">修改密码：</h2>
 <pre><code>mysql&gt; grant   all   privileges   on   pureftpd.*   to   koko@localhost   identified   by   'mimi';  
 # flush:
 mysql&gt; flush privileges;
 # 查看用户信息：
 mysql&gt; select host,user from mysql.user; 
-</code></pre>
-
-<h2 id="登陆">登陆</h2>
-
+</code></pre><h2 id="heading2">登陆</h2>
 <pre><code># 普通登录
 mysql -uroot -p
 # 如果忘记密码，通过下面启动命令启动，则root密码为空。
 mysqld --console
 
 </code></pre>
-
                         </div>
 
                         
@@ -220,7 +207,7 @@ mysqld --console
 <ul class="widget-list">
     
     <li>
-        <a href="http://blog.wacai.ml/post/springboot_tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
+        <a href="http://blog.wacai.ml/post/tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
     </li>
     
     <li>

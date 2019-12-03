@@ -17,7 +17,7 @@
       <pubDate>Thu, 31 Oct 2019 09:20:44 +0800</pubDate>
       
       <guid>http://blog.wacai.ml/book/shell_tips/</guid>
-      <description>1. SSH 1.1 SSH 免密登录 终端Host产生RSA公私钥 # 产生key ssh-keygen -i rsa -C &amp;quot;root@aliyun&amp;quot; # copy公钥到远程机器（google云在浏览器ssh下，用sudo su切换到root） scp ~/.ssh/id_rsa.pub root@xxxxx: # 登陆远程机器 ssh root@xxxxx # 把上传的公钥追加到authorized_keys文件 cat id_rsa.pub &amp;gt;&amp;gt; .ssh/authorized_keys # 退出登陆，再ssh一下检验是否成功 1.2 SSH</description>
+      <description>1. SSH 1.1 SSH 免密登录 终端Host产生RSA公私钥 # 产生key ssh-keygen -i rsa -C &amp;#34;root@aliyun&amp;#34; # copy公钥到远程机器（google云在浏览器ssh下，用sudo su切换到root） scp ~/.ssh/id_rsa.pub root@xxxxx: # 登陆远程机器 ssh root@xxxxx # 把上传的公钥追加到authorized_keys文件 cat id_rsa.pub &amp;gt;&amp;gt; .ssh/authorized_keys # 退出登陆，再ssh一下检验是否成功 1.2 SSH</description>
     </item>
     
   </channel>

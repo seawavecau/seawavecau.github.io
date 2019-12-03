@@ -13,10 +13,10 @@
     
     <item>
       <title>Springboot中的tomcat</title>
-      <link>http://blog.wacai.ml/post/springboot_tomcat/</link>
+      <link>http://blog.wacai.ml/post/tomcat/</link>
       <pubDate>Thu, 07 Nov 2019 11:38:24 +0800</pubDate>
       
-      <guid>http://blog.wacai.ml/post/springboot_tomcat/</guid>
+      <guid>http://blog.wacai.ml/post/tomcat/</guid>
       <description>概述 *Tomcat连接器Connector的主要功能是接收连接请求，创建request和response对象用于和请求端交换数据；然后分配线程给engine（servlet容器）来处理请求，并把request和response对象传递给engine引擎，当engine处理完请求后</description>
     </item>
     
@@ -44,7 +44,7 @@
       <pubDate>Wed, 30 Oct 2019 21:20:36 +0800</pubDate>
       
       <guid>http://blog.wacai.ml/post/firstblog/</guid>
-      <description>利用Hugo生产静态网站 1. 创建blog目录 ~&amp;gt; hugo new site blog 会在你的用户下创建blog目录，生产hugo项目文件 ~&amp;gt; cd blog 接下来我们使用git做文件管理，执行下列命令行 # git 初始化 git init #将主题maupassant作为外链加入本地仓库 git submodule add https://github.com/rujews/maupassant-hugo.git themes/maupassant # 修改hugo配置文件，使用下载的博客主题 echo &#39;theme = &amp;quot;maupassant&amp;quot;&#39; &amp;gt;&amp;gt;</description>
+      <description>利用Hugo生产静态网站 1. 创建blog目录 ~&amp;gt; hugo new site blog 会在你的用户下创建blog目录，生产hugo项目文件 ~&amp;gt; cd blog 接下来我们使用git做文件管理，执行下列命令行 # git 初始化 git init #将主题maupassant作为外链加入本地仓库 git submodule add https://github.com/rujews/maupassant-hugo.git themes/maupassant # 修改hugo配置文件，使用下载的博客主题 echo &amp;#39;theme = &amp;#34;maupassant&amp;#34;&amp;#39; &amp;gt;&amp;gt;</description>
     </item>
     
   </channel>

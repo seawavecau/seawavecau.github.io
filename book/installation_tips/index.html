@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.59.0" />
+    <meta name="generator" content="Hugo 0.60.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -95,15 +95,11 @@
                         
                         
                         <div class="post-content">
-                            
-
-<h1 id="centos7安装java8">Centos7安装Java8</h1>
-
+                            <h1 id="centos7java8">Centos7安装Java8</h1>
 <ul>
 <li><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">下载JDK8</a></li>
-
-<li><p>安装JDK</p>
-
+<li>安装JDK</li>
+</ul>
 <pre><code># 在/usr/local下创建java文件夹
 mkdir /usr/local/java
 # 解压
@@ -112,129 +108,97 @@ tar -zxvf jdk-8u231-linux-x64.tar.gz
 mv jdk1.8.0_171 /usr/local/java/
 # 设置环境变量
 sudo vim /etc/profile
-</code></pre>
-
-<p>文件中添加</p>
-
+</code></pre><p>文件中添加</p>
 <pre><code>#java
 export JAVA_HOME=/usr/local/java/jdk1.8.0_171
 export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 export PATH=$PATH:$JAVA_HOME/bin
-</code></pre>
-
-<p>保存后推出，让环境变量生效</p>
-
+</code></pre><p>保存后推出，让环境变量生效</p>
 <pre><code># 生效
 source /etc/profile
 
 # 检查是否安装成功
 java -version
-</code></pre></li>
-</ul>
-
-<h1 id="mac安装elasticsearch">Mac安装ElasticSearch</h1>
-
+</code></pre><h1 id="macelasticsearch">Mac安装ElasticSearch</h1>
 <p>Mac支持brew安装
 <code>brew install elasticsearch</code></p>
-
 <p>安装好后，用命令启动</p>
-
-<pre><code class="language-sh"># 后台启动
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># 后台启动</span>
 brew services start elasticsearch
 
-# 控制台直接启动
+<span style="color:#75715e"># 控制台直接启动</span>
 elasticsearch
-</code></pre>
-
-<p>安装后的路径用<code>brew info elasticsearch</code>命令查看安装信息</p>
-
+</code></pre></div><p>安装后的路径用<code>brew info elasticsearch</code>命令查看安装信息</p>
 <pre><code>elasticsearch:  /usr/local/Cellar/elasticsearch/x.x.x
 Data:    /usr/local/var/lib/elasticsearch/
 Logs:    /usr/local/var/log/elasticsearch/elasticsearch_seawave.log
 Plugins: /usr/local/var/elasticsearch/plugins/
 Config:  /usr/local/etc/elasticsearch/
 plugin script: /usr/local/opt/elasticsearch/libexec/bin/elasticsearch-plugin
-</code></pre>
-
-<p>在浏览器上直接输入<code>http://127.0.0.1:9200/</code>可以看到返回内容</p>
-
-<pre><code class="language-json">{
-&quot;name&quot;: &quot;w3V6OEY&quot;,
-&quot;cluster_name&quot;: &quot;elasticsearch_seawave&quot;,
-&quot;cluster_uuid&quot;: &quot;cr0lyWKIRR2GWq4Aoqmnxg&quot;,
-&quot;version&quot;: {
-&quot;number&quot;: &quot;6.8.4&quot;,
-&quot;build_flavor&quot;: &quot;oss&quot;,
-&quot;build_type&quot;: &quot;tar&quot;,
-&quot;build_hash&quot;: &quot;bca0c8d&quot;,
-&quot;build_date&quot;: &quot;2019-10-16T06:19:49.319352Z&quot;,
-&quot;build_snapshot&quot;: false,
-&quot;lucene_version&quot;: &quot;7.7.2&quot;,
-&quot;minimum_wire_compatibility_version&quot;: &quot;5.6.0&quot;,
-&quot;minimum_index_compatibility_version&quot;: &quot;5.0.0&quot;
+</code></pre><p>在浏览器上直接输入<code>http://127.0.0.1:9200/</code>可以看到返回内容</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;w3V6OEY&#34;</span>,
+<span style="color:#f92672">&#34;cluster_name&#34;</span>: <span style="color:#e6db74">&#34;elasticsearch_seawave&#34;</span>,
+<span style="color:#f92672">&#34;cluster_uuid&#34;</span>: <span style="color:#e6db74">&#34;cr0lyWKIRR2GWq4Aoqmnxg&#34;</span>,
+<span style="color:#f92672">&#34;version&#34;</span>: {
+<span style="color:#f92672">&#34;number&#34;</span>: <span style="color:#e6db74">&#34;6.8.4&#34;</span>,
+<span style="color:#f92672">&#34;build_flavor&#34;</span>: <span style="color:#e6db74">&#34;oss&#34;</span>,
+<span style="color:#f92672">&#34;build_type&#34;</span>: <span style="color:#e6db74">&#34;tar&#34;</span>,
+<span style="color:#f92672">&#34;build_hash&#34;</span>: <span style="color:#e6db74">&#34;bca0c8d&#34;</span>,
+<span style="color:#f92672">&#34;build_date&#34;</span>: <span style="color:#e6db74">&#34;2019-10-16T06:19:49.319352Z&#34;</span>,
+<span style="color:#f92672">&#34;build_snapshot&#34;</span>: <span style="color:#66d9ef">false</span>,
+<span style="color:#f92672">&#34;lucene_version&#34;</span>: <span style="color:#e6db74">&#34;7.7.2&#34;</span>,
+<span style="color:#f92672">&#34;minimum_wire_compatibility_version&#34;</span>: <span style="color:#e6db74">&#34;5.6.0&#34;</span>,
+<span style="color:#f92672">&#34;minimum_index_compatibility_version&#34;</span>: <span style="color:#e6db74">&#34;5.0.0&#34;</span>
 },
-&quot;tagline&quot;: &quot;You Know, for Search&quot;
+<span style="color:#f92672">&#34;tagline&#34;</span>: <span style="color:#e6db74">&#34;You Know, for Search&#34;</span>
 }
-</code></pre>
-
-<ul>
+</code></pre></div><ul>
 <li>ElasticSearch管理工具的安装见下节</li>
 </ul>
-
 <p>简单CRUD</p>
-
-<h1 id="安装elasticsearch-head">安装ElasticSearch-head</h1>
-
+<h1 id="elasticsearchhead">安装ElasticSearch-head</h1>
 <p>独立webapp运行
 安装node.js</p>
-
-<pre><code class="language-shell"># 先安装nvm （node版本管理器）
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 先安装nvm （node版本管理器）</span>
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 
-# 激活nvm
+<span style="color:#75715e"># 激活nvm</span>
 source ~/.nvm/nvm.sh
 
-# 安装node
+<span style="color:#75715e"># 安装node</span>
 nvm install node
 
-# 安装完，切换到该版本
+<span style="color:#75715e"># 安装完，切换到该版本</span>
 nvm use node
 
-# 安装grunt，是构建工具，类似Java的maven工具。安装完用grunt -version检查
+<span style="color:#75715e"># 安装grunt，是构建工具，类似Java的maven工具。安装完用grunt -version检查</span>
 cd /usr/local/elk/elasticsearch/elasticsearch-head
 npm install -g grunt-cli
 
-# 安装Head插件
+<span style="color:#75715e"># 安装Head插件</span>
 cd /usr/local/elk/elasticsearch/
 git clone git://github.com/mobz/elasticsearch-head.git
 cd elasticsearch-head/
 npm install
-</code></pre>
-
-<p>安装完后，修改服务器监听地址。目录：elasticsearch-head/Gruntfile.js,增加hostname属性，设置为*</p>
-
-<pre><code class="language-shell">
-connect: {
-    server: {
-        options: {
+</code></pre></div><p>安装完后，修改服务器监听地址。目录：elasticsearch-head/Gruntfile.js,增加hostname属性，设置为*</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
+connect: <span style="color:#f92672">{</span>
+    server: <span style="color:#f92672">{</span>
+        options: <span style="color:#f92672">{</span>
             port: 9100,
-            hostname: '*',
-            base: '.',
+            hostname: <span style="color:#e6db74">&#39;*&#39;</span>,
+            base: <span style="color:#e6db74">&#39;.&#39;</span>,
             keepalive: true
-        }
-    }
-}
-</code></pre>
-
-<p>启动Head插件
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>启动Head插件
 使用<code>grunt server</code> 或 <code>npm run start</code>启动插件
-访问<a href="http://localhost:9100/">http://localhost:9100/</a> 出现以下画面,代表启动成功</p>
-
+访问http://localhost:9100/ 出现以下画面,代表启动成功</p>
 <p>目录：elasticsearch-head/_site/app.js,把localhost修改成你es的服务器地址,如:</p>
-
 <pre><code>this.base_uri = this.config.base_uri || this.prefs.get(&quot;app-base_uri&quot;) || &quot;http://192.168.50.8:9200&quot;;
 </code></pre>
-
                         </div>
 
                         
@@ -298,7 +262,7 @@ connect: {
 <ul class="widget-list">
     
     <li>
-        <a href="http://blog.wacai.ml/post/springboot_tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
+        <a href="http://blog.wacai.ml/post/tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
     </li>
     
     <li>

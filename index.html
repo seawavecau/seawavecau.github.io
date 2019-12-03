@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.59.0" />
+    <meta name="generator" content="Hugo 0.60.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -77,7 +77,25 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
-                                    <a href="http://blog.wacai.ml/post/springboot_tomcat/" title="Springboot中的tomcat" >Springboot中的tomcat</a>
+                                    <a href="http://blog.wacai.ml/book/dental_hospital/" title="Dental_hospital" >Dental_hospital</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2019年11月15日
+                            </date>
+                            
+                            <div class="post-content">
+                                牙齿问题 右侧7号牙正锁合 左侧5号和6号之间牙缝变宽，容易塞牙缝 牙齿咬合，把牙尖磨平了 难受的症状 咬合关节不舒服,右侧关节涨,怕冷. 耳鸣特别明显,另外偶尔眼睛痒,有压迫感 牙齿上下错合，咬合力集中在7号,压力重. 偶尔轻微头晕，平衡感下降，专注力、记忆力下降 颞下颌关节紊乱综合征和心脏神经……
+                            </div>
+                            <p class="readmore"><a href="http://blog.wacai.ml/book/dental_hospital/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
+                                    <a href="http://blog.wacai.ml/post/tomcat/" title="Springboot中的tomcat" >Springboot中的tomcat</a>
                                 </h1>
                             </header>
                             <date class="post-meta meta-date">
@@ -87,7 +105,7 @@
                             <div class="post-content">
                                 概述 *Tomcat连接器Connector的主要功能是接收连接请求，创建request和response对象用于和请求端交换数据；然后分配线程给engine（servlet容器）来处理请求，并把request和response对象传递给engine引擎，当engine处理完请求后……
                             </div>
-                            <p class="readmore"><a href="http://blog.wacai.ml/post/springboot_tomcat/">阅读全文</a></p>
+                            <p class="readmore"><a href="http://blog.wacai.ml/post/tomcat/">阅读全文</a></p>
                         </article>
                     
                     
@@ -278,34 +296,9 @@
                             </div>
                             
                             <div class="post-content">
-                                1. Mac Vim设置 1.1 vim基础配置 修改配置文件~/.vimrc,添加以下配置 &quot; 显示行号 set number &quot; 显示标尺 set ruler &quot; 历史纪录 set history=1000 &quot; 输入的命令显示出来，看的清楚些 set showcmd &quot; 状态行显示的内容 set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\&quot;%d/%m/%y\ -\ %H:%M\&quot;)} &quot; 启动显示状态行1，总是显示状态行2 set laststatus=2 &quot; 语法高亮显示 syntax on set fileencodings=utf-8,gb2312,gbk,cp936,latin-1 set fileencoding=utf-8 set termencoding=utf-8 set fileformat=unix set encoding=utf-8 &quot; 配色方案 colorscheme desert &quot; 指……
+                                1. Mac Vim设置 1.1 vim基础配置 修改配置文件~/.vimrc,添加以下配置 &#34; 显示行号 set number &#34; 显示标尺 set ruler &#34; 历史纪录 set history=1000 &#34; 输入的命令显示出来，看的清楚些 set showcmd &#34; 状态行显示的内容 set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\&#34;%d/%m/%y\ -\ %H:%M\&#34;)} &#34; 启动显示状态行1，总是显示状态行2 set laststatus=2 &#34; 语法高亮显示 syntax on set fileencodings=utf-8,gb2312,gbk,cp936,latin-1 set fileencoding=utf-8 set termencoding=utf-8 set fileformat=unix set encoding=utf-8 &#34; 配色方案 colorscheme desert &#34; 指……
                             </div>
                             <p class="readmore"><a href="http://blog.wacai.ml/book/vim_tips/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="http://blog.wacai.ml/book/shell_tips/" title="Shell相关命令" >Shell相关命令</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2019年10月31日
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="http://blog.wacai.ml/categories/Shell">Shell</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1. SSH 1.1 SSH 免密登录 终端Host产生RSA公私钥 # 产生key ssh-keygen -i rsa -C &quot;root@aliyun&quot; # copy公钥到远程机器（google云在浏览器ssh下，用sudo su切换到root） scp ~/.ssh/id_rsa.pub root@xxxxx: # 登陆远程机器 ssh root@xxxxx # 把上传的公钥追加到authorized_keys文件 cat id_rsa.pub &gt;&gt; .ssh/authorized_keys # 退出登陆，再ssh一下检验是否成功 1.2 SSH……
-                            </div>
-                            <p class="readmore"><a href="http://blog.wacai.ml/book/shell_tips/">阅读全文</a></p>
                         </article>
                     
                     
@@ -353,7 +346,7 @@
 <ul class="widget-list">
     
     <li>
-        <a href="http://blog.wacai.ml/post/springboot_tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
+        <a href="http://blog.wacai.ml/post/tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
     </li>
     
     <li>

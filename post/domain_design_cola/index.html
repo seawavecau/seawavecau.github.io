@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.59.0" />
+    <meta name="generator" content="Hugo 0.60.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -102,126 +102,94 @@
                         
                         
                         <div class="post-content">
-                            
-
-<h1 id="cola-2-0概述">COLA 2.0概述</h1>
-
+                            <h1 id="cola-20">COLA 2.0概述</h1>
 <p>COLA是Clean Object-Oriented and Layered Architecture的缩写，代表“整洁面向对象分层架构”，也叫“可乐”架构，目前COLA已经发展到COLA 2.0。</p>
-
-<h1 id="cola-2-0-框架">COLA 2.0 框架</h1>
-
+<h1 id="cola-20-">COLA 2.0 框架</h1>
 <ul>
 <li>COLA作为框架主要是提供应用和架构需要的通用组件支撑，比如对CQRS和扩展点功能的支持。COLA框架主要由cola-framework这个项目来实现。 在这个项目里面包含3个Module：cola-core, cola-common和cola-test。</li>
 <li>架构图
-<img src="https://i.loli.net/2019/11/12/zHEDYPN6gLja27T.jpg" alt="架构图.png" /></li>
+<img src="https://i.loli.net/2019/11/12/zHEDYPN6gLja27T.jpg" alt="架构图.png"></li>
 </ul>
-
-<h2 id="cola-core">cola-core</h2>
-
+<h2 id="colacore">cola-core</h2>
 <p>该Module是整个框架的核心，里面的主要功能和Package如下：</p>
-
-<pre><code class="language-shell">com
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">com
 └── alibaba
     └── cola
-        ├── assembler  \\提供Assembler标准
-        ├── boot \\这是框架的核心启动包，负责框架组件的注册、发现
-        ├── command  \\提供Command标准
+        ├── assembler  <span style="color:#ae81ff">\\</span>提供Assembler标准
+        ├── boot <span style="color:#ae81ff">\\</span>这是框架的核心启动包，负责框架组件的注册、发现
+        ├── command  <span style="color:#ae81ff">\\</span>提供Command标准
         ├── common
-        ├── context  \\提供框架执行所需要的上下文
-        ├── domain  \\提供Domain Entity标准
+        ├── context  <span style="color:#ae81ff">\\</span>提供框架执行所需要的上下文
+        ├── domain  <span style="color:#ae81ff">\\</span>提供Domain Entity标准
         ├── event
-        ├── exception \\提供Exception标准
-        ├── extension  \\负责扩展机制中的重要概念-扩展(Extension)的定义和执行
-        ├── logger  \\提供DIP的日志接口
-        ├── repository  \\提供仓储（Repository）的标准
-</code></pre>
-
-<h2 id="cola-common">cola-common</h2>
-
+        ├── exception <span style="color:#ae81ff">\\</span>提供Exception标准
+        ├── extension  <span style="color:#ae81ff">\\</span>负责扩展机制中的重要概念-扩展<span style="color:#f92672">(</span>Extension<span style="color:#f92672">)</span>的定义和执行
+        ├── logger  <span style="color:#ae81ff">\\</span>提供DIP的日志接口
+        ├── repository  <span style="color:#ae81ff">\\</span>提供仓储（Repository）的标准
+</code></pre></div><h2 id="colacommon">cola-common</h2>
 <ul>
 <li>该Module提供了框架中Client Object, Entity Object和Data Object的定义，二方库会依赖该Module。</li>
 </ul>
-
-<h2 id="cola-test">cola-test</h2>
-
+<h2 id="colatest">cola-test</h2>
 <ul>
-<li>该Module主要是提供一些开发测试的工具，可以使用TDD来进行开发。
-<br /></li>
+<li>该Module主要是提供一些开发测试的工具，可以使用TDD来进行开发。</li>
 </ul>
-
-<h1 id="cola-2-0-架构图">COLA 2.0 架构图</h1>
-
-<p><img src="/img/07_domain_design/01.png" alt="domain_design_cola_archtect" /></p>
-
-<h1 id="cola-2-0使用">COLA 2.0使用</h1>
-
+<h1 id="cola-20-1">COLA 2.0 架构图</h1>
+<p><img src="/img/07_domain_design/01.png" alt="domain_design_cola_archtect"></p>
+<h1 id="cola-201">COLA 2.0使用</h1>
 <ul>
-<li><p>官方提供了两个Archetype，分别是cola-archetype-service和cola-archetype-web</p>
-
-<h2 id="安装archetype">安装archetype</h2></li>
-
-<li><p>方法一是使用安装命令，直接生产demo工程：</p>
-
-<pre><code class="language-shell">mvn archetype:generate  -DgroupId=com.alibaba.demo -DartifactId=demo -Dversion=1.0.0-SNAPSHOT -Dpackage=com.alibaba.demo -DarchetypeArtifactId=cola-framework-archetype-service -DarchetypeGroupId=com.alibaba.cola -DarchetypeVersion=2.0.0
-</code></pre></li>
-
-<li><p>这里介绍本地install archetype,然后再生成代码。</p>
-
-<pre><code class="language-shell"># 下载源码
+<li>官方提供了两个Archetype，分别是cola-archetype-service和cola-archetype-web</li>
+</ul>
+<h2 id="archetype">安装archetype</h2>
+<ul>
+<li>方法一是使用安装命令，直接生产demo工程：</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mvn archetype:generate  -DgroupId<span style="color:#f92672">=</span>com.alibaba.demo -DartifactId<span style="color:#f92672">=</span>demo -Dversion<span style="color:#f92672">=</span>1.0.0-SNAPSHOT -Dpackage<span style="color:#f92672">=</span>com.alibaba.demo -DarchetypeArtifactId<span style="color:#f92672">=</span>cola-framework-archetype-service -DarchetypeGroupId<span style="color:#f92672">=</span>com.alibaba.cola -DarchetypeVersion<span style="color:#f92672">=</span>2.0.0
+</code></pre></div><ul>
+<li>这里介绍本地install archetype,然后再生成代码。</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 下载源码</span>
 git clone https://github.com/alibaba/COLA
-# 生成archetype骨架模板，并安装到本地
+<span style="color:#75715e"># 生成archetype骨架模板，并安装到本地</span>
 cd cola-archetype-service
-# 执行install
+<span style="color:#75715e"># 执行install</span>
 mvn install
-# 用crawl命令，在本地仓库生成archetype-catalog.xml骨架配置文件
+<span style="color:#75715e"># 用crawl命令，在本地仓库生成archetype-catalog.xml骨架配置文件</span>
 mvn archetype:crawl
-# 通过vi命令验证文件内容
+<span style="color:#75715e"># 通过vi命令验证文件内容</span>
 vi ~/.m2/repository/archetype-catalog.xml
-# 对 cola-archetype-web 同样操作
-</code></pre>
-
-<h2 id="使用archetype生成demo工程">使用archetype生成Demo工程</h2>
-
+<span style="color:#75715e"># 对 cola-archetype-web 同样操作</span>
+</code></pre></div><h2 id="archetypedemo">使用archetype生成Demo工程</h2>
 <p>使用命令生成工程</p>
-
-<pre><code class="language-shell"># 从本地archeType模板中创建项目
-mvn archetype:generate -DarchetypeCatalog=local
-</code></pre>
-
-<p>命令交互如下：</p>
-
-<pre><code class="language-shell">Choose archetype:
-1: local -&gt; com.alibaba.cola:cola-framework-archetype-service (demo)
-2: local -&gt; com.alibaba.cola:cola-framework-archetype-web (demo)
-3: local -&gt; org.apache.maven.archetypes:maven-archetype-quickstart (quickstart)
-Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): 3: 1
-Define value for property 'groupId': com.seawave
-Define value for property 'artifactId': demo
-Define value for property 'version' 1.0-SNAPSHOT: :
-Define value for property 'package' com.seawave: :
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 从本地archeType模板中创建项目</span>
+mvn archetype:generate -DarchetypeCatalog<span style="color:#f92672">=</span>local
+</code></pre></div><p>命令交互如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Choose archetype:
+1: local -&gt; com.alibaba.cola:cola-framework-archetype-service <span style="color:#f92672">(</span>demo<span style="color:#f92672">)</span>
+2: local -&gt; com.alibaba.cola:cola-framework-archetype-web <span style="color:#f92672">(</span>demo<span style="color:#f92672">)</span>
+3: local -&gt; org.apache.maven.archetypes:maven-archetype-quickstart <span style="color:#f92672">(</span>quickstart<span style="color:#f92672">)</span>
+Choose a number or apply filter <span style="color:#f92672">(</span>format: <span style="color:#f92672">[</span>groupId:<span style="color:#f92672">]</span>artifactId, <span style="color:#66d9ef">case</span> sensitive contains<span style="color:#f92672">)</span>: 3: <span style="color:#ae81ff">1</span>
+Define value <span style="color:#66d9ef">for</span> property <span style="color:#e6db74">&#39;groupId&#39;</span>: com.seawave
+Define value <span style="color:#66d9ef">for</span> property <span style="color:#e6db74">&#39;artifactId&#39;</span>: demo
+Define value <span style="color:#66d9ef">for</span> property <span style="color:#e6db74">&#39;version&#39;</span> 1.0-SNAPSHOT: :
+Define value <span style="color:#66d9ef">for</span> property <span style="color:#e6db74">&#39;package&#39;</span> com.seawave: :
 Confirm properties configuration:
 groupId: com.seawave
 artifactId: demo
 version: 1.0-SNAPSHOT
 package: com.seawave
-Y: :
-</code></pre></li>
-
-<li><p>使用<code>idea demo</code>打开，验证项目是否成功</p></li>
-
-<li><p>生成的目录结构如下</p>
-
-<pre><code class="language-shell">├── demo-app        #application
+ Y: :
+</code></pre></div><ul>
+<li>使用<code>idea demo</code>打开，验证项目是否成功</li>
+<li>生成的目录结构如下</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">├── demo-app        <span style="color:#75715e">#application</span>
 ├── demo-client
 ├── demo-domain
 ├── demo-infrastructure
 ├── pom.xml
 └── start
-</code></pre></li>
-</ul>
-
-<h1 id="参考">参考</h1>
-
+</code></pre></div><h1 id="heading">参考</h1>
 <p><a href="https://toutiao.io/posts/9b2wg1d/preview">应用架构 COLA 2.0</a></p>
 
                         </div>
@@ -301,7 +269,7 @@ Y: :
 <ul class="widget-list">
     
     <li>
-        <a href="http://blog.wacai.ml/post/springboot_tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
+        <a href="http://blog.wacai.ml/post/tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
     </li>
     
     <li>

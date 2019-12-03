@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.59.0" />
+    <meta name="generator" content="Hugo 0.60.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -77,6 +77,31 @@
                         <article class="post">
                             <header>
                                 <h1 class="post-title">
+                                    <a href="http://blog.wacai.ml/book/shell_tips/" title="Shell相关命令" >Shell相关命令</a>
+                                </h1>
+                            </header>
+                            <date class="post-meta meta-date">
+                                2019年10月31日
+                            </date>
+                            
+                            <div class="post-meta">
+                                <span>|</span>
+                                
+                                <span class="meta-category"><a href="http://blog.wacai.ml/categories/Shell">Shell</a></span>
+                                
+                            </div>
+                            
+                            <div class="post-content">
+                                1. SSH 1.1 SSH 免密登录 终端Host产生RSA公私钥 # 产生key ssh-keygen -i rsa -C &#34;root@aliyun&#34; # copy公钥到远程机器（google云在浏览器ssh下，用sudo su切换到root） scp ~/.ssh/id_rsa.pub root@xxxxx: # 登陆远程机器 ssh root@xxxxx # 把上传的公钥追加到authorized_keys文件 cat id_rsa.pub &gt;&gt; .ssh/authorized_keys # 退出登陆，再ssh一下检验是否成功 1.2 SSH……
+                            </div>
+                            <p class="readmore"><a href="http://blog.wacai.ml/book/shell_tips/">阅读全文</a></p>
+                        </article>
+                    
+                    
+		    
+                        <article class="post">
+                            <header>
+                                <h1 class="post-title">
                                     <a href="http://blog.wacai.ml/post/firstblog/" title="Hugo &#43; Nginx: 利用webhook自动部署" >Hugo &#43; Nginx: 利用webhook自动部署</a>
                                 </h1>
                             </header>
@@ -92,7 +117,7 @@
                             </div>
                             
                             <div class="post-content">
-                                利用Hugo生产静态网站 1. 创建blog目录 ~&gt; hugo new site blog 会在你的用户下创建blog目录，生产hugo项目文件 ~&gt; cd blog 接下来我们使用git做文件管理，执行下列命令行 # git 初始化 git init #将主题maupassant作为外链加入本地仓库 git submodule add https://github.com/rujews/maupassant-hugo.git themes/maupassant # 修改hugo配置文件，使用下载的博客主题 echo 'theme = &quot;maupassant&quot;' &gt;&gt;……
+                                利用Hugo生产静态网站 1. 创建blog目录 ~&gt; hugo new site blog 会在你的用户下创建blog目录，生产hugo项目文件 ~&gt; cd blog 接下来我们使用git做文件管理，执行下列命令行 # git 初始化 git init #将主题maupassant作为外链加入本地仓库 git submodule add https://github.com/rujews/maupassant-hugo.git themes/maupassant # 修改hugo配置文件，使用下载的博客主题 echo &#39;theme = &#34;maupassant&#34;&#39; &gt;&gt;……
                             </div>
                             <p class="readmore"><a href="http://blog.wacai.ml/post/firstblog/">阅读全文</a></p>
                         </article>
@@ -179,7 +204,7 @@ Email:seawavecau@gmail.com……
 <ul class="widget-list">
     
     <li>
-        <a href="http://blog.wacai.ml/post/springboot_tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
+        <a href="http://blog.wacai.ml/post/tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
     </li>
     
     <li>

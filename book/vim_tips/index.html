@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.59.0" />
+    <meta name="generator" content="Hugo 0.60.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -102,133 +102,120 @@
                         
                         
                         <div class="post-content">
-                            
-
-<h1 id="1-mac-vim设置">1. Mac Vim设置</h1>
-
-<h2 id="1-1-vim基础配置">1.1 vim基础配置</h2>
-
+                            <h1 id="1-mac-vim">1. Mac Vim设置</h1>
+<h2 id="11-vim">1.1 vim基础配置</h2>
 <ul>
-<li><p>修改配置文件<code>~/.vimrc</code>,添加以下配置</p>
-
-<pre><code class="language-shell">&quot; 显示行号
-set number
-&quot; 显示标尺
+<li>修改配置文件<code>~/.vimrc</code>,添加以下配置</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#e6db74">&#34; 显示行号
+</span><span style="color:#e6db74">set number
+</span><span style="color:#e6db74">&#34;</span> 显示标尺
 set ruler
-&quot; 历史纪录
-set history=1000
-&quot; 输入的命令显示出来，看的清楚些
+<span style="color:#e6db74">&#34; 历史纪录
+</span><span style="color:#e6db74">set history=1000
+</span><span style="color:#e6db74">&#34;</span> 输入的命令显示出来，看的清楚些
 set showcmd
-&quot; 状态行显示的内容
-set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\&quot;%d/%m/%y\ -\ %H:%M\&quot;)}
-&quot; 启动显示状态行1，总是显示状态行2
-set laststatus=2
-&quot; 语法高亮显示
-syntax on
-set fileencodings=utf-8,gb2312,gbk,cp936,latin-1
-set fileencoding=utf-8
-set termencoding=utf-8
-set fileformat=unix
-set encoding=utf-8
-&quot; 配色方案
+<span style="color:#e6db74">&#34; 状态行显示的内容
+</span><span style="color:#e6db74">set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\&#34;%d/%m/%y\ -\ %H:%M\&#34;)}
+</span><span style="color:#e6db74">&#34;</span> 启动显示状态行1，总是显示状态行2
+set laststatus<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>
+<span style="color:#e6db74">&#34; 语法高亮显示
+</span><span style="color:#e6db74">syntax on
+</span><span style="color:#e6db74">set fileencodings=utf-8,gb2312,gbk,cp936,latin-1
+</span><span style="color:#e6db74">set fileencoding=utf-8
+</span><span style="color:#e6db74">set termencoding=utf-8
+</span><span style="color:#e6db74">set fileformat=unix
+</span><span style="color:#e6db74">set encoding=utf-8
+</span><span style="color:#e6db74">&#34;</span> 配色方案
 colorscheme desert
-&quot; 指定配色方案是256色
-set t_Co=256
-
-set wildmenu
-
-&quot; 去掉有关vi一致性模式，避免以前版本的一些bug和局限，解决backspace不能使用的问题
+<span style="color:#e6db74">&#34; 指定配色方案是256色
+</span><span style="color:#e6db74">set t_Co=256
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">set wildmenu
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&#34;</span> 去掉有关vi一致性模式，避免以前版本的一些bug和局限，解决backspace不能使用的问题
 set nocompatible
-set backspace=indent,eol,start
-set backspace=2
+set backspace<span style="color:#f92672">=</span>indent,eol,start
+set backspace<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>
 
-&quot; 启用自动对齐功能，把上一行的对齐格式应用到下一行
-set autoindent
-
-&quot; 依据上面的格式，智能的选择对齐方式，对于类似C语言编写很有用处
+<span style="color:#e6db74">&#34; 启用自动对齐功能，把上一行的对齐格式应用到下一行
+</span><span style="color:#e6db74">set autoindent
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&#34;</span> 依据上面的格式，智能的选择对齐方式，对于类似C语言编写很有用处
 set smartindent
 
-&quot; vim禁用自动备份
-set nobackup
-set nowritebackup
-set noswapfile
-
-&quot; 用空格代替tab
+<span style="color:#e6db74">&#34; vim禁用自动备份
+</span><span style="color:#e6db74">set nobackup
+</span><span style="color:#e6db74">set nowritebackup
+</span><span style="color:#e6db74">set noswapfile
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&#34;</span> 用空格代替tab
 set expandtab
 
-&quot; 设置显示制表符的空格字符个数,改进tab缩进值，默认为8，现改为4
-set tabstop=4
+<span style="color:#e6db74">&#34; 设置显示制表符的空格字符个数,改进tab缩进值，默认为8，现改为4
+</span><span style="color:#e6db74">set tabstop=4
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&#34;</span> 统一缩进为4，方便在开启了et后使用退格<span style="color:#f92672">(</span>backspace<span style="color:#f92672">)</span>键，每次退格将删除X个空格
+set softtabstop<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>
 
-&quot; 统一缩进为4，方便在开启了et后使用退格(backspace)键，每次退格将删除X个空格
-set softtabstop=4
+<span style="color:#e6db74">&#34; 设定自动缩进为4个字符，程序中自动缩进所使用的空白长度
+</span><span style="color:#e6db74">set shiftwidth=4
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&#34;</span> 设置帮助文件为中文<span style="color:#f92672">(</span>需要安装vimcdoc文档<span style="color:#f92672">)</span>
+set helplang<span style="color:#f92672">=</span>cn
 
-&quot; 设定自动缩进为4个字符，程序中自动缩进所使用的空白长度
-set shiftwidth=4
-
-&quot; 设置帮助文件为中文(需要安装vimcdoc文档)
-set helplang=cn
-
-&quot; 显示匹配的括号
-set showmatch
-
-&quot; 文件缩进及tab个数
-au FileType html,python,vim,javascript setl shiftwidth=4
-au FileType html,python,vim,javascript setl tabstop=4
-au FileType java,php setl shiftwidth=4
-au FileType java,php setl tabstop=4
-&quot; 高亮搜索的字符串
-set hlsearch
-
-&quot; 检测文件的类型
+<span style="color:#e6db74">&#34; 显示匹配的括号
+</span><span style="color:#e6db74">set showmatch
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&#34;</span> 文件缩进及tab个数
+au FileType html,python,vim,javascript setl shiftwidth<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>
+au FileType html,python,vim,javascript setl tabstop<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>
+au FileType java,php setl shiftwidth<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>
+au FileType java,php setl tabstop<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>
+<span style="color:#e6db74">&#34; 高亮搜索的字符串
+</span><span style="color:#e6db74">set hlsearch
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&#34;</span> 检测文件的类型
 filetype on
 filetype plugin on
 filetype indent on
 
-&quot; C风格缩进
-set cindent
-set completeopt=longest,menu
+<span style="color:#e6db74">&#34; C风格缩进
+</span><span style="color:#e6db74">set cindent
+</span><span style="color:#e6db74">set completeopt=longest,menu
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&#34;</span> 功能设置
 
-&quot; 功能设置
-
-&quot; 去掉输入错误提示声音
-set noeb
-&quot; 自动保存
+<span style="color:#e6db74">&#34; 去掉输入错误提示声音
+</span><span style="color:#e6db74">set noeb
+</span><span style="color:#e6db74">&#34;</span> 自动保存
 set autowrite
-&quot; 突出显示当前行 
-set cursorline
-&quot; 突出显示当前列
+<span style="color:#e6db74">&#34; 突出显示当前行 
+</span><span style="color:#e6db74">set cursorline
+</span><span style="color:#e6db74">&#34;</span> 突出显示当前列
 set cursorcolumn
-&quot;设置光标样式为竖线vertical bar
-&quot; Change cursor shape between insert and normal mode in iTerm2.app
-&quot;if $TERM_PROGRAM =~ &quot;iTerm&quot;
-let &amp;t_SI = &quot;\&lt;Esc&gt;]50;CursorShape=1\x7&quot; &quot; Vertical bar in insert mode
-let &amp;t_EI = &quot;\&lt;Esc&gt;]50;CursorShape=0\x7&quot; &quot; Block in normal mode
-&quot;endif
-&quot; 共享剪贴板
-set clipboard+=unnamed
-&quot; 文件被改动时自动载入
+<span style="color:#e6db74">&#34;设置光标样式为竖线vertical bar
+</span><span style="color:#e6db74">&#34;</span> Change cursor shape between insert and normal mode in iTerm2.app
+<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">if </span>$TERM_PROGRAM<span style="color:#e6db74"> =~ </span><span style="color:#e6db74">&#34;</span>iTerm<span style="color:#e6db74">&#34;
+</span><span style="color:#e6db74">let &amp;t_SI = &#34;</span><span style="color:#ae81ff">\&lt;</span>Esc&gt;<span style="color:#f92672">]</span>50;CursorShape<span style="color:#f92672">=</span>1<span style="color:#ae81ff">\x</span>7<span style="color:#e6db74">&#34; &#34;</span> Vertical bar in insert mode
+let &amp;t_EI <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;\&lt;Esc&gt;]50;CursorShape=0\x7&#34;</span> <span style="color:#e6db74">&#34; Block in normal mode
+</span><span style="color:#e6db74">&#34;</span>endif
+<span style="color:#e6db74">&#34; 共享剪贴板
+</span><span style="color:#e6db74">set clipboard+=unnamed
+</span><span style="color:#e6db74">&#34;</span> 文件被改动时自动载入
 set autoread
-&quot; 顶部底部保持3行距离
-set scrolloff=3
-</code></pre></li>
-</ul>
-
-<h2 id="1-2-插件管家vundle配置">1.2 插件管家Vundle配置</h2>
-
+<span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> 顶部底部保持3行距离
+</span><span style="color:#e6db74">set scrolloff=3
+</span></code></pre></div><h2 id="12-vundle">1.2 插件管家Vundle配置</h2>
 <ul>
 <li>相比VIM7，VIM8最强大的地方是给我们带来了期待已久的异步任务机制</li>
-
-<li><p>异步任务机制的强大之处在于它允许各种插件创建异步任务而不会阻塞当前的编辑</p>
-
-<h3 id="1-2-1下载plug-vim插件管理器">1.2.1下载plug.vim插件管理器</h3>
-
-<pre><code class="language-shell">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-</code></pre>
-
-<h3 id="1-2-2-安装-gnu-global和-universal-ctags">1.2.2 安装 GNU Global和 Universal ctags</h3>
-
-<pre><code class="language-shell">git clone https://github.com/universal-ctags/ctags.git
+<li>异步任务机制的强大之处在于它允许各种插件创建异步任务而不会阻塞当前的编辑</li>
+</ul>
+<h3 id="121plugvim">1.2.1下载plug.vim插件管理器</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">curl -fLo ~/.vim/autoload/plug.vim --create-dirs <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+</code></pre></div><h3 id="122--gnu-global-universal-ctags">1.2.2 安装 GNU Global和 Universal ctags</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone https://github.com/universal-ctags/ctags.git
 cd ctags
 sh autogen.sh
 ./configure
@@ -238,50 +225,36 @@ sudo make install
 wget http://tamacom.com/global/global-6.6.3.tar.gz --no-check-certificate
 tar xf global-6.6.3.tar.gz
 cd global-6.6.3
-sed -i &quot;s/(int i = 0;/(i = 0;/g&quot; gtags-cscope/find.c
-sed -i &quot;/regex_t reg;/a\int i;&quot; gtags-cscope/find.c
+sed -i <span style="color:#e6db74">&#34;s/(int i = 0;/(i = 0;/g&#34;</span> gtags-cscope/find.c
+sed -i <span style="color:#e6db74">&#34;/regex_t reg;/a\int i;&#34;</span> gtags-cscope/find.c
 ./configure
 make -j
 sudo make install
 
-pip install pygments  # 这个一定要安装！！！
-</code></pre></li>
-</ul>
-
-<h3 id="1-2-3-配置vim8的插件系统">1.2.3 配置vim8的插件系统</h3>
-
+pip install pygments  <span style="color:#75715e"># 这个一定要安装！！！</span>
+</code></pre></div><h3 id="123-vim8">1.2.3 配置vim8的插件系统</h3>
 <ul>
-<li><p>先配置一下<code>plug.vim</code>，然后让<code>plug.vim</code>帮助我们自动管理插件，编辑~/.vimrc文件．</p>
-
-<pre><code class="language-shell">&quot; Specify a directory for plugins
-&quot; - For Neovim: ~/.local/share/nvim/plugged
-&quot; - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
-
-&quot; All of your Plugs must be added before the following line
-call plug#end()              &quot; required
-</code></pre></li>
+<li>先配置一下<code>plug.vim</code>，然后让<code>plug.vim</code>帮助我们自动管理插件，编辑~/.vimrc文件．</li>
 </ul>
-
-<h3 id="1-2-4-更新配置文件之后调用-vim-pluginstall-qall-安装全部插件-执行这个命令plug会自动下载全部的插件到vim插件目录下">1.2.4 更新配置文件之后调用 vim +PlugInstall +qall 安装全部插件，执行这个命令Plug会自动下载全部的插件到vim插件目录下。</h3>
-
-<pre><code class="language-shell">vim +PlugInstall +qall
-</code></pre>
-
-<h3 id="1-2-5-常用插件">1.2.5 常用插件</h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#e6db74">&#34; Specify a directory for plugins
+</span><span style="color:#e6db74">&#34;</span> - For Neovim: ~/.local/share/nvim/plugged
+<span style="color:#e6db74">&#34; - Avoid using standard Vim directory names like &#39;plugin&#39;
+</span><span style="color:#e6db74">call plug#begin(&#39;~/.vim/plugged&#39;)
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&#34;</span> All of your Plugs must be added before the following line
+call plug#end<span style="color:#f92672">(</span><span style="color:#f92672">)</span>              <span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> required
+</span></code></pre></div><h3 id="124--vim-pluginstall-qall-plugvim">1.2.4 更新配置文件之后调用 vim +PlugInstall +qall 安装全部插件，执行这个命令Plug会自动下载全部的插件到vim插件目录下。</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vim +PlugInstall +qall
+</code></pre></div><h3 id="125-">1.2.5 常用插件</h3>
 <h3 id="nerd-tree">NERD Tree</h3>
-
 <ul>
 <li><code>NERD Tree</code>是一个树形目录插件，方便浏览当前目录有哪些目录和文件。</li>
-
-<li><p>在~/.vimrc文件中配置NERD Tree，设置一个启用或禁用NERD Tree的键映射</p>
-
-<pre><code class="language-java">Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-nmap &lt;F5&gt; :NERDTreeToggle&lt;cr&gt;
-</code></pre>
-
-<p>所以你只需按F5键就能启用或禁用NERD Tree，NERD Tree提供一些常用快捷键来操作目录：
+<li>在~/.vimrc文件中配置NERD Tree，设置一个启用或禁用NERD Tree的键映射
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"></code></pre></div></li>
+</ul>
+<p>Plug &lsquo;scrooloose/nerdtree&rsquo;, { &lsquo;on&rsquo;:  &lsquo;NERDTreeToggle&rsquo; }
+nmap <!-- raw HTML omitted --> :NERDTreeToggle<!-- raw HTML omitted --></p>
+<pre><code>所以你只需按F5键就能启用或禁用NERD Tree，NERD Tree提供一些常用快捷键来操作目录：
 通过hjkl来移动光标
 o打开关闭文件或目录，如果想打开文件，必须光标移动到文件名
 t在标签页中打开
@@ -289,27 +262,19 @@ s和i可以水平或纵向分割窗口打开文件
 p到上层目录
 P到根目录
 K到同目录第一个节点
-P到同目录最后一个节点</p>
+P到同目录最后一个节点
+### 快捷键
+* ctrl+w+h: 光标focus左侧树形目录
+* ctrl+w+l: 光标focus右侧文件显示窗口
 
-<h3 id="快捷键">快捷键</h3></li>
+### 参考
+  - [文章1](https://kernelgo.org/vim8.html)
+  - [文章2](http://www.skywind.me/blog/archives/2084)
 
-<li><p>ctrl+w+h: 光标focus左侧树形目录</p></li>
-
-<li><p>ctrl+w+l: 光标focus右侧文件显示窗口</p></li>
-</ul>
-
-<h3 id="参考">参考</h3>
-
-<pre><code>- [文章1](https://kernelgo.org/vim8.html)
-- [文章2](http://www.skywind.me/blog/archives/2084)
+# 2. Vim快捷键
+## 2.1 一图尽览
+![vim_keys_1.png](/img/03_vim_tips/01.jpg)
 </code></pre>
-
-<h1 id="2-vim快捷键">2. Vim快捷键</h1>
-
-<h2 id="2-1-一图尽览">2.1 一图尽览</h2>
-
-<p><img src="/img/03_vim_tips/01.jpg" alt="vim_keys_1.png" /></p>
-
                         </div>
 
                         
@@ -379,7 +344,7 @@ P到同目录最后一个节点</p>
 <ul class="widget-list">
     
     <li>
-        <a href="http://blog.wacai.ml/post/springboot_tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
+        <a href="http://blog.wacai.ml/post/tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
     </li>
     
     <li>

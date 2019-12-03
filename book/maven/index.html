@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.59.0" />
+    <meta name="generator" content="Hugo 0.60.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -102,87 +102,62 @@
                         
                         
                         <div class="post-content">
-                            
-
-<h1 id="maven-安装">Maven 安装</h1>
-
-<h1 id="maven配置和添加阿里云镜像">maven配置和添加阿里云镜像</h1>
-
+                            <h1 id="maven-">Maven 安装</h1>
+<h1 id="maven">maven配置和添加阿里云镜像</h1>
 <ul>
-<li><p>在settings.xml文件的mirrors节点里，添加</p>
-
-<pre><code class="language-xml">&lt;mirror&gt;
-    &lt;id&gt;nexus-aliyun&lt;/id&gt;
-    &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;
-    &lt;name&gt;Nexus aliyun&lt;/name&gt;
-    &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;
-&lt;/mirror&gt;
-</code></pre></li>
+<li>在settings.xml文件的mirrors节点里，添加</li>
 </ul>
-
-<h1 id="maven自定义archetype">Maven自定义archetype</h1>
-
-<h2 id="1-什么是archetype">1. 什么是archetype.</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#f92672">&lt;mirror</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;id</span><span style="color:#f92672">&gt;</span>nexus-aliyun<span style="color:#f92672">&lt;/id&gt;</span>
+        <span style="color:#f92672">&lt;mirrorOf</span><span style="color:#f92672">&gt;</span>*<span style="color:#f92672">&lt;/mirrorOf&gt;</span>
+        <span style="color:#f92672">&lt;name</span><span style="color:#f92672">&gt;</span>Nexus aliyun<span style="color:#f92672">&lt;/name&gt;</span>
+        <span style="color:#f92672">&lt;url</span><span style="color:#f92672">&gt;</span>http://maven.aliyun.com/nexus/content/groups/public<span style="color:#f92672">&lt;/url&gt;</span>
+    <span style="color:#f92672">&lt;/mirror&gt;</span>
+</code></pre></div><h1 id="mavenarchetype">Maven自定义archetype</h1>
+<h2 id="1-archetype">1. 什么是archetype.</h2>
 <ul>
 <li>当我们用IDEA创建maven项目时，会列出archetype列表。</li>
 <li>这个等同于<code>mvn archetype:generate</code>命令来快速创建maven项目。
-<img src="/img/05_maven/01.png" alt="idea_archetype_1.png" /></li>
+<img src="/img/05_maven/01.png" alt="idea_archetype_1.png"></li>
 <li>每个模板里其实就是附带不同的依赖和插件。一般在公司私服里都会有属于本公司的一套archeType模板，里面有着调试好的项目用到的依赖包和版本号。</li>
 </ul>
-
-<h2 id="2-创建archetype">2. 创建archetype</h2>
-
+<h2 id="2-archetype">2. 创建archetype</h2>
 <p>假如自己已经有了一个maven项目，想给该项目创建一个archeType模板。
 cd 到项目根目录下执行(pom.xml同级目录)</p>
-
-<pre><code class="language-shell">mvn archetype:create-from-project 
-</code></pre>
-
-<ul>
-<li>扫描代码，<strong>xxx</strong>参数会做替换，把文件拷贝到target目录下。</li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mvn archetype:create-from-project 
+</code></pre></div><ul>
+<li>扫描代码，__xxx__参数会做替换，把文件拷贝到target目录下。</li>
 <li>此时会在项目target下生成generated-sources文件
 最终产生的结构如<a href="https://github.com/alibaba/COLA.git">阿里COLA Github</a>下的<code>cola-archetype-web</code>，就是一个典型的archetype目录结构。把generated-source/archetype目录下的代码作为工程上传的。</li>
 </ul>
-
-<h2 id="3-生成archetype模板">3. 生成archetype模板</h2>
-
-<pre><code class="language-shell"># 进入archetype目录
+<h2 id="3-archetype">3. 生成archetype模板</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 进入archetype目录</span>
 cd target/generated-sources/archetype/
-# 执行install
+<span style="color:#75715e"># 执行install</span>
 mvn install
-# 用crawl命令，在本地仓库生成archetype-catalog.xml骨架配置文件
+<span style="color:#75715e"># 用crawl命令，在本地仓库生成archetype-catalog.xml骨架配置文件</span>
 mvn archetype:crawl
-# 通过ls命令验证文件
+<span style="color:#75715e"># 通过ls命令验证文件</span>
 ls ~/.m2/repository/archetype-catalog.xml
-</code></pre>
-
-<p>archetype-catalog.xml的文件内容如下：</p>
-
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;archetype-catalog xsi:schemaLocation=&quot;http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0 http://maven.apache.org/xsd/archetype-catalog-1.0.0.xsd&quot;
-    xmlns=&quot;http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0&quot;
-    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
-  &lt;archetypes&gt;
-    &lt;archetype&gt;
-      &lt;groupId&gt;com.alibaba.cola&lt;/groupId&gt;
-      &lt;artifactId&gt;cola-framework-archetype-web-archetype&lt;/artifactId&gt;
-      &lt;version&gt;2.0.0&lt;/version&gt;
-      &lt;description&gt;cola-framework-archetype-web&lt;/description&gt;
-    &lt;/archetype&gt;
-  &lt;/archetypes&gt;
-&lt;/archetype-catalog&gt;
-</code></pre>
-
-<h2 id="4-使用archetype模板">4. 使用archetype模板</h2>
-
-<pre><code class="language-s"># 从本地archeType模板中创建项目
-mvn archetype:generate -DarchetypeCatalog=local
-</code></pre>
-
-<p>命令后会有交互，选择相应的模板，然后定义要创建项目的groupId、artifactId和version。</p>
-
-<pre><code class="language-log">Choose archetype:
+</code></pre></div><p>archetype-catalog.xml的文件内容如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;archetype-catalog</span> <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0 http://maven.apache.org/xsd/archetype-catalog-1.0.0.xsd&#34;</span>
+    <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0&#34;</span>
+    <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;archetypes</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;archetype</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>com.alibaba.cola<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>cola-framework-archetype-web-archetype<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>2.0.0<span style="color:#f92672">&lt;/version&gt;</span>
+      <span style="color:#f92672">&lt;description</span><span style="color:#f92672">&gt;</span>cola-framework-archetype-web<span style="color:#f92672">&lt;/description&gt;</span>
+    <span style="color:#f92672">&lt;/archetype&gt;</span>
+  <span style="color:#f92672">&lt;/archetypes&gt;</span>
+<span style="color:#f92672">&lt;/archetype-catalog&gt;</span>
+</code></pre></div><h2 id="4-archetype">4. 使用archetype模板</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-s" data-lang="s"><span style="color:#75715e"># 从本地archeType模板中创建项目</span>
+mvn archetype<span style="color:#f92672">:</span>generate <span style="color:#f92672">-</span>DarchetypeCatalog<span style="color:#f92672">=</span>local
+</code></pre></div><p>命令后会有交互，选择相应的模板，然后定义要创建项目的groupId、artifactId和version。</p>
+<pre><code class="language-log" data-lang="log">Choose archetype:
 1: local -&gt; org.apache.maven.archetypes:maven-archetype-quickstart (quickstart)
 2: local -&gt; com.alibaba.cola:cola-framework-archetype-web-archetype (cola-framework-archetype-web)
 Choose a number or apply filter (format: [groupId:]artifactId, case sensitive contains): 1: 2
@@ -196,15 +171,10 @@ artifactId: demo-test
 version: 1.0-SNAPSHOT
 package: com.seawave
  Y: : Y
-</code></pre>
-
-<p># 4. Maven 命令
-查看jar包依赖:</p>
-
-<pre><code class="language-shell"> mvn dependency:tree &gt; dep.log 
-</code></pre>
-
-<p>maven-dependency-plugin最大的用途是帮助分析项目依赖。dependency:list能够列出项目最终解析到的依赖列表，dependency:tree能进一步的描绘项目依赖树，dependency:analyze可以告诉你项目依赖潜在的问题</p>
+</code></pre><h1 id="4-maven-">4. Maven 命令</h1>
+<p>查看jar包依赖:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mvn dependency:tree &gt; dep.log 
+</code></pre></div><p>maven-dependency-plugin最大的用途是帮助分析项目依赖。dependency:list能够列出项目最终解析到的依赖列表，dependency:tree能进一步的描绘项目依赖树，dependency:analyze可以告诉你项目依赖潜在的问题</p>
 
                         </div>
 
@@ -277,7 +247,7 @@ package: com.seawave
 <ul class="widget-list">
     
     <li>
-        <a href="http://blog.wacai.ml/post/springboot_tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
+        <a href="http://blog.wacai.ml/post/tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
     </li>
     
     <li>

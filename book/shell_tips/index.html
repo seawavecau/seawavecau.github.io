@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.59.0" />
+    <meta name="generator" content="Hugo 0.60.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -102,290 +102,200 @@
                         
                         
                         <div class="post-content">
-                            
-
-<h1 id="1-ssh">1. SSH</h1>
-
-<h2 id="1-1-ssh-免密登录">1.1 SSH 免密登录</h2>
-
+                            <h1 id="1-ssh">1. SSH</h1>
+<h2 id="11-ssh-">1.1 SSH 免密登录</h2>
 <ul>
-<li><p>终端Host产生RSA公私钥</p>
-
-<pre><code class="language-shell"># 产生key
-ssh-keygen -i rsa -C &quot;root@aliyun&quot;
-# copy公钥到远程机器（google云在浏览器ssh下，用sudo su切换到root）
+<li>终端Host产生RSA公私钥</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 产生key</span>
+ssh-keygen -i rsa -C <span style="color:#e6db74">&#34;root@aliyun&#34;</span>
+<span style="color:#75715e"># copy公钥到远程机器（google云在浏览器ssh下，用sudo su切换到root）</span>
 scp ~/.ssh/id_rsa.pub root@xxxxx:
-# 登陆远程机器
+<span style="color:#75715e"># 登陆远程机器</span>
 ssh root@xxxxx
-# 把上传的公钥追加到authorized_keys文件
+<span style="color:#75715e"># 把上传的公钥追加到authorized_keys文件</span>
 cat id_rsa.pub &gt;&gt; .ssh/authorized_keys
-# 退出登陆，再ssh一下检验是否成功
-</code></pre>
-
-<h2 id="1-2-ssh-root启用远程登录">1.2 SSH root启用远程登录</h2>
-
-<pre><code class="language-shell"># 修改/etc/ssh/sshd_config文件，启用下面属性
+<span style="color:#75715e"># 退出登陆，再ssh一下检验是否成功</span>
+</code></pre></div><h2 id="12-ssh-root">1.2 SSH root启用远程登录</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 修改/etc/ssh/sshd_config文件，启用下面属性</span>
 PermitRootLogin yes
 PubkeyAuthentication yes
 PasswordAuthentication yes
-</code></pre>
+</code></pre></div><h2 id="sshd">重启sshd</h2>
+<p><code>systemctl resart sshd</code> 使配置生效</p>
+<h2 id="13-ssh-">1.3 SSH 别名登陆</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 在.ssh目录下创建config</span>
+touch config
 
-<h2 id="重启sshd">重启sshd</h2>
-
-<pre><code class="language-systemctl">
-## 1.3 SSH 别名登陆
-</code></pre>
-
-<p>shell</p></li>
+<span style="color:#75715e"># 编辑config文件</span>
+vi config
+</code></pre></div><ul>
+<li>Host是服务别名，HostName你的IP，文件内容如下</li>
 </ul>
-
-<h1 id="在-ssh目录下创建config">在.ssh目录下创建config</h1>
-
-<p>touch config</p>
-
-<h1 id="编辑config文件">编辑config文件</h1>
-
-<p>vi config</p>
-
-<pre><code>
-* Host是服务别名，HostName你的IP，文件内容如下
-</code></pre>
-
-<p>shell
-Host g
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Host g
 HostName 35.200.115.242
-User root</p>
-
-<pre><code>访问服务器用`ssh g`就可以登录了。
-
-# 2. 系统用户
-## 2.1 创建系统用户
-</code></pre>
-
-<h1 id="创建">创建</h1>
-
-<p>adduser dev</p>
-
-<h1 id="设置密码">设置密码</h1>
-
-<p>passwd dev  #输入新密码</p>
-
-<pre><code>
-## 2.2 修改文件夹owner
-</code></pre>
-
-<p>shell</p>
-
-<h1 id="创建一个es新用户-并运行程序">创建一个es新用户，并运行程序</h1>
-
-<p>adduser es
+User root
+</code></pre></div><p>访问服务器用<code>ssh g</code>就可以登录了。</p>
+<h1 id="2-">2. 系统用户</h1>
+<h2 id="21-">2.1 创建系统用户</h2>
+<pre><code># 创建
+adduser dev
+# 设置密码
+passwd dev  #输入新密码
+</code></pre><h2 id="22-owner">2.2 修改文件夹owner</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 创建一个es新用户，并运行程序</span>
+adduser es
 chown -R es:es elasticsearch
 su es
-./elasticsearch -d  # -d 表示后台运行</p>
-
-<pre><code>
-# 3. tree命令技巧
-## 3.1 常见命令
-</code></pre>
-
-<p>tree
-tree folder<br />
+./elasticsearch -d  <span style="color:#75715e"># -d 表示后台运行</span>
+</code></pre></div><h1 id="3-tree">3. tree命令技巧</h1>
+<h2 id="31-">3.1 常见命令</h2>
+<pre><code>tree
+tree folder     
 tree -L 2       # 遍历2层目录显示
 tree -C         # 加颜色
-tree -N folder  # 显示中文乱码</p>
-
-<pre><code>## 3.2 其他选项：
-`
--a：显示所有文件和目录；
--A：使用ASNI绘图字符显示树状图而非以ASCII字符组合；
--C：在文件和目录清单加上色彩，便于区分各种类型；
--d：先是目录名称而非内容；
--D：列出文件或目录的更改时间；
--f：在每个文件或目录之前，显示完整的相对路径名称；
--F：在执行文件，目录，Socket，符号连接，管道名称名称，各自加上”*”，”/”，”@”，”|”号；
--g：列出文件或目录的所属群组名称，没有对应的名称时，则显示群组识别码；
--i：不以阶梯状列出文件和目录名称；
--l：&lt;范本样式&gt; 不显示符号范本样式的文件或目录名称；
--l：如遇到性质为符号连接的目录，直接列出该连接所指向的原始目录；
--n：不在文件和目录清单加上色彩；
--N：直接列出文件和目录名称，包括控制字符；
--p：列出权限标示；
--P：&lt;范本样式&gt; 只显示符合范本样式的文件和目录名称；
--q：用“？”号取代控制字符，列出文件和目录名称；
--s：列出文件和目录大小；
--t：用文件和目录的更改时间排序；
--u：列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码；
--x：将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该目录予以排除在寻找范围外。
-`
-
-# 4. 网络命令
-## 4.1 ab 命令
-### 安装
-</code></pre>
-
-<p>shell</p>
-
-<h1 id="centos-安装">centos 安装</h1>
-
-<p>yum -y install httpd-tools</p>
-
-<pre><code>### 使用
-</code></pre>
-
-<p>shell</p>
-
-<h1 id="ab-n-请求次数-c-并发数-url">ab -n 请求次数 -c 并发数 url</h1>
-
-<p>ab -n 10 -c 2 <a href="http://baidu.com">http://baidu.com</a></p>
-
-<h1 id="并发测试">并发测试</h1>
-
-<p>ab -r -n 150000 -c 10000 <a href="http://url">http://url</a></p>
-
-<h1 id="post文件">post文件</h1>
-
-<p>ab -n 100 -c 10 -k -T &ldquo;application/json&rdquo; -p data.txt <a href="http://xxxxx">http://xxxxx</a></p>
-
-<h1 id="post-字符串">post 字符串</h1>
-
-<p>ab -n 100 -c 10 -k -T &ldquo;application/json&rdquo; -p &ldquo;{&lsquo;key1&rsquo;: &lsquo;value1&rsquo;, &lsquo;key2&rsquo;: &lsquo;value2&rsquo;}&rdquo; &ldquo;<a href="http://test.com/post&quot;">http://test.com/post&quot;</a> &gt;&gt; report.html</p>
-
-<h1 id="post-参数值">post 参数值</h1>
-
-<p>ab -n 100 -c 10 -k -p &ldquo;k1=value1&amp;k2=value2&rdquo; <a href="http://xxxx">http://xxxx</a></p>
-
-<pre><code>* 结合python/shell操作使用,可以套用for循环
-* 参数
-</code></pre>
-
-<p>-n ：总共的请求执行数，缺省是1；
+tree -N folder  # 显示中文乱码
+</code></pre><h2 id="32-">3.2 其他选项：</h2>
+<p><code>-a：显示所有文件和目录； -A：使用ASNI绘图字符显示树状图而非以ASCII字符组合； -C：在文件和目录清单加上色彩，便于区分各种类型； -d：先是目录名称而非内容； -D：列出文件或目录的更改时间； -f：在每个文件或目录之前，显示完整的相对路径名称； -F：在执行文件，目录，Socket，符号连接，管道名称名称，各自加上”*”，”/”，”@”，”|”号； -g：列出文件或目录的所属群组名称，没有对应的名称时，则显示群组识别码； -i：不以阶梯状列出文件和目录名称； -l：&lt;范本样式&gt; 不显示符号范本样式的文件或目录名称； -l：如遇到性质为符号连接的目录，直接列出该连接所指向的原始目录； -n：不在文件和目录清单加上色彩； -N：直接列出文件和目录名称，包括控制字符； -p：列出权限标示； -P：&lt;范本样式&gt; 只显示符合范本样式的文件和目录名称； -q：用“？”号取代控制字符，列出文件和目录名称； -s：列出文件和目录大小； -t：用文件和目录的更改时间排序； -u：列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码； -x：将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该目录予以排除在寻找范围外。</code></p>
+<h1 id="4-">4. 网络命令</h1>
+<h2 id="41-ab-">4.1 ab 命令</h2>
+<h3 id="heading">安装</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># centos 安装</span>
+yum -y install httpd-tools
+</code></pre></div><h3 id="heading1">使用</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># ab -n 请求次数 -c 并发数 url</span>
+ab -n <span style="color:#ae81ff">10</span> -c <span style="color:#ae81ff">2</span> http://baidu.com
+<span style="color:#75715e"># 并发测试</span>
+ab -r -n <span style="color:#ae81ff">150000</span> -c <span style="color:#ae81ff">10000</span> http://url
+<span style="color:#75715e"># post文件</span>
+ab -n <span style="color:#ae81ff">100</span> -c <span style="color:#ae81ff">10</span> -k -T <span style="color:#e6db74">&#34;application/json&#34;</span> -p data.txt http://xxxxx
+<span style="color:#75715e"># post 字符串</span>
+ab -n <span style="color:#ae81ff">100</span> -c <span style="color:#ae81ff">10</span> -k -T <span style="color:#e6db74">&#34;application/json&#34;</span> -p <span style="color:#e6db74">&#34;{&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;}&#34;</span> <span style="color:#e6db74">&#34;http://test.com/post&#34;</span> &gt;&gt; report.html
+<span style="color:#75715e"># post 参数值</span>
+ab -n <span style="color:#ae81ff">100</span> -c <span style="color:#ae81ff">10</span> -k -p <span style="color:#e6db74">&#34;k1=value1&amp;k2=value2&#34;</span> http://xxxx
+</code></pre></div><ul>
+<li>结合python/shell操作使用,可以套用for循环</li>
+<li>参数</li>
+</ul>
+<pre><code>-n ：总共的请求执行数，缺省是1；
 -c： 并发数，缺省是1；
 -t：测试所进行的总时间，秒为单位，缺省50000s；
 -k：发送keep-alive指令到服务器；
 -T：header头内容类型，T是大写的，内容是字符串形式；
--p：post请求，后面加post参数文档路径，默认为当前路径或者-p后可以是json格式、可以是&amp;连接参数，放在&rdquo;&ldquo;双引号之间；
+-p：post请求，后面加post参数文档路径，默认为当前路径或者-p后可以是json格式、可以是&amp;连接参数，放在&quot;&quot;双引号之间；
 -w：以HTML表格输出结果，默认是两列宽度的一个表；
 -C：请求附加一个cookie，典型形式是cookieName = value；C大写
 -H：请求附加多个cookie；-H  “Cookie: key1=value1; key2=value2”
--i：执行的是head请求不是get；</p>
-
-<pre><code>* 延伸阅读：[wrk,ab,jmeter,lutos压测工具比较](https://testerhome.com/topics/17068)
-
-## 4.2 netstat 命令
-
-</code></pre>
-
-<p>shell</p>
-
-<h1 id="centos安装目录">centos安装目录</h1>
-
-<p>yum install net-tools</p>
-
-<h1 id="使用命令-通过端口查看程序是否启动">使用命令,通过端口查看程序是否启动</h1>
-
-<p>netstat -an | grep 端口
-#结果如下：</p>
-
-<h1 id="tcp-0-0-0-0-0-0-11800-0-0-0-0-listen">tcp        0      0 0.0.0.0:11800           0.0.0.0:*               LISTEN</h1>
-
-<h1 id="还可以这么用">还可以这么用</h1>
-
-<p>netstat -anltp|grep 22</p>
-
-<h1 id="还可以-这么用">还可以 这么用</h1>
-
-<p>netstat -anp|grep java</p>
-
-<pre><code>
-## 4.3 Mac下查看对方服务端口是否开启命令
-</code></pre>
-
-<p>nc -vz -w 2 192.168.50.8 12800 ``<code>
-* 等同于</code>telnet ip 端口`</p>
-
-<h1 id="5-shell语法">5. SHELL语法</h1>
-
-<h2 id="5-1-while循环">5.1 while循环</h2>
-
-<pre><code class="language-shell">while true
-    do
-    .....    #执行命令
-    sleep 3  #单位s
-    done
-</code></pre>
-
-<h1 id="6-centos系统设置">6. Centos系统设置</h1>
-
-<h2 id="修改系统时间和时区">修改系统时间和时区</h2>
-
-<h3 id="手动修改">手动修改</h3>
-
-<pre><code class="language-shell"># 修改时区
+-i：执行的是head请求不是get；
+</code></pre><ul>
+<li>延伸阅读：<a href="https://testerhome.com/topics/17068">wrk,ab,jmeter,lutos压测工具比较</a></li>
+</ul>
+<h2 id="42-netstat-">4.2 netstat 命令</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># centos安装目录</span>
+yum install net-tools
+<span style="color:#75715e"># 使用命令,通过端口查看程序是否启动</span>
+netstat -an | grep 端口
+<span style="color:#75715e">#结果如下：</span>
+<span style="color:#75715e"># tcp        0      0 0.0.0.0:11800           0.0.0.0:*               LISTEN</span>
+<span style="color:#75715e"># 还可以这么用</span>
+netstat -anltp|grep <span style="color:#ae81ff">22</span>
+<span style="color:#75715e"># 还可以 这么用</span>
+netstat -anp|grep java
+</code></pre></div><h2 id="43-mac">4.3 Mac下查看对方服务端口是否开启命令</h2>
+<p><code>nc -vz -w 2 192.168.50.8 12800</code></p>
+<ul>
+<li>等同于 <code>telnet ip 端口</code></li>
+</ul>
+<h1 id="5-shell">5. SHELL语法</h1>
+<h2 id="51-while">5.1 while循环</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#66d9ef">while</span> true
+    <span style="color:#66d9ef">do</span>
+    .....    <span style="color:#75715e">#执行命令</span>
+    sleep <span style="color:#ae81ff">3</span>  <span style="color:#75715e">#单位s</span>
+    <span style="color:#66d9ef">done</span>
+</code></pre></div><h1 id="6-centos">6. Centos系统设置</h1>
+<h2 id="heading2">修改系统时间和时区</h2>
+<h3 id="heading3">手动修改</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 修改时区</span>
 cp  /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
-# 修改时间
+<span style="color:#75715e"># 修改时间</span>
 date -s  ‘2019-11-11 10:50:00’
-# 使用date命令查看是否成功
+<span style="color:#75715e"># 使用date命令查看是否成功</span>
 date
 &gt; 2019年 11月 05日 星期二 10:29:01 CST
-# 将时间写入bios避免重启失效
+<span style="color:#75715e"># 将时间写入bios避免重启失效</span>
 hwclock -w
 
-</code></pre>
-
-<h3 id="修改时区另一种办法-需重启生效">修改时区另一种办法，需重启生效</h3>
-
+</code></pre></div><h3 id="heading4">修改时区另一种办法，需重启生效</h3>
 <p>修改/etc/sysconfig/clock文件，把ZONE的值改为Asia/Shanghai，UTC值改为false，改完后的文件如下：</p>
-
 <pre><code># The time zone of the system is defined by the contents of /etc/localtime.
 # This file is only for evaluation by system-config-date, do not rely on its
 # contents elsewhere.
 ZONE=&quot;Asia/Shanghai&quot;
 UTC=false
 ARC=false
-</code></pre>
-
-<h3 id="同步网络">同步网络</h3>
-
+</code></pre><h3 id="heading5">同步网络</h3>
 <ul>
-<li><p>外网同步</p>
-
-<pre><code class="language-shell">ntpdate -u time.windows.com 
-</code></pre></li>
-
-<li><p>局域网内同步
-选择局域网中的一台机器作为ntp服务器，ntpd 配置.</p></li>
+<li>外网同步</li>
 </ul>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ntpdate -u time.windows.com 
+</code></pre></div><ul>
+<li>局域网内同步
+选择局域网中的一台机器作为ntp服务器，ntpd 配置.</li>
+</ul>
 <p>配置开机自启动</p>
-
-<pre><code class="language-shell">chkconfig ntpd on
-</code></pre>
-
-<h1 id="7-crontab定时任务">7. crontab定时任务</h1>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">chkconfig ntpd on
+</code></pre></div><h1 id="7-crontab">7. crontab定时任务</h1>
 <ul>
-<li><p>crontab就是一个自定义定时器</p>
-
-<h2 id="crontab-服务命令">crontab 服务命令</h2>
-
-<pre><code class="language-shell">sudo service crond start     #启动服务
-sudo service crond stop      #关闭服务
-sudo service crond restart   #重启服务
-sudo service crond reload    #重新载入配置
-sudo service crond status    #查看服务状态
-</code></pre>
-
-<h2 id="定时任务设定">定时任务设定</h2>
-
-<pre><code class="language-shell"># 添加定时任务
-# 方法一
+<li>crontab就是一个自定义定时器</li>
+</ul>
+<h2 id="crontab-">crontab 服务命令</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo service crond start     <span style="color:#75715e">#启动服务</span>
+sudo service crond stop      <span style="color:#75715e">#关闭服务</span>
+sudo service crond restart   <span style="color:#75715e">#重启服务</span>
+sudo service crond reload    <span style="color:#75715e">#重新载入配置</span>
+sudo service crond status    <span style="color:#75715e">#查看服务状态</span>
+</code></pre></div><h2 id="heading6">定时任务设定</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 添加定时任务</span>
+<span style="color:#75715e"># 方法一</span>
 crontab update_blog.cron
-# 方法二
+<span style="color:#75715e"># 方法二</span>
 crontab -e
-# 添加 0 12,23 * * * /etc/cron.d/update_blog.sh &gt;&gt; /etc/cron.d/update_blog.log
-# 查看定时任务
+<span style="color:#75715e"># 添加 0 12,23 * * * /etc/cron.d/update_blog.sh &gt;&gt; /etc/cron.d/update_blog.log</span>
+<span style="color:#75715e"># 查看定时任务</span>
 crontab -l
-</code></pre></li>
+</code></pre></div><h1 id="8-zsh">8. zsh</h1>
+<pre><code>按方向键↑和↓来查看之前执行过
+可以用 !!来执行上一条命令
+使用 ctrl-r 来搜索命令历史记录
+命令和文件补全(按tab键)
+.zshrc 中添加 alias shortcut='this is the origin command'
+j hado 即可正确跳转。j --stat 可以看你的历史路径库。
+输入 d，即可列出你在这个会话里访问的目录列表
+通配符搜索：ls -l */.sh 文件少时可以代替 find
+</code></pre>
+<h2 id="heading7">文件查找</h2>
+<p><code>find . -name 'Loan*Mapper.java'</code></p>
+<h2 id="heading8">插件</h2>
+<ul>
+<li>命令行google: web-search</li>
+<li>应用使用命令行:
+<ul>
+<li>在bash 中添加IDEA： Tools-&gt;Create Command-Line Launcher&hellip;；添加后使用 idea . 命令打开</li>
+</ul>
+</li>
+</ul>
+<h2 id="heading9">扩展阅读</h2>
+<p><a href="https://www.jianshu.com/p/28de342f5ecc">玩转Mac常用命令、zsh等技巧</a></p>
+<h1 id="9-brew">9. Brew</h1>
+<ul>
+<li>cat高亮插件:<code>brew install ccat</code></li>
+<li>tree命令</li>
+<li>查字典dict computer:<code>sudo pip install dict-cli</code></li>
+<li>open 打开目录</li>
+<li>wc 查看文件多少行:<code>wc -l out.txt</code></li>
+<li>查看前N行:<code>head -10 xx.txt </code></li>
+<li>tail -100 xxx.txt,more xxx.txt,</li>
 </ul>
 
                         </div>
@@ -457,7 +367,7 @@ crontab -l
 <ul class="widget-list">
     
     <li>
-        <a href="http://blog.wacai.ml/post/springboot_tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
+        <a href="http://blog.wacai.ml/post/tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
     </li>
     
     <li>
