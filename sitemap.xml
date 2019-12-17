@@ -18,6 +18,41 @@
   </url>
   
   <url>
+    <loc>http://blog.wacai.ml/categories/</loc>
+    <lastmod>2019-11-12T14:48:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/categories/java/</loc>
+    <lastmod>2019-11-12T14:48:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/java/</loc>
+    <lastmod>2019-11-12T14:48:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/book/thread_pool_1/</loc>
+    <lastmod>2019-11-12T14:48:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/</loc>
+    <lastmod>2019-11-12T14:48:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/%E5%B9%B6%E5%8F%91/</loc>
+    <lastmod>2019-11-12T14:48:28+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.wacai.ml/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/</loc>
+    <lastmod>2019-11-12T14:48:28+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.wacai.ml/post/</loc>
     <lastmod>2019-11-07T11:38:24+08:00</lastmod>
   </url>
@@ -25,11 +60,6 @@
   <url>
     <loc>http://blog.wacai.ml/post/tomcat/</loc>
     <lastmod>2019-11-07T11:38:24+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.wacai.ml/categories/</loc>
-    <lastmod>2019-11-07T09:57:20+08:00</lastmod>
   </url>
   
   <url>
@@ -44,11 +74,6 @@
   
   <url>
     <loc>http://blog.wacai.ml/categories/snippet/</loc>
-    <lastmod>2019-11-07T09:57:20+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.wacai.ml/tags/</loc>
     <lastmod>2019-11-07T09:57:20+08:00</lastmod>
   </url>
   
@@ -173,12 +198,12 @@
   </url>
   
   <url>
-    <loc>http://blog.wacai.ml/categories/Sql/</loc>
+    <loc>http://blog.wacai.ml/tags/Sql/</loc>
     <lastmod>2019-11-01T13:21:21+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.wacai.ml/tags/Sql/</loc>
+    <loc>http://blog.wacai.ml/categories/Sql/</loc>
     <lastmod>2019-11-01T13:21:21+08:00</lastmod>
   </url>
   
@@ -198,12 +223,12 @@
   </url>
   
   <url>
-    <loc>http://blog.wacai.ml/tags/Mac/</loc>
+    <loc>http://blog.wacai.ml/categories/Mac/</loc>
     <lastmod>2019-11-01T11:11:37+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.wacai.ml/categories/Mac/</loc>
+    <loc>http://blog.wacai.ml/tags/Mac/</loc>
     <lastmod>2019-11-01T11:11:37+08:00</lastmod>
   </url>
   

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>线程池 on AppleWang的技术博客</title>
+    <link>http://blog.wacai.ml/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/</link>
+    <description>Recent content in 线程池 on AppleWang的技术博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 12 Nov 2019 14:48:28 +0800</lastBuildDate>
+    
+	<atom:link href="http://blog.wacai.ml/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Java线程池 - ThreadPoolExecutor</title>
+      <link>http://blog.wacai.ml/book/thread_pool_1/</link>
+      <pubDate>Tue, 12 Nov 2019 14:48:28 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/book/thread_pool_1/</guid>
+      <description>线程池 java中的线程池是运用场景最多的并发框架。在开发过程中，合理的使用线程池能够带来下面的一些好处： 降低资源的消耗。 提高响应速度。 提高线程的可管理性。 线程池ThreadPoolExecutor工作原理 ThreadPoolExecutor执行execute方法有4种情况： 1）如</description>
+    </item>
+    
+  </channel>
+</rss>

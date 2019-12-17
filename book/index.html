@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Posts - AppleWang的技术博客</title>
+    
+    <meta name="description" content="专注于IT互联网，包括但不限于Java、架构、Python等">
+    <meta name="author" content="AppleWang">
+    
+    <link href="http://blog.wacai.ml/an-old-hope.min.css" rel="stylesheet">
+    <link href="http://blog.wacai.ml/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="http://blog.wacai.ml/apple-touch-icon.png">
+    <link rel="icon" href="http://blog.wacai.ml/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.60.0" />
+    
+    <link rel="alternate" type="application/atom+xml" href="http://blog.wacai.ml/index.xml" title="AppleWang的技术博客">
+    
+    
+    
+    <script>
+      function setTheme() {
+        const time = new Date();
+
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then(res => res.json())
+            .then(data => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
+  </head>
+  <body class="list">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        
+        <p class="logo"><a href="http://blog.wacai.ml">AppleWang的技术博客</a></p>
+        
+        
+        <ul class="menu">
+          
+          <li>
+            <a href="/archives/">Archives</a>
+          </li>
+          
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          
+        </ul>
+        
+      </nav>
+    </header>
+    <main class="main">
+
+
+
+
+
+<header class="page-header">
+  <h1>Posts</h1>
+</header>
+
+
+
+
+
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Dental_hospital</h2>
+  </header>
+  <section class="entry-content">
+   <p>牙齿问题 右侧7号牙正锁合 左侧5号和6号之间牙缝变宽，容易塞牙缝 牙齿咬合，把牙尖磨平了 难受的症状 咬合关节不舒服,右侧关节涨,怕冷. 耳鸣特别明显,另外偶尔眼睛痒,有压迫感 牙齿上下错合，咬合力集中在7号,压力重. 偶尔轻微头晕，平衡感下降，专注力、记忆力下降 颞下颌关节紊乱综合征和心脏神经...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 15, 2019</time>
+  </footer>
+  <a class="entry-link" href="http://blog.wacai.ml/book/dental_hospital/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Java线程池 - ThreadPoolExecutor</h2>
+  </header>
+  <section class="entry-content">
+   <p>线程池 java中的线程池是运用场景最多的并发框架。在开发过程中，合理的使用线程池能够带来下面的一些好处： 降低资源的消耗。 提高响应速度。 提高线程的可管理性。 线程池ThreadPoolExecutor工作原理 ThreadPoolExecutor执行execute方法有4种情况： 1）如...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 12, 2019</time>
+  </footer>
+  <a class="entry-link" href="http://blog.wacai.ml/book/thread_pool_1/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Maven</h2>
+  </header>
+  <section class="entry-content">
+   <p>Maven 安装 maven配置和添加阿里云镜像 在settings.xml文件的mirrors节点里，添加 &lt;mirror&gt; &lt;id&gt;nexus-aliyun&lt;/id&gt; &lt;mirrorOf&gt;*&lt;/mirrorOf&gt; &lt;name&gt;Nexus aliyun&lt;/name&gt; &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt; &lt;/mirror&gt; Maven自定义archetype 1. 什么是archetype. 当我们用IDEA创建maven项目时，会列出archetype列表。 这个等同于mvn archetype:gen...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 6, 2019</time>
+  </footer>
+  <a class="entry-link" href="http://blog.wacai.ml/book/maven/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>linux常用软件安装</h2>
+  </header>
+  <section class="entry-content">
+   <p>Centos7安装Java8 下载JDK8 安装JDK # 在/usr/local下创建java文件夹 mkdir /usr/local/java # 解压 tar -zxvf jdk-8u231-linux-x64.tar.gz #把解压文件放到java目录下 mv jdk1.8.0_171 /usr/local/java/ # 设置环境变量 sudo vim /etc/profile 文件中添加 #java export JAVA_HOME=/usr/local/java/jdk1.8.0_171 export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar export PATH=$PATH:$JAVA_HOME/bin 保存后推出，让环境变量生效 # 生效 source /etc/profile # 检查是否安装成功 java -version Mac安装ElasticSear...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 1, 2019</time>
+  </footer>
+  <a class="entry-link" href="http://blog.wacai.ml/book/installation_tips/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Sql相关命令</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. Mysql 创建用户命令： mysql&gt; CREATE USER yy IDENTIFIED BY &#39;123&#39;; yy表示你要建立的用户名，后面的123表示密码 上面建立的用户可以在任何地方登陆。 如果要限制在固定地址登陆，比如localhost 登陆： mysql&gt; CREATE USER yy@localhost IDENTIFIED BY &#39;123&#39;; grant命令: mysql&gt; GRANT ALL PRIVILEGES ON *.* TO user;@localhost # 格式：grant select on 数据库.* to 用户名@登录主机 identified by &#34;密...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 1, 2019</time>
+  </footer>
+  <a class="entry-link" href="http://blog.wacai.ml/book/sql_tips/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Mac 技巧</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. TimeMachine备份 解决存储空间一般会排除一些大空间的应用，例如MS Office家族 还想要排除Library下的XCode，但是这些文件在Finder里是隐藏的，使用下面命令显示它： chflags nohidden ~/Library #显示 chflags hidden ~/Library #用完后再隐藏 最后限制在~50G 2. 代理 有时候使用全局Http代理，访问局...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 1, 2019</time>
+  </footer>
+  <a class="entry-link" href="http://blog.wacai.ml/book/mac_tips/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Vim使用</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. Mac Vim设置 1.1 vim基础配置 修改配置文件~/.vimrc,添加以下配置 &#34; 显示行号 set number &#34; 显示标尺 set ruler &#34; 历史纪录 set history=1000 &#34; 输入的命令显示出来，看的清楚些 set showcmd &#34; 状态行显示的内容 set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\&#34;%d/%m/%y\ -\ %H:%M\&#34;)} &#34; 启动显示状态行1，总是显示状态行2 set laststatus=2 &#34; 语法高亮显示 syntax on set fileencodings=utf-8,gb2312,gbk,cp936,latin-1 set fileencoding=utf-8 set termencoding=utf-8 set fileformat=unix set encoding=utf-8 &#34; 配色方案 colorscheme desert &#34; 指...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>October 31, 2019</time>
+  </footer>
+  <a class="entry-link" href="http://blog.wacai.ml/book/vim_tips/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Shell相关命令</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. SSH 1.1 SSH 免密登录 终端Host产生RSA公私钥 # 产生key ssh-keygen -i rsa -C &#34;root@aliyun&#34; # copy公钥到远程机器（google云在浏览器ssh下，用sudo su切换到root） scp ~/.ssh/id_rsa.pub root@xxxxx: # 登陆远程机器 ssh root@xxxxx # 把上传的公钥追加到authorized_keys文件 cat id_rsa.pub &gt;&gt; .ssh/authorized_keys # 退出登陆，再ssh一下检验是否成功 1.2 SSH...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>October 31, 2019</time>
+  </footer>
+  <a class="entry-link" href="http://blog.wacai.ml/book/shell_tips/"></a>
+</article>
+
+
+
+
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="http://blog.wacai.ml">AppleWang的技术博客</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="http://blog.wacai.ml/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

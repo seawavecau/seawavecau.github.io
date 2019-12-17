@@ -1,568 +1,227 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-us">
-<head>
-
+  <head>
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.60.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>AppleWang的技术博客 | Focus on Java, Architecture and Mobile Internet</title>
-    <meta property="og:title" content="AppleWang的技术博客 | Focus on Java, Architecture and Mobile Internet">
-    <meta property="og:type" content="website">
-    <meta name="Keywords" content="seawavecau,java,博客,python,mobile">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>AppleWang的技术博客</title>
+    
     <meta name="description" content="专注于IT互联网，包括但不限于Java、架构、Python等">
-    <meta property="og:url" content="http://blog.wacai.ml/">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-
-    <link rel="stylesheet" href="/css/normalize.css">
+    <meta name="author" content="AppleWang">
     
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="alternate" type="application/rss+xml+xml" href="http://blog.wacai.ml/index.xml" title="AppleWang的技术博客" />
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    <link href="http://blog.wacai.ml/an-old-hope.min.css" rel="stylesheet">
+    <link href="http://blog.wacai.ml/style.css" rel="stylesheet">
     
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <link rel="apple-touch-icon" href="http://blog.wacai.ml/apple-touch-icon.png">
+    <link rel="icon" href="http://blog.wacai.ml/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.60.0" />
+    
+    <link rel="alternate" type="application/atom+xml" href="http://blog.wacai.ml/index.xml" title="AppleWang的技术博客">
+    
+    
+    
     <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-2762739525222492",
-        enable_page_level_ads: true
-    });
+      function setTheme() {
+        const time = new Date();
+
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then(res => res.json())
+            .then(data => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
     </script>
-    
-
-
-    
-    
-</head>
-
-
-<body>
-<header id="header" class="clearfix">
-    <div class="container">
-        <div class="col-group">
-            <div class="site-name ">
-                
-                    <h1>
-                        <a id="logo" href="http://blog.wacai.ml">
-                            AppleWang的技术博客
-                        </a>
-                    </h1>
-                
-                <p class="description">Focus on Java, Architecture and Mobile Internet</p>
-            </div>
-            <div>
-                <nav id="nav-menu" class="clearfix">
-                    <a class="current" href="http://blog.wacai.ml">首页</a>
-                    
-                    <a  href="http://blog.wacai.ml/archives/" title="Archives">Archives</a>
-                    
-                    <a  href="http://blog.wacai.ml/about/" title="About">About</a>
-                    
-                </nav>
-            </div>
-        </div>
-    </div>
-</header>
-
-
-<div id="body">
-    <div class="container">
-        <div class="col-group">
-
-            <div class="col-8" id="main">
-                <div class="res-cons">
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="http://blog.wacai.ml/book/dental_hospital/" title="Dental_hospital" >Dental_hospital</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2019年11月15日
-                            </date>
-                            
-                            <div class="post-content">
-                                牙齿问题 右侧7号牙正锁合 左侧5号和6号之间牙缝变宽，容易塞牙缝 牙齿咬合，把牙尖磨平了 难受的症状 咬合关节不舒服,右侧关节涨,怕冷. 耳鸣特别明显,另外偶尔眼睛痒,有压迫感 牙齿上下错合，咬合力集中在7号,压力重. 偶尔轻微头晕，平衡感下降，专注力、记忆力下降 颞下颌关节紊乱综合征和心脏神经……
-                            </div>
-                            <p class="readmore"><a href="http://blog.wacai.ml/book/dental_hospital/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="http://blog.wacai.ml/post/tomcat/" title="Springboot中的tomcat" >Springboot中的tomcat</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2019年11月7日
-                            </date>
-                            
-                            <div class="post-content">
-                                概述 *Tomcat连接器Connector的主要功能是接收连接请求，创建request和response对象用于和请求端交换数据；然后分配线程给engine（servlet容器）来处理请求，并把request和response对象传递给engine引擎，当engine处理完请求后……
-                            </div>
-                            <p class="readmore"><a href="http://blog.wacai.ml/post/tomcat/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="http://blog.wacai.ml/code/matrix_to_image/" title="二维码生成" >二维码生成</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2019年11月7日
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="http://blog.wacai.ml/categories/snippet">snippet</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                二维码生成代码 package com.xkeshi.microweb.utils; import com.google.zxing.BarcodeFormat; import com.google.zxing.EncodeHintType; import com.google.zxing.MultiFormatWriter; import com.google.zxing.WriterException; import com.google.zxing.common.BitMatrix; import javax.imageio.ImageIO; import javax.servlet.http.HttpServletResponse; import java.awt.image.BufferedImage; import java.io.File; import java.io.IOException; import java.io.OutputStream; import java.util.Hashtable; /** * 二维码的生成需要借助MatrixToImageWriter类，该类是由Google提供的，可以将该类直接拷贝到源码中使用 */ public class MatrixToImageWriter { private static final int BLACK = 0xFF000000; private static final int WHITE = 0xFFFFFFFF; private MatrixToImageWriter() { } public static BufferedImage toBufferedImage(BitMatrix matrix) { int width = matrix.getWidth(); int height = matrix.getHeight(); BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB); for……
-                            </div>
-                            <p class="readmore"><a href="http://blog.wacai.ml/code/matrix_to_image/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="http://blog.wacai.ml/post/domain_design_cola/" title="领域设计框架COLA" >领域设计框架COLA</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2019年11月6日
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="http://blog.wacai.ml/categories/%E9%A2%86%E5%9F%9F%E8%AE%BE%E8%AE%A1">领域设计</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                COLA 2.0概述 COLA是Clean Object-Oriented and Layered Architecture的缩写，代表“整洁面向对象分层架构”，也叫“可乐”架构，目前COLA已经发展到COLA 2.0。 COLA 2.0 框架 COLA作为框架主要是提供应用和架构需要的通用组件支撑，比如对CQRS和扩展点功能的支持。COLA框架主要由cola……
-                            </div>
-                            <p class="readmore"><a href="http://blog.wacai.ml/post/domain_design_cola/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="http://blog.wacai.ml/book/maven/" title="Maven" >Maven</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2019年11月6日
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="http://blog.wacai.ml/categories/maven">maven</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                Maven 安装 maven配置和添加阿里云镜像 在settings.xml文件的mirrors节点里，添加 &lt;mirror&gt; &lt;id&gt;nexus-aliyun&lt;/id&gt; &lt;mirrorOf&gt;*&lt;/mirrorOf&gt; &lt;name&gt;Nexus aliyun&lt;/name&gt; &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt; &lt;/mirror&gt; Maven自定义archetype 1. 什么是archetype. 当我们用IDEA创建maven项目时，会列出archetype列表。 这个等同于mvn archetype:gen……
-                            </div>
-                            <p class="readmore"><a href="http://blog.wacai.ml/book/maven/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="http://blog.wacai.ml/post/skywalking_tutorial_1/" title="Java应用接入Skywalking 6" >Java应用接入Skywalking 6</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2019年11月2日
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="http://blog.wacai.ml/categories/%E6%9E%B6%E6%9E%84">架构</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                概述 SkyWalking 是观察性分析平台和应用性能管理系统。 提供分布式追踪、服务网格遥测分析、度量聚合和可视化一体化解决方案. 特性： 多种监控手段，语言探针和service mesh 多语言自动探针，Java，.NET Core和Node.JS 轻量高效，不需要大数据 模块化，UI、存储、集群管理多种机制可选 支持告……
-                            </div>
-                            <p class="readmore"><a href="http://blog.wacai.ml/post/skywalking_tutorial_1/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="http://blog.wacai.ml/book/installation_tips/" title="linux常用软件安装" >linux常用软件安装</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2019年11月1日
-                            </date>
-                            
-                            <div class="post-content">
-                                Centos7安装Java8 下载JDK8 安装JDK # 在/usr/local下创建java文件夹 mkdir /usr/local/java # 解压 tar -zxvf jdk-8u231-linux-x64.tar.gz #把解压文件放到java目录下 mv jdk1.8.0_171 /usr/local/java/ # 设置环境变量 sudo vim /etc/profile 文件中添加 #java export JAVA_HOME=/usr/local/java/jdk1.8.0_171 export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar export PATH=$PATH:$JAVA_HOME/bin 保存后推出，让环境变量生效 # 生效 source /etc/profile # 检查是否安装成功 java -version Mac安装ElasticSear……
-                            </div>
-                            <p class="readmore"><a href="http://blog.wacai.ml/book/installation_tips/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="http://blog.wacai.ml/book/sql_tips/" title="Sql相关命令" >Sql相关命令</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2019年11月1日
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="http://blog.wacai.ml/categories/Sql">Sql</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1. Mysql 创建用户命令： mysql&gt; CREATE USER yy IDENTIFIED BY '123'; yy表示你要建立的用户名，后面的123表示密码 上面建立的用户可以在任何地方登陆。 如果要限制在固定地址登陆，比如localhost 登陆： mysql&gt; CREATE USER yy@localhost IDENTIFIED BY '123'; grant命令: mysql&gt; GRANT ALL PRIVILEGES ON *.* TO user;@localhost # 格式：grant select on 数据库.* to 用户名@登录主机 identified by &quot;密……
-                            </div>
-                            <p class="readmore"><a href="http://blog.wacai.ml/book/sql_tips/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="http://blog.wacai.ml/book/mac_tips/" title="Mac 技巧" >Mac 技巧</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2019年11月1日
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="http://blog.wacai.ml/categories/Mac">Mac</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1. TimeMachine备份 解决存储空间一般会排除一些大空间的应用，例如MS Office家族 还想要排除Library下的XCode，但是这些文件在Finder里是隐藏的，使用下面命令显示它： chflags nohidden ~/Library #显示 chflags hidden ~/Library #用完后再隐藏 最后限制在~50G 2. 代理 有时候使用全局Http代理，访问局……
-                            </div>
-                            <p class="readmore"><a href="http://blog.wacai.ml/book/mac_tips/">阅读全文</a></p>
-                        </article>
-                    
-                    
-		    
-                        <article class="post">
-                            <header>
-                                <h1 class="post-title">
-                                    <a href="http://blog.wacai.ml/book/vim_tips/" title="Vim使用" >Vim使用</a>
-                                </h1>
-                            </header>
-                            <date class="post-meta meta-date">
-                                2019年10月31日
-                            </date>
-                            
-                            <div class="post-meta">
-                                <span>|</span>
-                                
-                                <span class="meta-category"><a href="http://blog.wacai.ml/categories/tools">tools</a></span>
-                                
-                            </div>
-                            
-                            <div class="post-content">
-                                1. Mac Vim设置 1.1 vim基础配置 修改配置文件~/.vimrc,添加以下配置 &#34; 显示行号 set number &#34; 显示标尺 set ruler &#34; 历史纪录 set history=1000 &#34; 输入的命令显示出来，看的清楚些 set showcmd &#34; 状态行显示的内容 set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\&#34;%d/%m/%y\ -\ %H:%M\&#34;)} &#34; 启动显示状态行1，总是显示状态行2 set laststatus=2 &#34; 语法高亮显示 syntax on set fileencodings=utf-8,gb2312,gbk,cp936,latin-1 set fileencoding=utf-8 set termencoding=utf-8 set fileformat=unix set encoding=utf-8 &#34; 配色方案 colorscheme desert &#34; 指……
-                            </div>
-                            <p class="readmore"><a href="http://blog.wacai.ml/book/vim_tips/">阅读全文</a></p>
-                        </article>
-                    
-                    
-                    
-
-
-
-<ol class="page-navigator">
-    
-
-    
-    <li  class="current">
-        <a href="http://blog.wacai.ml/">1</a>
-    </li>
-    
-    <li >
-        <a href="http://blog.wacai.ml/page/2/">2</a>
-    </li>
-    
-
-    
-    <li class="next">
-        <a href="http://blog.wacai.ml/page/2/">下一页</a>
-    </li>
-    
-</ol>
-
-
-
-                </div>
-            </div>
-
-            <div id="secondary">
-    <section class="widget">
-        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
-      
-      <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="http://blog.wacai.ml">
-      <button type="submit" class="submit icon-search"></button>
-</form>
-    </section>
-    
-    <section class="widget">
-        <h3 class="widget-title">最近文章</h3>
-<ul class="widget-list">
-    
-    <li>
-        <a href="http://blog.wacai.ml/post/tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/post/domain_design_cola/" title="领域设计框架COLA">领域设计框架COLA</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/post/skywalking_tutorial_1/" title="Java应用接入Skywalking 6">Java应用接入Skywalking 6</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/post/firstblog/" title="Hugo &#43; Nginx: 利用webhook自动部署">Hugo &#43; Nginx: 利用webhook自动部署</a>
-    </li>
-    
-</ul>
-    </section>
-
-    
-<section class="widget">
-    <h3 class="widget-title" style="color:red">福利派送</h3>
-    <ul class="widget-list">
+  </head>
+  <body class="list home">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
         
-        <li>
-            <a href="https://bandwagonhost.com/aff.php?aff=24900" title="搬瓦工VPS" target="_blank" style="color:red">
-                
-                    搬瓦工VPS
-                
-            </a>
-        </li>
+        <h1 class="logo"><a href="http://blog.wacai.ml">AppleWang的技术博客</a></h1>
         
-    </ul>
-</section>
-
-
-    <section class="widget">
-        <h3 class="widget-title">分类</h3>
-<ul class="widget-list">
-    
-    <li>
-        <a href="http://blog.wacai.ml/categories/Mac/">Mac(1)</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/categories/Shell/">Shell(1)</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/categories/Sql/">Sql(1)</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/categories/Website/">Website(1)</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/categories/maven/">maven(1)</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/categories/snippet/">snippet(1)</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/categories/tools/">tools(1)</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/categories/%E6%9E%B6%E6%9E%84/">架构(1)</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/categories/%E9%A2%86%E5%9F%9F%E8%AE%BE%E8%AE%A1/">领域设计(1)</a>
-    </li>
-    
-</ul>
-    </section>
-
-    <section class="widget">
-        <h3 class="widget-title">标签</h3>
-<div class="tagcloud">
-    
-    <a href="http://blog.wacai.ml/tags/CentOS/">CentOS</a>
-    
-    <a href="http://blog.wacai.ml/tags/DDD/">DDD</a>
-    
-    <a href="http://blog.wacai.ml/tags/Github/">Github</a>
-    
-    <a href="http://blog.wacai.ml/tags/Mac/">Mac</a>
-    
-    <a href="http://blog.wacai.ml/tags/Mysql/">Mysql</a>
-    
-    <a href="http://blog.wacai.ml/tags/Nginx/">Nginx</a>
-    
-    <a href="http://blog.wacai.ml/tags/OS-X/">OS-X</a>
-    
-    <a href="http://blog.wacai.ml/tags/SSH/">SSH</a>
-    
-    <a href="http://blog.wacai.ml/tags/Shell/">Shell</a>
-    
-    <a href="http://blog.wacai.ml/tags/Sql/">Sql</a>
-    
-    <a href="http://blog.wacai.ml/tags/TimeMachine/">TimeMachine</a>
-    
-    <a href="http://blog.wacai.ml/tags/Webhook/">Webhook</a>
-    
-    <a href="http://blog.wacai.ml/tags/Website/">Website</a>
-    
-    <a href="http://blog.wacai.ml/tags/archetype/">archetype</a>
-    
-    <a href="http://blog.wacai.ml/tags/cola/">cola</a>
-    
-    <a href="http://blog.wacai.ml/tags/install/">install</a>
-    
-    <a href="http://blog.wacai.ml/tags/java-util/">java-util</a>
-    
-    <a href="http://blog.wacai.ml/tags/maven/">maven</a>
-    
-    <a href="http://blog.wacai.ml/tags/oap/">oap</a>
-    
-    <a href="http://blog.wacai.ml/tags/plugin/">plugin</a>
-    
-    <a href="http://blog.wacai.ml/tags/skywalking/">skywalking</a>
-    
-    <a href="http://blog.wacai.ml/tags/ssh-keygen/">ssh-keygen</a>
-    
-    <a href="http://blog.wacai.ml/tags/vim/">vim</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E4%BA%8C%E6%96%B9/">二方</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%94%9F%E6%88%90/">二维码生成</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/">修改密码</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">免密登录</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E5%85%A8%E9%93%BE%E8%B7%AF/">全链路</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/">创建用户</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E6%80%A7%E8%83%BD/">性能</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E6%9E%B6%E6%9E%84/">架构</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E6%9E%B6%E6%9E%84%E5%88%86%E5%B1%82/">架构分层</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E7%9B%91%E6%8E%A7/">监控</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/">自动部署</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E9%A2%86%E5%9F%9F%E8%AE%BE%E8%AE%A1/">领域设计</a>
-    
-</div>
-    </section>
-
-    
-<section class="widget">
-    <h3 class="widget-title">友情链接</h3>
-    <ul class="widget-list">
         
-        <li>
-            <a target="_blank" href="http://svip.iocoder.cn" title="芋道源码">芋道源码</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://github.com/doocs/advanced-java" title="高级Java">高级Java</a>
-        </li>
-        
-    </ul>
-</section>
-
-
-    <section class="widget">
-        <h3 class="widget-title">其它</h3>
-        <ul class="widget-list">
-            <li><a href="http://blog.wacai.ml/index.xml">文章 RSS</a></li>
+        <ul class="menu">
+          
+          <li>
+            <a href="/archives/">Archives</a>
+          </li>
+          
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          
         </ul>
-    </section>
-</div>
-        </div>
-    </div>
-</div>
-<footer id="footer">
-    <div class="container">
-        &copy; 2019 <a href="http://blog.wacai.ml">AppleWang的技术博客 By AppleWang</a>.
-        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
-        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
         
-        
-        <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-        
-    </div>
+      </nav>
+    </header>
+    <main class="main">
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="first-entry">
+  <header class="entry-header">
+    <h2>Dental_hospital</h2>
+  </header>
+  <section class="entry-content">
+   <p>牙齿问题 右侧7号牙正锁合 左侧5号和6号之间牙缝变宽，容易塞牙缝 牙齿咬合，把牙尖磨平了 难受的症状 咬合关节不舒服,右侧关节涨,怕冷. 耳鸣特别明显,另外偶尔眼睛痒,有压迫感 牙齿上下错合，咬合力集中在7号,压力重. 偶尔轻微头晕，平衡感下降，专注力、记忆力下降 颞下颌关节紊乱综合征和心脏神经...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 15, 2019</time>
+  </footer>
+  <a class="entry-link" href="http://blog.wacai.ml/book/dental_hospital/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Java线程池 - ThreadPoolExecutor</h2>
+  </header>
+  <section class="entry-content">
+   <p>线程池 java中的线程池是运用场景最多的并发框架。在开发过程中，合理的使用线程池能够带来下面的一些好处： 降低资源的消耗。 提高响应速度。 提高线程的可管理性。 线程池ThreadPoolExecutor工作原理 ThreadPoolExecutor执行execute方法有4种情况： 1）如...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 12, 2019</time>
+  </footer>
+  <a class="entry-link" href="http://blog.wacai.ml/book/thread_pool_1/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Maven</h2>
+  </header>
+  <section class="entry-content">
+   <p>Maven 安装 maven配置和添加阿里云镜像 在settings.xml文件的mirrors节点里，添加 &lt;mirror&gt; &lt;id&gt;nexus-aliyun&lt;/id&gt; &lt;mirrorOf&gt;*&lt;/mirrorOf&gt; &lt;name&gt;Nexus aliyun&lt;/name&gt; &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt; &lt;/mirror&gt; Maven自定义archetype 1. 什么是archetype. 当我们用IDEA创建maven项目时，会列出archetype列表。 这个等同于mvn archetype:gen...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 6, 2019</time>
+  </footer>
+  <a class="entry-link" href="http://blog.wacai.ml/book/maven/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>linux常用软件安装</h2>
+  </header>
+  <section class="entry-content">
+   <p>Centos7安装Java8 下载JDK8 安装JDK # 在/usr/local下创建java文件夹 mkdir /usr/local/java # 解压 tar -zxvf jdk-8u231-linux-x64.tar.gz #把解压文件放到java目录下 mv jdk1.8.0_171 /usr/local/java/ # 设置环境变量 sudo vim /etc/profile 文件中添加 #java export JAVA_HOME=/usr/local/java/jdk1.8.0_171 export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar export PATH=$PATH:$JAVA_HOME/bin 保存后推出，让环境变量生效 # 生效 source /etc/profile # 检查是否安装成功 java -version Mac安装ElasticSear...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 1, 2019</time>
+  </footer>
+  <a class="entry-link" href="http://blog.wacai.ml/book/installation_tips/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Sql相关命令</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. Mysql 创建用户命令： mysql&gt; CREATE USER yy IDENTIFIED BY &#39;123&#39;; yy表示你要建立的用户名，后面的123表示密码 上面建立的用户可以在任何地方登陆。 如果要限制在固定地址登陆，比如localhost 登陆： mysql&gt; CREATE USER yy@localhost IDENTIFIED BY &#39;123&#39;; grant命令: mysql&gt; GRANT ALL PRIVILEGES ON *.* TO user;@localhost # 格式：grant select on 数据库.* to 用户名@登录主机 identified by &#34;密...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 1, 2019</time>
+  </footer>
+  <a class="entry-link" href="http://blog.wacai.ml/book/sql_tips/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Mac 技巧</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. TimeMachine备份 解决存储空间一般会排除一些大空间的应用，例如MS Office家族 还想要排除Library下的XCode，但是这些文件在Finder里是隐藏的，使用下面命令显示它： chflags nohidden ~/Library #显示 chflags hidden ~/Library #用完后再隐藏 最后限制在~50G 2. 代理 有时候使用全局Http代理，访问局...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 1, 2019</time>
+  </footer>
+  <a class="entry-link" href="http://blog.wacai.ml/book/mac_tips/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Vim使用</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. Mac Vim设置 1.1 vim基础配置 修改配置文件~/.vimrc,添加以下配置 &#34; 显示行号 set number &#34; 显示标尺 set ruler &#34; 历史纪录 set history=1000 &#34; 输入的命令显示出来，看的清楚些 set showcmd &#34; 状态行显示的内容 set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\&#34;%d/%m/%y\ -\ %H:%M\&#34;)} &#34; 启动显示状态行1，总是显示状态行2 set laststatus=2 &#34; 语法高亮显示 syntax on set fileencodings=utf-8,gb2312,gbk,cp936,latin-1 set fileencoding=utf-8 set termencoding=utf-8 set fileformat=unix set encoding=utf-8 &#34; 配色方案 colorscheme desert &#34; 指...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>October 31, 2019</time>
+  </footer>
+  <a class="entry-link" href="http://blog.wacai.ml/book/vim_tips/"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Shell相关命令</h2>
+  </header>
+  <section class="entry-content">
+   <p>1. SSH 1.1 SSH 免密登录 终端Host产生RSA公私钥 # 产生key ssh-keygen -i rsa -C &#34;root@aliyun&#34; # copy公钥到远程机器（google云在浏览器ssh下，用sudo su切换到root） scp ~/.ssh/id_rsa.pub root@xxxxx: # 登陆远程机器 ssh root@xxxxx # 把上传的公钥追加到authorized_keys文件 cat id_rsa.pub &gt;&gt; .ssh/authorized_keys # 退出登陆，再ssh一下检验是否成功 1.2 SSH...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>October 31, 2019</time>
+  </footer>
+  <a class="entry-link" href="http://blog.wacai.ml/book/shell_tips/"></a>
+</article>
+
+
+
+
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="http://blog.wacai.ml">AppleWang的技术博客</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
 </footer>
-
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-139304185-1', 'auto');
-	
-	ga('send', 'pageview');
-}
+<script src="http://blog.wacai.ml/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
-
 </body>
 </html>
+

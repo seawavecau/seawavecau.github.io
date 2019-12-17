@@ -1,101 +1,103 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-us">
-<head>
-
+  <head>
     <meta charset="utf-8">
-    <meta name="generator" content="Hugo 0.60.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>linux常用软件安装 | AppleWang的技术博客</title>
-    <meta property="og:title" content="linux常用软件安装 - AppleWang的技术博客">
-    <meta property="og:type" content="article">
-        
-    <meta property="article:published_time" content="2019-11-01T19:37:14&#43;08:00">
-        
-        
-    <meta property="article:modified_time" content="2019-11-01T19:37:14&#43;08:00">
-        
-    <meta name="Keywords" content="seawavecau,java,博客,python,mobile">
-    <meta name="description" content="linux常用软件安装">
-        
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>linux常用软件安装 - AppleWang的技术博客</title>
+    
+    <meta name="description" content="Centos7安装Java8 下载JDK8 安装JDK # 在/usr/local下创建java文件夹 mkdir /usr/local/java # 解压 tar -zxvf jdk-8u231-linux-x64.tar.gz #把解压文件放到java目录下 mv jdk1.8.0_171 /usr/local/java/ # 设置环境变量 sudo vim /etc/profile 文件中添加 #java export JAVA_HOME=/usr/local/java/jdk1.8.0_171 export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar export PATH=$PATH:$JAVA_HOME/bin 保存后推出，让环境变量生效 # 生效 source /etc/profile # 检查是否安装成功 java -version Mac安装ElasticSear">
     <meta name="author" content="AppleWang">
-    <meta property="og:url" content="http://blog.wacai.ml/book/installation_tips/">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-
-    <link rel="stylesheet" href="/css/normalize.css">
     
-        <link rel="stylesheet" href="/css/prism.css">
+    <link href="http://blog.wacai.ml/an-old-hope.min.css" rel="stylesheet">
+    <link href="http://blog.wacai.ml/style.css" rel="stylesheet">
     
-    <link rel="stylesheet" href="/css/style.css">
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    <link rel="apple-touch-icon" href="http://blog.wacai.ml/apple-touch-icon.png">
+    <link rel="icon" href="http://blog.wacai.ml/favicon.ico">
     
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta name="generator" content="Hugo 0.60.0" />
+    
+    <link rel="alternate" type="application/atom+xml" href="http://blog.wacai.ml/index.xml" title="AppleWang的技术博客">
+    
+    
+    
     <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-2762739525222492",
-        enable_page_level_ads: true
-    });
+      function setTheme() {
+        const time = new Date();
+
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then(res => res.json())
+            .then(data => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
     </script>
-    
-
-
-    
-    
-</head>
-
-<body>
-<header id="header" class="clearfix">
-    <div class="container">
-        <div class="col-group">
-            <div class="site-name ">
-                
-                    <a id="logo" href="http://blog.wacai.ml">
-                        AppleWang的技术博客
-                    </a>
-                
-                <p class="description">Focus on Java, Architecture and Mobile Internet</p>
-            </div>
-            <div>
-                <nav id="nav-menu" class="clearfix">
-                    <a class="" href="http://blog.wacai.ml">首页</a>
-                    
-                    <a  href="http://blog.wacai.ml/archives/" title="Archives">Archives</a>
-                    
-                    <a  href="http://blog.wacai.ml/about/" title="About">About</a>
-                    
-                </nav>
-            </div>
-        </div>
-    </div>
-</header>
-
-
-<div id="body">
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        
+        <p class="logo"><a href="http://blog.wacai.ml">AppleWang的技术博客</a></p>
         
         
-    <div class="container">
-        <div class="col-group">
+        <ul class="menu">
+          
+          <li>
+            <a href="/archives/">Archives</a>
+          </li>
+          
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          
+        </ul>
+        
+      </nav>
+    </header>
+    <main class="main">
 
-            <div class="col-8" id="main">
-                <div class="res-cons">
-                    <article class="post">
-                        <header>
-                            <h1 class="post-title">linux常用软件安装</h1>
-                        </header>
-                        <date class="post-meta meta-date">
-                            2019年11月1日
-                        </date>
-                        
-                        
-                        <div class="post-meta">
-                            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span> 阅读</span></span>
-                        </div>
-                        
-                        
-                        <div class="post-content">
-                            <h1 id="centos7java8">Centos7安装Java8</h1>
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">linux常用软件安装</h1>
+    <div class="post-meta">AppleWang · November 1, 2019</div>
+  </header>
+  <div class="post-content"><h1 id="centos7java8">Centos7安装Java8</h1>
 <ul>
 <li><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">下载JDK8</a></li>
 <li>安装JDK</li>
@@ -198,303 +200,26 @@ connect: <span style="color:#f92672">{</span>
 访问http://localhost:9100/ 出现以下画面,代表启动成功</p>
 <p>目录：elasticsearch-head/_site/app.js,把localhost修改成你es的服务器地址,如:</p>
 <pre><code>this.base_uri = this.config.base_uri || this.prefs.get(&quot;app-base_uri&quot;) || &quot;http://192.168.50.8:9200&quot;;
-</code></pre>
-                        </div>
+</code></pre></div>
+  
+  
+  
+  
+  
+</article>
 
-                        
-
-
-                        
-
-<div class="post-archive">
-    <h2>See Also</h2>
-    <ul class="listing">
-        
-        <li><a href="/book/sql_tips/">Sql相关命令</a></li>
-        
-        <li><a href="/book/mac_tips/">Mac 技巧</a></li>
-        
-        <li><a href="/book/vim_tips/">Vim使用</a></li>
-        
-        <li><a href="/book/shell_tips/">Shell相关命令</a></li>
-        
-        <li><a href="/post/firstblog/">Hugo &#43; Nginx: 利用webhook自动部署</a></li>
-        
-    </ul>
-</div>
-
-
-                        <div class="post-meta meta-tags">
-                            
-                            没有标签
-                            
-                        </div>
-                    </article>
-                    
-    
-
-    
-    
-    <div class="post bg-white">
-      <script src="https://utteranc.es/client.js"
-            repo= ""
-            issue-term="pathname"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
-      </script>
-    </div>
-    
-                </div>
-            </div>
-            <div id="secondary">
-    <section class="widget">
-        <form id="search" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
-      
-      <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="http://blog.wacai.ml">
-      <button type="submit" class="submit icon-search"></button>
-</form>
-    </section>
-    
-    <section class="widget">
-        <h3 class="widget-title">最近文章</h3>
-<ul class="widget-list">
-    
-    <li>
-        <a href="http://blog.wacai.ml/post/tomcat/" title="Springboot中的tomcat">Springboot中的tomcat</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/post/domain_design_cola/" title="领域设计框架COLA">领域设计框架COLA</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/post/skywalking_tutorial_1/" title="Java应用接入Skywalking 6">Java应用接入Skywalking 6</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/post/firstblog/" title="Hugo &#43; Nginx: 利用webhook自动部署">Hugo &#43; Nginx: 利用webhook自动部署</a>
-    </li>
-    
-</ul>
-    </section>
-
-    
-<section class="widget">
-    <h3 class="widget-title" style="color:red">福利派送</h3>
-    <ul class="widget-list">
-        
-        <li>
-            <a href="https://bandwagonhost.com/aff.php?aff=24900" title="搬瓦工VPS" target="_blank" style="color:red">
-                
-                    搬瓦工VPS
-                
-            </a>
-        </li>
-        
-    </ul>
-</section>
-
-
-    <section class="widget">
-        <h3 class="widget-title">分类</h3>
-<ul class="widget-list">
-    
-    <li>
-        <a href="http://blog.wacai.ml/categories/Mac/">Mac(1)</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/categories/Shell/">Shell(1)</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/categories/Sql/">Sql(1)</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/categories/Website/">Website(1)</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/categories/maven/">maven(1)</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/categories/snippet/">snippet(1)</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/categories/tools/">tools(1)</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/categories/%E6%9E%B6%E6%9E%84/">架构(1)</a>
-    </li>
-    
-    <li>
-        <a href="http://blog.wacai.ml/categories/%E9%A2%86%E5%9F%9F%E8%AE%BE%E8%AE%A1/">领域设计(1)</a>
-    </li>
-    
-</ul>
-    </section>
-
-    <section class="widget">
-        <h3 class="widget-title">标签</h3>
-<div class="tagcloud">
-    
-    <a href="http://blog.wacai.ml/tags/CentOS/">CentOS</a>
-    
-    <a href="http://blog.wacai.ml/tags/DDD/">DDD</a>
-    
-    <a href="http://blog.wacai.ml/tags/Github/">Github</a>
-    
-    <a href="http://blog.wacai.ml/tags/Mac/">Mac</a>
-    
-    <a href="http://blog.wacai.ml/tags/Mysql/">Mysql</a>
-    
-    <a href="http://blog.wacai.ml/tags/Nginx/">Nginx</a>
-    
-    <a href="http://blog.wacai.ml/tags/OS-X/">OS-X</a>
-    
-    <a href="http://blog.wacai.ml/tags/SSH/">SSH</a>
-    
-    <a href="http://blog.wacai.ml/tags/Shell/">Shell</a>
-    
-    <a href="http://blog.wacai.ml/tags/Sql/">Sql</a>
-    
-    <a href="http://blog.wacai.ml/tags/TimeMachine/">TimeMachine</a>
-    
-    <a href="http://blog.wacai.ml/tags/Webhook/">Webhook</a>
-    
-    <a href="http://blog.wacai.ml/tags/Website/">Website</a>
-    
-    <a href="http://blog.wacai.ml/tags/archetype/">archetype</a>
-    
-    <a href="http://blog.wacai.ml/tags/cola/">cola</a>
-    
-    <a href="http://blog.wacai.ml/tags/install/">install</a>
-    
-    <a href="http://blog.wacai.ml/tags/java-util/">java-util</a>
-    
-    <a href="http://blog.wacai.ml/tags/maven/">maven</a>
-    
-    <a href="http://blog.wacai.ml/tags/oap/">oap</a>
-    
-    <a href="http://blog.wacai.ml/tags/plugin/">plugin</a>
-    
-    <a href="http://blog.wacai.ml/tags/skywalking/">skywalking</a>
-    
-    <a href="http://blog.wacai.ml/tags/ssh-keygen/">ssh-keygen</a>
-    
-    <a href="http://blog.wacai.ml/tags/vim/">vim</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E4%BA%8C%E6%96%B9/">二方</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%94%9F%E6%88%90/">二维码生成</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81/">修改密码</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">免密登录</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E5%85%A8%E9%93%BE%E8%B7%AF/">全链路</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7/">创建用户</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E6%80%A7%E8%83%BD/">性能</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E6%9E%B6%E6%9E%84/">架构</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E6%9E%B6%E6%9E%84%E5%88%86%E5%B1%82/">架构分层</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E7%9B%91%E6%8E%A7/">监控</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/">自动部署</a>
-    
-    <a href="http://blog.wacai.ml/tags/%E9%A2%86%E5%9F%9F%E8%AE%BE%E8%AE%A1/">领域设计</a>
-    
-</div>
-    </section>
-
-    
-<section class="widget">
-    <h3 class="widget-title">友情链接</h3>
-    <ul class="widget-list">
-        
-        <li>
-            <a target="_blank" href="http://svip.iocoder.cn" title="芋道源码">芋道源码</a>
-        </li>
-        
-        <li>
-            <a target="_blank" href="https://github.com/doocs/advanced-java" title="高级Java">高级Java</a>
-        </li>
-        
-    </ul>
-</section>
-
-
-    <section class="widget">
-        <h3 class="widget-title">其它</h3>
-        <ul class="widget-list">
-            <li><a href="http://blog.wacai.ml/index.xml">文章 RSS</a></li>
-        </ul>
-    </section>
-</div>
-        </div>
-    </div>
-</div>
-<footer id="footer">
-    <div class="container">
-        &copy; 2019 <a href="http://blog.wacai.ml">AppleWang的技术博客 By AppleWang</a>.
-        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
-        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/rujews/maupassant-hugo" target="_blank">maupassant</a>.
-        
-        
-        <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-        
-    </div>
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="http://blog.wacai.ml">AppleWang的技术博客</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
 </footer>
-
-
-    
-    <script type="text/javascript">
-        
-        (function () {
-            $("pre code").parent().addClass("line-numbers")
-        }());
-
-        window.MathJax = {
-            tex2jax: {
-                inlineMath: [['$', '$']],
-                processEscapes: true
-                }
-            };
-    </script>
-    <script type="text/javascript" src="/js/prism.js" async="true"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src="/js/totop.js?v=0.0.0" async=""></script>
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-139304185-1', 'auto');
-	
-	ga('send', 'pageview');
-}
+<script src="http://blog.wacai.ml/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
 </body>
 </html>
+

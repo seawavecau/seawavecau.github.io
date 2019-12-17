@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Java线程池 - ThreadPoolExecutor - AppleWang的技术博客</title>
+    
+    <meta name="description" content="线程池 java中的线程池是运用场景最多的并发框架。在开发过程中，合理的使用线程池能够带来下面的一些好处： 降低资源的消耗。 提高响应速度。 提高线程的可管理性。 线程池ThreadPoolExecutor工作原理 ThreadPoolExecutor执行execute方法有4种情况： 1）如">
+    <meta name="author" content="AppleWang">
+    
+    <link href="http://blog.wacai.ml/an-old-hope.min.css" rel="stylesheet">
+    <link href="http://blog.wacai.ml/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="http://blog.wacai.ml/apple-touch-icon.png">
+    <link rel="icon" href="http://blog.wacai.ml/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.60.0" />
+    
+    <link rel="alternate" type="application/atom+xml" href="http://blog.wacai.ml/index.xml" title="AppleWang的技术博客">
+    
+    
+    
+    <script>
+      function setTheme() {
+        const time = new Date();
+
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then(res => res.json())
+            .then(data => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
+  </head>
+  <body class="single">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        
+        <p class="logo"><a href="http://blog.wacai.ml">AppleWang的技术博客</a></p>
+        
+        
+        <ul class="menu">
+          
+          <li>
+            <a href="/archives/">Archives</a>
+          </li>
+          
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          
+        </ul>
+        
+      </nav>
+    </header>
+    <main class="main">
+
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Java线程池 - ThreadPoolExecutor</h1>
+    <div class="post-meta">AppleWang · November 12, 2019</div>
+  </header>
+  <div class="post-content"><h1 id="heading">线程池</h1>
+<ul>
+<li>java中的线程池是运用场景最多的并发框架。在开发过程中，合理的使用线程池能够带来下面的一些好处：</li>
+</ul>
+<ol>
+<li>降低资源的消耗。</li>
+<li>提高响应速度。</li>
+<li>提高线程的可管理性。</li>
+</ol>
+<h2 id="threadpoolexecutor">线程池ThreadPoolExecutor工作原理</h2>
+<p><img src="https://pic1.zhimg.com/80/v2-0c6eec6cd6711e9dd765027d8585f358_hd.jpg" alt="threadpool.jpg"></p>
+<p>ThreadPoolExecutor执行execute方法有4种情况：
+1）如果当前运行的线程少于corePoolSize，则创建新的线程来执行任务。
+2）如果运行的线程等于或者多余corePoolSize，则将任务加入BlockingQueue中，在等待队列中，等待有新的线程可以运行。
+3）如果BlockingQueue队列满了，且没有超过maxPoolSize，则创建新的线程来处理任务。
+4）如果创建的线程超过maxPoolSize，任务会拒绝，并调用RejectExecutionHandler.rejectedExecution()方法。</p>
+<h2 id="heading1">线程池的使用</h2>
+<h3 id="heading2">线程池的创建</h3>
+<p>一般我们可以通过ThreadPoolExecutor来创建一个线程池。
+在ThreadPoolExecutor类中提供了四个构造方法：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ThreadPoolExecutor</span> <span style="color:#66d9ef">extends</span> AbstractExecutorService <span style="color:#f92672">{</span>
+    <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ThreadPoolExecutor</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> corePoolSize<span style="color:#f92672">,</span><span style="color:#66d9ef">int</span> maximumPoolSize<span style="color:#f92672">,</span><span style="color:#66d9ef">long</span> keepAliveTime<span style="color:#f92672">,</span>TimeUnit unit<span style="color:#f92672">,</span>
+            BlockingQueue<span style="color:#f92672">&lt;</span>Runnable<span style="color:#f92672">&gt;</span> workQueue<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ThreadPoolExecutor</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> corePoolSize<span style="color:#f92672">,</span><span style="color:#66d9ef">int</span> maximumPoolSize<span style="color:#f92672">,</span><span style="color:#66d9ef">long</span> keepAliveTime<span style="color:#f92672">,</span>TimeUnit unit<span style="color:#f92672">,</span>
+            BlockingQueue<span style="color:#f92672">&lt;</span>Runnable<span style="color:#f92672">&gt;</span> workQueue<span style="color:#f92672">,</span>ThreadFactory threadFactory<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ThreadPoolExecutor</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> corePoolSize<span style="color:#f92672">,</span><span style="color:#66d9ef">int</span> maximumPoolSize<span style="color:#f92672">,</span><span style="color:#66d9ef">long</span> keepAliveTime<span style="color:#f92672">,</span>TimeUnit unit<span style="color:#f92672">,</span>
+            BlockingQueue<span style="color:#f92672">&lt;</span>Runnable<span style="color:#f92672">&gt;</span> workQueue<span style="color:#f92672">,</span>RejectedExecutionHandler handler<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ThreadPoolExecutor</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> corePoolSize<span style="color:#f92672">,</span><span style="color:#66d9ef">int</span> maximumPoolSize<span style="color:#f92672">,</span><span style="color:#66d9ef">long</span> keepAliveTime<span style="color:#f92672">,</span>TimeUnit unit<span style="color:#f92672">,</span>
+        BlockingQueue<span style="color:#f92672">&lt;</span>Runnable<span style="color:#f92672">&gt;</span> workQueue<span style="color:#f92672">,</span>ThreadFactory threadFactory<span style="color:#f92672">,</span>RejectedExecutionHandler handler<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>通过</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">new</span> ThreadPoolExecutor<span style="color:#f92672">(</span>corePoolSize<span style="color:#f92672">,</span>maximumPoolSize<span style="color:#f92672">,</span>keepAliveTime<span style="color:#f92672">,</span>unit<span style="color:#f92672">,</span>workQueue<span style="color:#f92672">,</span>threadFactory<span style="color:#f92672">,</span>handler<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div><p>创建一个新的线程池。</p>
+</div>
+  
+  <footer class="post-footer">
+    <ul class="post-tags">
+      
+      
+      <li><a href="http://blog.wacai.ml/tags/java">java</a></li>
+      
+      
+      <li><a href="http://blog.wacai.ml/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0">线程池</a></li>
+      
+      
+      <li><a href="http://blog.wacai.ml/tags/%E5%B9%B6%E5%8F%91">并发</a></li>
+      
+    </ul>
+  </footer>
+  
+  
+  
+  
+  
+</article>
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="http://blog.wacai.ml">AppleWang的技术博客</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="http://blog.wacai.ml/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+

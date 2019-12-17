@@ -6,10 +6,19 @@
     <description>Recent content in Categories on AppleWang的技术博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Nov 2019 09:57:20 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 12 Nov 2019 14:48:28 +0800</lastBuildDate>
     
 	<atom:link href="http://blog.wacai.ml/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>java</title>
+      <link>http://blog.wacai.ml/categories/java/</link>
+      <pubDate>Tue, 12 Nov 2019 14:48:28 +0800</pubDate>
+      
+      <guid>http://blog.wacai.ml/categories/java/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>snippet</title>

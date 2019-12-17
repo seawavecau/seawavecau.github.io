@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>线程池 - AppleWang的技术博客</title>
+    
+    <meta name="description" content="专注于IT互联网，包括但不限于Java、架构、Python等">
+    <meta name="author" content="AppleWang">
+    
+    <link href="http://blog.wacai.ml/an-old-hope.min.css" rel="stylesheet">
+    <link href="http://blog.wacai.ml/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="http://blog.wacai.ml/apple-touch-icon.png">
+    <link rel="icon" href="http://blog.wacai.ml/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.60.0" />
+    
+    <link rel="alternate" type="application/atom+xml" href="http://blog.wacai.ml/index.xml" title="AppleWang的技术博客">
+    
+    
+    
+    <script>
+      function setTheme() {
+        const time = new Date();
+
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then(res => res.json())
+            .then(data => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
+  </head>
+  <body class="list">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        
+        <p class="logo"><a href="http://blog.wacai.ml">AppleWang的技术博客</a></p>
+        
+        
+        <ul class="menu">
+          
+          <li>
+            <a href="/archives/">Archives</a>
+          </li>
+          
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          
+        </ul>
+        
+      </nav>
+    </header>
+    <main class="main">
+
+
+
+
+
+<header class="page-header">
+  <h1>线程池</h1>
+</header>
+
+
+
+
+
+
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>Java线程池 - ThreadPoolExecutor</h2>
+  </header>
+  <section class="entry-content">
+   <p>线程池 java中的线程池是运用场景最多的并发框架。在开发过程中，合理的使用线程池能够带来下面的一些好处： 降低资源的消耗。 提高响应速度。 提高线程的可管理性。 线程池ThreadPoolExecutor工作原理 ThreadPoolExecutor执行execute方法有4种情况： 1）如...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>November 12, 2019</time>
+  </footer>
+  <a class="entry-link" href="http://blog.wacai.ml/book/thread_pool_1/"></a>
+</article>
+
+
+
+
+
+</main>
+<footer class="footer">
+  <span>&copy; 2019 <a href="http://blog.wacai.ml">AppleWang的技术博客</a></span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
+</footer>
+<script src="http://blog.wacai.ml/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>
+
